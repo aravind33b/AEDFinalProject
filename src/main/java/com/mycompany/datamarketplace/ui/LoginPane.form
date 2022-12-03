@@ -20,15 +20,13 @@
               <EmptySpace min="-2" pref="215" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="jLabel4" pref="257" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="jButton1" max="32767" attributes="0"/>
-                      <Component id="jComboBox1" pref="257" max="32767" attributes="0"/>
-                      <Component id="jTextField2" max="32767" attributes="0"/>
-                      <Component id="jLabel3" alignment="0" min="-2" pref="153" max="-2" attributes="0"/>
-                      <Component id="jLabel2" alignment="0" min="-2" pref="153" max="-2" attributes="0"/>
-                      <Component id="jTextField1" max="32767" attributes="0"/>
-                      <Component id="jLabel1" min="-2" pref="153" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="jButton1" max="32767" attributes="0"/>
+                  <Component id="jComboBox1" pref="257" max="32767" attributes="0"/>
+                  <Component id="jTextField2" max="32767" attributes="0"/>
+                  <Component id="jLabel3" alignment="0" min="-2" pref="153" max="-2" attributes="0"/>
+                  <Component id="jLabel2" alignment="0" min="-2" pref="153" max="-2" attributes="0"/>
+                  <Component id="jTextField1" max="32767" attributes="0"/>
+                  <Component id="jLabel1" min="-2" pref="153" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="215" max="32767" attributes="0"/>
           </Group>
@@ -118,6 +116,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="New User? Click here to register."/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel4MouseClicked"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
