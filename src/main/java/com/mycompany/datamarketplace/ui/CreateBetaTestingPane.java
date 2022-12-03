@@ -2,18 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package com.mycompany.datamarketplace;
+package com.mycompany.datamarketplace.ui;
 
 /**
  *
  * @author Admin
  */
-public class AdminPane extends javax.swing.JPanel {
+public class CreateBetaTestingPane extends javax.swing.JPanel {
 
     /**
-     * Creates new form AdminPane
+     * Creates new form CreateBetaTestingPane
      */
-    public AdminPane() {
+    public CreateBetaTestingPane() {
         initComponents();
     }
 
