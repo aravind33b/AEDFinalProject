@@ -114,13 +114,13 @@ public class DefaultFrame extends javax.swing.JFrame {
 
     private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
         // TODO add your handling code here:
-        LoginPane loginPane = new LoginPane();
+        LoginPane loginPane = new LoginPane(splitPane);
         splitPane.setBottomComponent(loginPane);
     }//GEN-LAST:event_loginBtnActionPerformed
 
     private void registerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerBtnActionPerformed
         // TODO add your handling code here:
-        RegisterPane registerPane = new RegisterPane();
+        RegisterPane registerPane = new RegisterPane(splitPane);
         splitPane.setBottomComponent(registerPane);
     }//GEN-LAST:event_registerBtnActionPerformed
 
