@@ -28,6 +28,7 @@ public class DefaultFrame extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         loginBtn = new javax.swing.JButton();
         registerBtn = new javax.swing.JButton();
+        adminBtn = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -53,6 +54,13 @@ public class DefaultFrame extends javax.swing.JFrame {
             }
         });
 
+        adminBtn.setText("Admin");
+        adminBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                adminBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -60,7 +68,9 @@ public class DefaultFrame extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 397, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 307, Short.MAX_VALUE)
+                .addComponent(adminBtn)
+                .addGap(18, 18, 18)
                 .addComponent(loginBtn)
                 .addGap(18, 18, 18)
                 .addComponent(registerBtn)
@@ -73,7 +83,8 @@ public class DefaultFrame extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(loginBtn)
-                    .addComponent(registerBtn))
+                    .addComponent(registerBtn)
+                    .addComponent(adminBtn))
                 .addContainerGap(40, Short.MAX_VALUE))
         );
 
@@ -124,6 +135,12 @@ public class DefaultFrame extends javax.swing.JFrame {
         splitPane.setBottomComponent(registerPane);
     }//GEN-LAST:event_registerBtnActionPerformed
 
+    private void adminBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminBtnActionPerformed
+        // TODO add your handling code here:
+        AdminPanel adminPanel = new AdminPanel();
+        splitPane.setBottomComponent(adminPanel);
+    }//GEN-LAST:event_adminBtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -160,6 +177,7 @@ public class DefaultFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton adminBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
