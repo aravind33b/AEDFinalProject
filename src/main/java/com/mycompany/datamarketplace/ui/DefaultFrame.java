@@ -137,8 +137,8 @@ public class DefaultFrame extends javax.swing.JFrame {
 
     private void adminBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminBtnActionPerformed
         // TODO add your handling code here:
-        AdminPanel adminPanel = new AdminPanel();
-        splitPane.setBottomComponent(adminPanel);
+        AdminLoginPane adminLogin = new AdminLoginPane(splitPane);
+        splitPane.setBottomComponent(adminLogin);
     }//GEN-LAST:event_adminBtnActionPerformed
 
     /**
