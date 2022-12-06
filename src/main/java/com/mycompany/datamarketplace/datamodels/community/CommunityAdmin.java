@@ -4,10 +4,14 @@
  */
 package com.mycompany.datamarketplace.datamodels.community;
 
+import com.mycompany.datamarketplace.datamodels.Person;
+
 /**
  *
  * @author kashyabmurali
  */
 public class CommunityAdmin {
-    
+    Person person;
+    int communityId;
+    String communityName;
 }
