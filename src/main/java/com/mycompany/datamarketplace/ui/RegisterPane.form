@@ -27,6 +27,30 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                              <Component id="roleYes" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="roleNo" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="empLabel2" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="120" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="studentIdTxt" min="-2" pref="200" max="-2" attributes="0"/>
+                                  <Component id="universityNameTxt" min="-2" pref="200" max="-2" attributes="0"/>
+                                  <Component id="employeeIdTxt" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                                  <Component id="communityNameTxt" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                                  <Component id="generalUserText" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="137" pref="193" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="empLabel" min="-2" max="-2" attributes="0"/>
                           <Component id="idLabel" min="-2" max="-2" attributes="0"/>
                           <Component id="universityLabel" min="-2" max="-2" attributes="0"/>
@@ -41,48 +65,28 @@
                               </Group>
                               <EmptySpace min="-2" pref="162" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="userNameField2" min="-2" pref="200" max="-2" attributes="0"/>
-                                  <Component id="userNameField" min="-2" pref="200" max="-2" attributes="0"/>
-                                  <Component id="userNameField1" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                                  <Component id="jTextField5" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                                  <Component id="jTextField1" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                                  <Component id="lastNameTxt" min="-2" pref="200" max="-2" attributes="0"/>
+                                  <Component id="firstNameTxt" min="-2" pref="200" max="-2" attributes="0"/>
+                                  <Component id="emailTxt" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                                  <Component id="passwordTxt" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                                  <Component id="ageTxt" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="roleYes1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="maleRadio" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="roleNo1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="femaleRadio" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="roleNo2" min="-2" max="-2" attributes="0"/>
+                                      <Component id="undisclosedRadio" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
+                          <Component id="generalUserLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                              <Component id="roleYes" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="roleNo" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="228" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="idField" min="-2" pref="200" max="-2" attributes="0"/>
-                                  <Component id="universityField" min="-2" pref="200" max="-2" attributes="0"/>
-                                  <Component id="empField" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                      </Group>
-                      <EmptySpace min="137" pref="193" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="304" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="289" max="-2" attributes="0"/>
               <Component id="RegisterButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
@@ -93,35 +97,35 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="userNameField" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
+                  <Component id="firstNameTxt" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
                   <Component id="userNameLabel" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="userNameLabel3" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
-                  <Component id="userNameField2" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
+                  <Component id="lastNameTxt" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="userNameLabel1" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
-                  <Component id="userNameField1" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
+                  <Component id="emailTxt" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField5" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="passwordTxt" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="userNameLabel2" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
-                  <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="ageTxt" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="roleYes1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="roleNo1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="roleNo2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="maleRadio" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="femaleRadio" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="undisclosedRadio" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
@@ -136,21 +140,31 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="universityLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="universityField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="universityNameTxt" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="idLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="idField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="studentIdTxt" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="empLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="empField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="employeeIdTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="communityNameTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="empLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="generalUserLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="generalUserText" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="RegisterButton" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="138" max="32767" attributes="0"/>
+              <EmptySpace pref="68" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -175,7 +189,7 @@
         <Property name="text" type="java.lang.String" value="First Name:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="userNameField">
+    <Component class="javax.swing.JTextField" name="firstNameTxt">
     </Component>
     <Component class="javax.swing.JLabel" name="userNameLabel1">
       <Properties>
@@ -185,7 +199,7 @@
         <Property name="text" type="java.lang.String" value="Email:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="userNameField1">
+    <Component class="javax.swing.JTextField" name="emailTxt">
     </Component>
     <Component class="javax.swing.JLabel" name="userNameLabel2">
       <Properties>
@@ -195,7 +209,7 @@
         <Property name="text" type="java.lang.String" value="Age:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField1">
+    <Component class="javax.swing.JTextField" name="ageTxt">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
@@ -238,12 +252,8 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="14" style="0"/>
         </Property>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="3">
-            <StringItem index="0" value="Select your role"/>
-            <StringItem index="1" value="Student"/>
-            <StringItem index="2" value="Professor"/>
-          </StringArray>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] { &quot;Select your role&quot;, &quot;Student&quot;, &quot;Professor&quot;, &quot;Developer&quot; })" type="code"/>
         </Property>
       </Properties>
       <Events>
@@ -261,9 +271,9 @@
         <Property name="text" type="java.lang.String" value="University Name:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="universityField">
+    <Component class="javax.swing.JTextField" name="universityNameTxt">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="universityFieldActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="universityNameTxtActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="idLabel">
@@ -274,9 +284,9 @@
         <Property name="text" type="java.lang.String" value="ID Number:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="idField">
+    <Component class="javax.swing.JTextField" name="studentIdTxt">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="idFieldActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="studentIdTxtActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="empLabel">
@@ -287,7 +297,7 @@
         <Property name="text" type="java.lang.String" value="Employee ID:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="empField">
+    <Component class="javax.swing.JTextField" name="employeeIdTxt">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
@@ -297,7 +307,7 @@
         <Property name="text" type="java.lang.String" value="Password:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField5">
+    <Component class="javax.swing.JTextField" name="passwordTxt">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="14" style="0"/>
@@ -312,7 +322,7 @@
         <Property name="text" type="java.lang.String" value="Last Name:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="userNameField2">
+    <Component class="javax.swing.JTextField" name="lastNameTxt">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
@@ -322,7 +332,7 @@
         <Property name="text" type="java.lang.String" value="Gender:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="roleYes1">
+    <Component class="javax.swing.JRadioButton" name="maleRadio">
       <Properties>
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="genderButtonGroup"/>
@@ -333,10 +343,10 @@
         <Property name="text" type="java.lang.String" value="Male"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="roleYes1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="maleRadioActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="roleNo1">
+    <Component class="javax.swing.JRadioButton" name="femaleRadio">
       <Properties>
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="genderButtonGroup"/>
@@ -347,10 +357,10 @@
         <Property name="text" type="java.lang.String" value="Female"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="roleNo1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="femaleRadioActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="roleNo2">
+    <Component class="javax.swing.JRadioButton" name="undisclosedRadio">
       <Properties>
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="genderButtonGroup"/>
@@ -361,8 +371,32 @@
         <Property name="text" type="java.lang.String" value="Rather not say"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="roleNo2ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="undisclosedRadioActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="communityNameTxt">
+    </Component>
+    <Component class="javax.swing.JLabel" name="empLabel2">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Times New Roman" size="14" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Community Name:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="generalUserLabel">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Times New Roman" size="14" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Role:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="generalUserText">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+        <Property name="text" type="java.lang.String" value="General"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

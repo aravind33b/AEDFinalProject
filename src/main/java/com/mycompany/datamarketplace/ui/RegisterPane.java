@@ -4,6 +4,8 @@
  */
 package com.mycompany.datamarketplace.ui;
 
+import com.mycompany.datamarketplace.backend.DBUtils;
+import javax.swing.JOptionPane;
 import javax.swing.JSplitPane;
 
 /**
@@ -17,17 +19,23 @@ public class RegisterPane extends javax.swing.JPanel {
     /**
      * Creates new form RegisterPane
      */
-    
+    DBUtils dbUtils;
     public RegisterPane(JSplitPane splitPane) {
         mainSplitPane = splitPane;
         initComponents();
         roleSelector.setVisible(false);
         universityLabel.setVisible(false);
-        universityField.setVisible(false);
+        universityNameTxt.setVisible(false);
         idLabel.setVisible(false);
-        idField.setVisible(false);
+        studentIdTxt.setVisible(false);
         empLabel.setVisible(false);
-        empField.setVisible(false);
+        employeeIdTxt.setVisible(false);
+        empLabel2.setVisible(false);
+        communityNameTxt.setVisible(false);
+        generalUserLabel.setVisible(false);
+        generalUserText.setVisible(false);
+        
+        dbUtils = new DBUtils();
     }
 
     /**
@@ -43,29 +51,33 @@ public class RegisterPane extends javax.swing.JPanel {
         genderButtonGroup = new javax.swing.ButtonGroup();
         RegisterButton = new javax.swing.JButton();
         userNameLabel = new javax.swing.JLabel();
-        userNameField = new javax.swing.JTextField();
+        firstNameTxt = new javax.swing.JTextField();
         userNameLabel1 = new javax.swing.JLabel();
-        userNameField1 = new javax.swing.JTextField();
+        emailTxt = new javax.swing.JTextField();
         userNameLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        ageTxt = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         roleYes = new javax.swing.JRadioButton();
         roleNo = new javax.swing.JRadioButton();
         roleSelector = new javax.swing.JComboBox<>();
         universityLabel = new javax.swing.JLabel();
-        universityField = new javax.swing.JTextField();
+        universityNameTxt = new javax.swing.JTextField();
         idLabel = new javax.swing.JLabel();
-        idField = new javax.swing.JTextField();
+        studentIdTxt = new javax.swing.JTextField();
         empLabel = new javax.swing.JLabel();
-        empField = new javax.swing.JTextField();
+        employeeIdTxt = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        passwordTxt = new javax.swing.JTextField();
         userNameLabel3 = new javax.swing.JLabel();
-        userNameField2 = new javax.swing.JTextField();
+        lastNameTxt = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        roleYes1 = new javax.swing.JRadioButton();
-        roleNo1 = new javax.swing.JRadioButton();
-        roleNo2 = new javax.swing.JRadioButton();
+        maleRadio = new javax.swing.JRadioButton();
+        femaleRadio = new javax.swing.JRadioButton();
+        undisclosedRadio = new javax.swing.JRadioButton();
+        communityNameTxt = new javax.swing.JTextField();
+        empLabel2 = new javax.swing.JLabel();
+        generalUserLabel = new javax.swing.JLabel();
+        generalUserText = new javax.swing.JTextField();
 
         RegisterButton.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         RegisterButton.setText("Register");
@@ -106,7 +118,7 @@ public class RegisterPane extends javax.swing.JPanel {
         });
 
         roleSelector.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        roleSelector.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select your role", "Student", "Professor" }));
+        roleSelector.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select your role", "Student", "Professor", "Developer" }));
         roleSelector.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 roleSelectorActionPerformed(evt);
@@ -116,18 +128,18 @@ public class RegisterPane extends javax.swing.JPanel {
         universityLabel.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         universityLabel.setText("University Name:");
 
-        universityField.addActionListener(new java.awt.event.ActionListener() {
+        universityNameTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                universityFieldActionPerformed(evt);
+                universityNameTxtActionPerformed(evt);
             }
         });
 
         idLabel.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         idLabel.setText("ID Number:");
 
-        idField.addActionListener(new java.awt.event.ActionListener() {
+        studentIdTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                idFieldActionPerformed(evt);
+                studentIdTxtActionPerformed(evt);
             }
         });
 
@@ -137,7 +149,7 @@ public class RegisterPane extends javax.swing.JPanel {
         jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel5.setText("Password:");
 
-        jTextField5.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        passwordTxt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
         userNameLabel3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         userNameLabel3.setText("Last Name:");
@@ -145,32 +157,41 @@ public class RegisterPane extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel2.setText("Gender:");
 
-        genderButtonGroup.add(roleYes1);
-        roleYes1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        roleYes1.setText("Male");
-        roleYes1.addActionListener(new java.awt.event.ActionListener() {
+        genderButtonGroup.add(maleRadio);
+        maleRadio.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        maleRadio.setText("Male");
+        maleRadio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                roleYes1ActionPerformed(evt);
+                maleRadioActionPerformed(evt);
             }
         });
 
-        genderButtonGroup.add(roleNo1);
-        roleNo1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        roleNo1.setText("Female");
-        roleNo1.addActionListener(new java.awt.event.ActionListener() {
+        genderButtonGroup.add(femaleRadio);
+        femaleRadio.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        femaleRadio.setText("Female");
+        femaleRadio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                roleNo1ActionPerformed(evt);
+                femaleRadioActionPerformed(evt);
             }
         });
 
-        genderButtonGroup.add(roleNo2);
-        roleNo2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        roleNo2.setText("Rather not say");
-        roleNo2.addActionListener(new java.awt.event.ActionListener() {
+        genderButtonGroup.add(undisclosedRadio);
+        undisclosedRadio.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        undisclosedRadio.setText("Rather not say");
+        undisclosedRadio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                roleNo2ActionPerformed(evt);
+                undisclosedRadioActionPerformed(evt);
             }
         });
+
+        empLabel2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        empLabel2.setText("Community Name:");
+
+        generalUserLabel.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        generalUserLabel.setText("Role:");
+
+        generalUserText.setEditable(false);
+        generalUserText.setText("General");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -179,6 +200,25 @@ public class RegisterPane extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(118, 118, 118)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(12, 12, 12)
+                                .addComponent(roleYes)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(roleNo))
+                            .addComponent(jLabel2)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(empLabel2)
+                                .addGap(120, 120, 120)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(studentIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(universityNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(employeeIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(communityNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(generalUserText, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(137, 193, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(empLabel)
@@ -194,36 +234,21 @@ public class RegisterPane extends javax.swing.JPanel {
                                     .addComponent(userNameLabel2))
                                 .addGap(162, 162, 162)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(userNameField2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(userNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(userNameField1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lastNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(firstNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(emailTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(passwordTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ageTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(roleYes1)
+                                        .addComponent(maleRadio)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(roleNo1)
+                                        .addComponent(femaleRadio)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(roleNo2)))))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(12, 12, 12)
-                                .addComponent(roleYes)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(roleNo))
-                            .addComponent(jLabel2)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(228, 228, 228)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(idField, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(universityField, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(empField, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(137, 193, Short.MAX_VALUE))))
+                                        .addComponent(undisclosedRadio))))
+                            .addComponent(generalUserLabel))
+                        .addGap(0, 0, Short.MAX_VALUE))))
             .addGroup(layout.createSequentialGroup()
-                .addGap(304, 304, 304)
+                .addGap(289, 289, 289)
                 .addComponent(RegisterButton)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -232,30 +257,30 @@ public class RegisterPane extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(userNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(firstNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(userNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(userNameLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(userNameField2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lastNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(userNameLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(userNameField1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(emailTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(passwordTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(userNameLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ageTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(roleYes1)
-                    .addComponent(roleNo1)
-                    .addComponent(roleNo2))
+                    .addComponent(maleRadio)
+                    .addComponent(femaleRadio)
+                    .addComponent(undisclosedRadio))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel1)
@@ -267,23 +292,145 @@ public class RegisterPane extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(universityLabel)
-                    .addComponent(universityField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(universityNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(idLabel)
-                    .addComponent(idField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(studentIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(empLabel)
-                    .addComponent(empField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(employeeIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(communityNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(empLabel2))
                 .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(generalUserLabel)
+                    .addComponent(generalUserText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(RegisterButton)
-                .addContainerGap(138, Short.MAX_VALUE))
+                .addContainerGap(68, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void RegisterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterButtonActionPerformed
         // TODO add your handling code here:
+        String commonId = "";
+        String firstName = firstNameTxt.getText();
+        if(firstName.isEmpty() || firstName.isBlank()){
+            JOptionPane.showMessageDialog(this, "First Name is Empty");
+            return;
+        }
+        
+        String lastName = lastNameTxt.getText();
+        if(lastName.isEmpty() || lastName.isBlank()){
+            JOptionPane.showMessageDialog(this, "Last Name is Empty");
+            return;
+        }
+        
+        String email = emailTxt.getText();
+        if(email.isEmpty() || email.isBlank()){
+            JOptionPane.showMessageDialog(this, "Email is Empty");
+            return;
+        }
+        
+        String password = passwordTxt.getText();
+        if(password.isEmpty() || password.isBlank()){
+            JOptionPane.showMessageDialog(this, "Password is Empty");
+            return;
+        }
+        
+        String gender = populateGenderBasedOnRadio();
+        if(gender.isEmpty() || gender.isBlank()){
+            JOptionPane.showMessageDialog(this, "Gender is Empty");
+            return;
+        }
+        
+        String age = ageTxt.getText();
+        if(age.isEmpty() || age.isBlank()){
+            JOptionPane.showMessageDialog(this, "Age is Empty");
+            return;
+        }
+        
+        String universityName = universityNameTxt.getText();
+        
+        
+        String studentId = studentIdTxt.getText();
+        String employeeId = employeeIdTxt.getText();
+        String communityName = communityNameTxt.getText();
+        String generalRole = generalUserText.getText();
+        String generalId = "";
+        
+        String role =(String.valueOf(roleSelector.getEditor().getItem()));
+        
+        if(role.equalsIgnoreCase("student")){
+            commonId = studentId;
+        }
+                
+        else if(role.equalsIgnoreCase("professor")){
+            commonId = employeeId;
+        }
+        
+        else if(role.equalsIgnoreCase("developer")){
+            commonId = studentId;
+            generalId = studentId;
+            commonId = studentId;
+            studentId = "";
+            universityName = communityName;
+        }
+        
+        
+        
+        else{
+            role = generalRole;
+            generalId = studentId;
+            commonId = studentId;
+            studentId = "";
+        }
+        
+        if(dbUtils.checkIfEmailIsUnique(email, role) && dbUtils.checkIfIdIsUnique(commonId, role)){
+          
+            Boolean isSuccess = dbUtils.insertValuesBasedOnRoles(
+                firstName,
+                lastName,
+                email,
+                password,
+                gender,
+                age,
+                universityName,
+                studentId,
+                employeeId,
+                generalId,
+                role
+            );  
+          
+          if(isSuccess){
+            firstNameTxt.setText("");
+            lastNameTxt.setText("");
+            ageTxt.setText("");
+            universityNameTxt.setText("");
+            emailTxt.setText("");
+            passwordTxt.setText("");
+            studentIdTxt.setText("");
+            employeeIdTxt.setText("");
+            JOptionPane.showMessageDialog(this, "Your details are saved");
+            return; 
+            }
+          else{
+              JOptionPane.showMessageDialog(this, "Please check your errors");
+              return;
+          }
+          
+        }
+        
+        else{
+            JOptionPane.showMessageDialog(this, "Email or ID already exists");
+            return;
+        }
+        
+        
     }//GEN-LAST:event_RegisterButtonActionPerformed
 
     private void roleYesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roleYesActionPerformed
@@ -291,7 +438,16 @@ public class RegisterPane extends javax.swing.JPanel {
         if(roleYes.isSelected() == true)
         {
             roleSelector.setVisible(true);
-            
+            universityLabel.setVisible(false);
+            universityNameTxt.setVisible(false);
+            idLabel.setVisible(false);
+            studentIdTxt.setVisible(false);
+            empLabel.setVisible(false);
+            employeeIdTxt.setVisible(false);
+            empLabel2.setVisible(false);
+            communityNameTxt.setVisible(false);
+            generalUserLabel.setVisible(false);
+            generalUserText.setVisible(false);
         }
     }//GEN-LAST:event_roleYesActionPerformed
 
@@ -302,39 +458,64 @@ public class RegisterPane extends javax.swing.JPanel {
         if(temp.equals("Student"))
         {
             universityLabel.setVisible(true);
-            universityField.setVisible(true);
+            universityNameTxt.setVisible(true);
             idLabel.setVisible(true);
-            idField.setVisible(true);
+            studentIdTxt.setVisible(true);
             empLabel.setVisible(false);
-            empField.setVisible(false);
+            employeeIdTxt.setVisible(false);
+            empLabel2.setVisible(false);
+            communityNameTxt.setVisible(false);
+            generalUserLabel.setVisible(false);
+            generalUserText.setVisible(false);
         }
         else if(temp.equals("Professor"))
         {
             universityLabel.setVisible(true);
-            universityField.setVisible(true);
+            universityNameTxt.setVisible(true);
             empLabel.setVisible(true);
-            empField.setVisible(true);
+            employeeIdTxt.setVisible(true);
             idLabel.setVisible(false);
-            idField.setVisible(false);
+            studentIdTxt.setVisible(false);  
+            generalUserLabel.setVisible(false);
+            generalUserText.setVisible(false);
+            empLabel2.setVisible(false);
+            communityNameTxt.setVisible(false);
+        }
+        else if(temp.equals("Developer"))
+        {
+            universityLabel.setVisible(false);
+            universityNameTxt.setVisible(false);
+            idLabel.setVisible(true);
+            studentIdTxt.setVisible(true);
+            empLabel.setVisible(false);
+            employeeIdTxt.setVisible(false);
+            empLabel2.setVisible(true);
+            communityNameTxt.setVisible(true);
+            generalUserLabel.setVisible(false);
+            generalUserText.setVisible(false);
         }
         else
         {
             universityLabel.setVisible(false);
-            universityField.setVisible(false);
+            universityNameTxt.setVisible(false);
             idLabel.setVisible(false);
-            idField.setVisible(false);
+            studentIdTxt.setVisible(false);
             empLabel.setVisible(false);
-            empField.setVisible(false);
+            employeeIdTxt.setVisible(false);
+            empLabel2.setVisible(false);
+            communityNameTxt.setVisible(false);
+            generalUserLabel.setVisible(false);
+            generalUserText.setVisible(false);
         }
     }//GEN-LAST:event_roleSelectorActionPerformed
 
-    private void universityFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_universityFieldActionPerformed
+    private void universityNameTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_universityNameTxtActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_universityFieldActionPerformed
+    }//GEN-LAST:event_universityNameTxtActionPerformed
 
-    private void idFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idFieldActionPerformed
+    private void studentIdTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentIdTxtActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_idFieldActionPerformed
+    }//GEN-LAST:event_studentIdTxtActionPerformed
 
     private void roleNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roleNoActionPerformed
         // TODO add your handling code here:
@@ -342,54 +523,71 @@ public class RegisterPane extends javax.swing.JPanel {
         {
             roleSelector.setVisible(false);
             universityLabel.setVisible(false);
-            universityField.setVisible(false);
-            idLabel.setVisible(false);
-            idField.setVisible(false);
+            universityNameTxt.setVisible(false);
+            idLabel.setVisible(true);
+            studentIdTxt.setVisible(true);
             empLabel.setVisible(false);
-            empField.setVisible(false);
+            employeeIdTxt.setVisible(false);
+            empLabel2.setVisible(false);
+            communityNameTxt.setVisible(false);   
+            generalUserLabel.setVisible(true);
+            generalUserText.setVisible(true);
         }
     }//GEN-LAST:event_roleNoActionPerformed
 
-    private void roleYes1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roleYes1ActionPerformed
+    private void maleRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maleRadioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_roleYes1ActionPerformed
+    }//GEN-LAST:event_maleRadioActionPerformed
 
-    private void roleNo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roleNo1ActionPerformed
+    private void femaleRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_femaleRadioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_roleNo1ActionPerformed
+    }//GEN-LAST:event_femaleRadioActionPerformed
 
-    private void roleNo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roleNo2ActionPerformed
+    private void undisclosedRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_undisclosedRadioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_roleNo2ActionPerformed
+    }//GEN-LAST:event_undisclosedRadioActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton RegisterButton;
-    private javax.swing.JTextField empField;
+    private javax.swing.JTextField ageTxt;
+    private javax.swing.JTextField communityNameTxt;
+    private javax.swing.JTextField emailTxt;
     private javax.swing.JLabel empLabel;
+    private javax.swing.JLabel empLabel2;
+    private javax.swing.JTextField employeeIdTxt;
+    private javax.swing.JRadioButton femaleRadio;
+    private javax.swing.JTextField firstNameTxt;
     private javax.swing.ButtonGroup genderButtonGroup;
-    private javax.swing.JTextField idField;
+    private javax.swing.JLabel generalUserLabel;
+    private javax.swing.JTextField generalUserText;
     private javax.swing.JLabel idLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField lastNameTxt;
+    private javax.swing.JRadioButton maleRadio;
+    private javax.swing.JTextField passwordTxt;
     private javax.swing.ButtonGroup roleButtonGroup;
     private javax.swing.JRadioButton roleNo;
-    private javax.swing.JRadioButton roleNo1;
-    private javax.swing.JRadioButton roleNo2;
     private javax.swing.JComboBox<String> roleSelector;
     private javax.swing.JRadioButton roleYes;
-    private javax.swing.JRadioButton roleYes1;
-    private javax.swing.JTextField universityField;
+    private javax.swing.JTextField studentIdTxt;
+    private javax.swing.JRadioButton undisclosedRadio;
     private javax.swing.JLabel universityLabel;
-    private javax.swing.JTextField userNameField;
-    private javax.swing.JTextField userNameField1;
-    private javax.swing.JTextField userNameField2;
+    private javax.swing.JTextField universityNameTxt;
     private javax.swing.JLabel userNameLabel;
     private javax.swing.JLabel userNameLabel1;
     private javax.swing.JLabel userNameLabel2;
     private javax.swing.JLabel userNameLabel3;
     // End of variables declaration//GEN-END:variables
+
+    private String populateGenderBasedOnRadio() {
+        if(maleRadio.isSelected())
+            return "Male";
+        else if(femaleRadio.isSelected()){
+            return "Female";
+        }
+        return "Undisclosed";
+    }
 }
