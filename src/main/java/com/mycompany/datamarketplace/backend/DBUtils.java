@@ -1,6 +1,7 @@
 
 package com.mycompany.datamarketplace.backend;
 
+import com.mycompany.datamarketplace.datamodels.university.Student;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -18,7 +19,8 @@ public class DBUtils {
         Connection con=null;
         final String DB_URL ="jdbc:mysql://localhost:3306/test_aed";
         final String DB_USER = "root";
-        final String DB_PASSWD = "Kashyab@19";
+        //final String DB_PASSWD = "Kashyab@19";
+        final String DB_PASSWD = "Ramanujar@27";
         try { 
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException ex) {
@@ -51,7 +53,7 @@ public class DBUtils {
         }
     }
 
-    public Boolean insertValuesBasedOnRoles(String firstName, String lastName, String email, String password, String gender, String age, String universityName, String studentId, String employeeId, String generalId, String role) {
+    public Boolean insertValuesBasedOnRoles(String firstName, String lastName, String email, String password, String gender, int age, String universityName, String studentId, String employeeId, String generalId, String role, int phoneNumber) {
         Boolean isSuccess = false;
         try{
             System.out.println("In DB");
@@ -60,7 +62,7 @@ public class DBUtils {
             Statement statement = conn.createStatement();
             //String query = "INSERT INTO `test_aed`.`student` (`student_id`, `university_id`, `first_name`, `last_name`, `age`, `gender`, `phoneNumber`, `email`) VALUES ('"+studentId+"', '"+employeeId+"', '"+firstName+"', '"+lastName+"', '"+age+"', '"+gender+"', '"+email+"', '"+password+"')";
             //String query = "INSERT INTO `test_aed`.`student` (`student_id`, `university_id`, `first_name`, `last_name`, `age`, `gender`, `email`, `password`, `university_name` ) VALUES ('"+studentId+"', '"+employeeId+"', '"+firstName+"', '"+lastName+"', '"+age+"', '"+gender+"', '"+email+"', '"+password+"', '"+universityName+"')";
-            String query = "INSERT INTO `test_aed`.`"+role+"` (`general_id`, `student_id`, `professor_id`, `first_name`, `last_name`, `age`, `gender`, `email`, `password`, `university_name` ) VALUES ('"+generalId+"', '"+studentId+"', '"+employeeId+"', '"+firstName+"', '"+lastName+"', '"+age+"', '"+gender+"', '"+email+"', '"+password+"', '"+universityName+"')";
+            String query = "INSERT INTO `test_aed`.`"+role+"` (`general_id`, `student_id`, `professor_id`, `first_name`, `last_name`, `age`, `gender`,`phoneNumber`, `email`, `password`, `university_name` ) VALUES ('"+generalId+"', '"+studentId+"', '"+employeeId+"', '"+firstName+"', '"+lastName+"', '"+age+"', '"+gender+"', '"+phoneNumber+"', '"+email+"', '"+password+"', '"+universityName+"')";
             statement.executeUpdate(query);
             isSuccess = true;
            
@@ -139,5 +141,43 @@ public class DBUtils {
             }
         
         return isUnique;    
+    }
+
+    public Student checkIfStudentUserExists(String emailId, String pword, String role) {
+        Student student = null;
+        try {
+            String mailId = "";
+            String pass = "";
+            
+            Connection conn = createConnection();
+            Statement statement = conn.createStatement();
+            String queryToExecute = "SELECT * FROM "+role;
+            System.out.println(queryToExecute);
+            
+            ResultSet rs = statement.executeQuery(queryToExecute);
+            
+            while(rs.next()){
+                mailId = rs.getString("email");
+                pass = rs.getString("password");
+                
+                
+                if (mailId.equalsIgnoreCase(emailId) && pass.equals(pword)){
+                    student = new Student();
+                    student.setStudentId(rs.getString("student_id"));
+                    student.setFirstName(rs.getString("first_name"));
+                    student.setLastName(rs.getString("last_name"));
+                    student.setAge(rs.getInt("age"));
+                    student.setGender(rs.getString("gender"));
+                    student.setPhoneNumber(rs.getInt("phoneNumber"));
+                    student.setEmail(rs.getString("email"));
+                    student.setPassword(rs.getString("password"));
+                    student.setUniversityName(rs.getString("university_name"));
+                }
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+       
+        return student;
     }
 }

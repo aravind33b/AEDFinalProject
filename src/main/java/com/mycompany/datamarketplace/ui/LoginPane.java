@@ -4,8 +4,11 @@
  */
 package com.mycompany.datamarketplace.ui;
 
+import com.mycompany.datamarketplace.backend.DBUtils;
+import com.mycompany.datamarketplace.datamodels.university.Student;
 import javax.swing.JSplitPane;
 import java.awt.Cursor;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -14,6 +17,7 @@ import java.awt.Cursor;
 public class LoginPane extends javax.swing.JPanel {
 
     JSplitPane mainSplitPane;
+    DBUtils dbUtils;
     /**
      * Creates new form LoginPane
      */
@@ -21,6 +25,8 @@ public class LoginPane extends javax.swing.JPanel {
         mainSplitPane = splitPane;
         initComponents();
         navigateToRegisterLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        
+        dbUtils = new DBUtils();
     }
 
     /**
@@ -32,9 +38,9 @@ public class LoginPane extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        userNameField = new javax.swing.JTextField();
+        emailTxt = new javax.swing.JTextField();
         userNameLabel = new javax.swing.JLabel();
-        passwordField = new javax.swing.JTextField();
+        passwordTxt = new javax.swing.JTextField();
         passwordLabel = new javax.swing.JLabel();
         roleLabel = new javax.swing.JLabel();
         rolesComboBox = new javax.swing.JComboBox<>();
@@ -42,7 +48,7 @@ public class LoginPane extends javax.swing.JPanel {
         navigateToRegisterLabel = new javax.swing.JLabel();
 
         userNameLabel.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        userNameLabel.setText("Username:");
+        userNameLabel.setText("Email:");
 
         passwordLabel.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         passwordLabel.setText("Password:");
@@ -50,7 +56,7 @@ public class LoginPane extends javax.swing.JPanel {
         roleLabel.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         roleLabel.setText("Select Role:");
 
-        rolesComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select your role", "Admin", "Support", "Company Admin", "Product Manager", "University Admin", "Student", "Professor", "General User" }));
+        rolesComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select your role", "Student", "Developer", "Professor", "General" }));
         rolesComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rolesComboBoxActionPerformed(evt);
@@ -81,10 +87,10 @@ public class LoginPane extends javax.swing.JPanel {
                     .addComponent(navigateToRegisterLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
                     .addComponent(loginButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(rolesComboBox, 0, 257, Short.MAX_VALUE)
-                    .addComponent(passwordField)
+                    .addComponent(passwordTxt)
                     .addComponent(roleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(passwordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(userNameField)
+                    .addComponent(emailTxt)
                     .addComponent(userNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(215, Short.MAX_VALUE))
         );
@@ -94,11 +100,11 @@ public class LoginPane extends javax.swing.JPanel {
                 .addGap(152, 152, 152)
                 .addComponent(userNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(userNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(emailTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(passwordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(passwordTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(roleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -112,28 +118,51 @@ public class LoginPane extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void rolesComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rolesComboBoxActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_rolesComboBoxActionPerformed
 
     private void navigateToRegisterLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_navigateToRegisterLabelMouseClicked
-        // TODO add your handling code here:
+        
         RegisterPane registerPane = new RegisterPane(mainSplitPane);
         mainSplitPane.setBottomComponent(registerPane);
     }//GEN-LAST:event_navigateToRegisterLabelMouseClicked
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
-        // TODO add your handling code here:
+        
+        Student studentObj;
+      
+        
+        
+        
+        
+        String email = emailTxt.getText();
+        String password = passwordTxt.getText();
+        String role = (String.valueOf(rolesComboBox.getEditor().getItem()));
+         System.out.println(role);
+        switch (role) {
+            case "Student":
+                System.out.println(email + password + role);
+                studentObj = dbUtils.checkIfStudentUserExists(email, password, role);
+                if(studentObj == null) {
+                    JOptionPane.showMessageDialog(this, "Student does not exist");
+                    return;
+                }
+                else{
+                    JOptionPane.showMessageDialog(this, "Student login success!");
+                    return;
+                }
+        }
     }//GEN-LAST:event_loginButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField emailTxt;
     private javax.swing.JButton loginButton;
     private javax.swing.JLabel navigateToRegisterLabel;
-    private javax.swing.JTextField passwordField;
     private javax.swing.JLabel passwordLabel;
+    private javax.swing.JTextField passwordTxt;
     private javax.swing.JLabel roleLabel;
     private javax.swing.JComboBox<String> rolesComboBox;
-    private javax.swing.JTextField userNameField;
     private javax.swing.JLabel userNameLabel;
     // End of variables declaration//GEN-END:variables
 }
