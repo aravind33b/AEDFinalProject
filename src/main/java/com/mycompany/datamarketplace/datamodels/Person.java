@@ -8,6 +8,15 @@ public class Person extends Credentials{
     int age;
     int phoneNumber;
     Credentials credentials;
+    String socialId;
+
+    public String getSocialId() {
+        return socialId;
+    }
+
+    public void setSocialId(String socialId) {
+        this.socialId = socialId;
+    }
    
     public String getFirstName() {
         return firstName;
