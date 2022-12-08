@@ -1,13 +1,14 @@
 
 package com.mycompany.datamarketplace.backend;
 
+import com.mycompany.datamarketplace.datamodels.Person;
+import com.mycompany.datamarketplace.datamodels.community.Developer;
+import com.mycompany.datamarketplace.datamodels.university.Professor;
 import com.mycompany.datamarketplace.datamodels.university.Student;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -20,7 +21,7 @@ public class DBUtils {
         final String DB_URL ="jdbc:mysql://localhost:3306/test_aed";
         final String DB_USER = "root";
         //final String DB_PASSWD = "Kashyab@19";
-        final String DB_PASSWD = "Ramanujar@27";
+        //final String DB_PASSWD = "Ramanujar@27";
         try { 
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException ex) {
@@ -179,5 +180,117 @@ public class DBUtils {
         }
        
         return student;
+    }
+
+    public Professor checkIfProfessorUserExists(String emailId, String pword, String role) {
+        Professor professor = null;
+        try {
+            String mailId = "";
+            String pass = "";
+            
+            Connection conn = createConnection();
+            Statement statement = conn.createStatement();
+            String queryToExecute = "SELECT * FROM "+role;
+            System.out.println(queryToExecute);
+            
+            ResultSet rs = statement.executeQuery(queryToExecute);
+            
+            while(rs.next()){
+                mailId = rs.getString("email");
+                pass = rs.getString("password");
+                
+                
+                if (mailId.equalsIgnoreCase(emailId) && pass.equals(pword)){
+                    professor = new Professor();
+                    professor.setEmployeeId(rs.getString("professor_id"));
+                    professor.setFirstName(rs.getString("first_name"));
+                    professor.setLastName(rs.getString("last_name"));
+                    professor.setAge(rs.getInt("age"));
+                    professor.setGender(rs.getString("gender"));
+                    professor.setPhoneNumber(rs.getInt("phoneNumber"));
+                    professor.setEmail(rs.getString("email"));
+                    professor.setPassword(rs.getString("password"));
+                    professor.setUniversityName(rs.getString("university_name"));
+                }
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+       
+        return professor;
+    }
+
+    public Person checkIfUserExists(String emailId, String pword, String role) {
+       Person person = null;
+        try {
+            String mailId = "";
+            String pass = "";
+            
+            Connection conn = createConnection();
+            Statement statement = conn.createStatement();
+            String queryToExecute = "SELECT * FROM "+role;
+            System.out.println(queryToExecute);
+            
+            ResultSet rs = statement.executeQuery(queryToExecute);
+            
+            while(rs.next()){
+                mailId = rs.getString("email");
+                pass = rs.getString("password");
+                
+                
+                if (mailId.equalsIgnoreCase(emailId) && pass.equals(pword)){
+                    person = new Person();
+                    person.setSocialId(rs.getString("general_id"));
+                    person.setFirstName(rs.getString("first_name"));
+                    person.setLastName(rs.getString("last_name"));
+                    person.setAge(rs.getInt("age"));
+                    person.setGender(rs.getString("gender"));
+                    person.setPhoneNumber(rs.getInt("phoneNumber"));
+                    person.setEmail(rs.getString("email"));
+                    person.setPassword(rs.getString("password"));
+                }
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+       
+        return person; 
+    }
+
+    public Developer checkIfDeveloperUserExists(String emailId, String pword, String role) {
+        Developer dev = null;
+        try {
+            String mailId = "";
+            String pass = "";
+            
+            Connection conn = createConnection();
+            Statement statement = conn.createStatement();
+            String queryToExecute = "SELECT * FROM "+role;
+            System.out.println(queryToExecute);
+            
+            ResultSet rs = statement.executeQuery(queryToExecute);
+            
+            while(rs.next()){
+                mailId = rs.getString("email");
+                pass = rs.getString("password");
+                
+                if (mailId.equalsIgnoreCase(emailId) && pass.equals(pword)){
+                    dev = new Developer();
+                    dev.setSocialId(rs.getString("general_id"));
+                    dev.setFirstName(rs.getString("first_name"));
+                    dev.setLastName(rs.getString("last_name"));
+                    dev.setAge(rs.getInt("age"));
+                    dev.setGender(rs.getString("gender"));
+                    dev.setPhoneNumber(rs.getInt("phoneNumber"));
+                    dev.setEmail(rs.getString("email"));
+                    dev.setPassword(rs.getString("password"));
+                    dev.setCommunityName(rs.getString("university_name"));
+                }
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+       
+        return dev; 
     }
 }

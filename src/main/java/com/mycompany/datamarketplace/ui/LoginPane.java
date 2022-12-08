@@ -5,6 +5,9 @@
 package com.mycompany.datamarketplace.ui;
 
 import com.mycompany.datamarketplace.backend.DBUtils;
+import com.mycompany.datamarketplace.datamodels.Person;
+import com.mycompany.datamarketplace.datamodels.community.Developer;
+import com.mycompany.datamarketplace.datamodels.university.Professor;
 import com.mycompany.datamarketplace.datamodels.university.Student;
 import javax.swing.JSplitPane;
 import java.awt.Cursor;
@@ -130,25 +133,62 @@ public class LoginPane extends javax.swing.JPanel {
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         
         Student studentObj;
-      
-        
-        
-        
-        
+        Professor professorObj;
+        Person personObj;
+        Developer devObj;
+          
         String email = emailTxt.getText();
         String password = passwordTxt.getText();
         String role = (String.valueOf(rolesComboBox.getEditor().getItem()));
-         System.out.println(role);
+         
         switch (role) {
             case "Student":
-                System.out.println(email + password + role);
                 studentObj = dbUtils.checkIfStudentUserExists(email, password, role);
                 if(studentObj == null) {
-                    JOptionPane.showMessageDialog(this, "Student does not exist");
+                    JOptionPane.showMessageDialog(this, "Student account does not exist");
                     return;
                 }
                 else{
                     JOptionPane.showMessageDialog(this, "Student login success!");
+                    emailTxt.setText("");
+                    passwordTxt.setText("");
+                    return;
+                }
+            case "Professor":
+                professorObj = dbUtils.checkIfProfessorUserExists(email, password, role);
+                if(professorObj == null) {
+                    JOptionPane.showMessageDialog(this, "Professor account does not exist");
+                    return;
+                }
+                else{
+                    JOptionPane.showMessageDialog(this, "Professor login success!");
+                    emailTxt.setText("");
+                    passwordTxt.setText("");
+                    return;
+                }
+            case "General":
+                personObj = dbUtils.checkIfUserExists(email, password, role);
+                if(personObj == null) {
+                    JOptionPane.showMessageDialog(this, "User does not exist");
+                    return;
+                }
+                else{
+                    JOptionPane.showMessageDialog(this, "User login success!");
+                    emailTxt.setText("");
+                    passwordTxt.setText("");
+                    return;
+                }
+                
+            case "Developer":
+                devObj = dbUtils.checkIfDeveloperUserExists(email, password, role);
+                if(devObj == null) {
+                    JOptionPane.showMessageDialog(this, "Developer does not exist");
+                    return;
+                }
+                else{
+                    JOptionPane.showMessageDialog(this, "DEveloper login success!");
+                    emailTxt.setText("");
+                    passwordTxt.setText("");
                     return;
                 }
         }
