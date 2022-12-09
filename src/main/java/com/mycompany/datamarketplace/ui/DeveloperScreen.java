@@ -8,12 +8,12 @@ package com.mycompany.datamarketplace.ui;
  *
  * @author Admin
  */
-public class StudentScreen extends javax.swing.JPanel {
+public class DeveloperScreen extends javax.swing.JPanel {
 
     /**
      * Creates new form StudentScreen
      */
-    public StudentScreen() {
+    public DeveloperScreen() {
         initComponents();
     }
 
