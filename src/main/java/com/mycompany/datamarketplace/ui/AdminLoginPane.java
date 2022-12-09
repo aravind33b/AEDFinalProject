@@ -1,8 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package com.mycompany.datamarketplace.ui;
+import javax.swing.JOptionPane;
 import javax.swing.JSplitPane;
 
 /**
@@ -15,6 +12,9 @@ public class AdminLoginPane extends javax.swing.JPanel {
     /**
      * Creates new form AdminLoginPane
      */
+    String systemAdminEmail = "root";
+    String systemAdminPassword = "root";
+    
     public AdminLoginPane(JSplitPane splitPane) {
         adminSplitPane = splitPane;
         initComponents();
@@ -34,7 +34,7 @@ public class AdminLoginPane extends javax.swing.JPanel {
         adminPassLabel = new javax.swing.JLabel();
         adminPassField = new javax.swing.JTextField();
         adminLoginButton = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        rolesComboBox = new javax.swing.JComboBox<>();
 
         adminEmailLabel.setText("Email:");
 
@@ -59,10 +59,10 @@ public class AdminLoginPane extends javax.swing.JPanel {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Please select Admin Type", "University Admin", "Company Admin", "Community Admin", "Country Govt Admin", "Support Admin", "System Admin" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        rolesComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Please select Admin Type", "University Admin", "Company Admin", "Community Admin", "Country Govt Admin", "Support Admin", "System Admin" }));
+        rolesComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                rolesComboBoxActionPerformed(evt);
             }
         });
 
@@ -87,7 +87,7 @@ public class AdminLoginPane extends javax.swing.JPanel {
                             .addComponent(adminPassField, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(270, 270, 270)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(rolesComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(172, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -102,7 +102,7 @@ public class AdminLoginPane extends javax.swing.JPanel {
                     .addComponent(adminPassLabel)
                     .addComponent(adminPassField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(rolesComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addComponent(adminLoginButton)
                 .addContainerGap(123, Short.MAX_VALUE))
@@ -119,13 +119,38 @@ public class AdminLoginPane extends javax.swing.JPanel {
 
     private void adminLoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminLoginButtonActionPerformed
         // TODO add your handling code here:
-        AdminPanel adminPanel = new AdminPanel();
-        adminSplitPane.setBottomComponent(adminPanel);
+        
+        String emailId = adminEmailField.getText();
+        String password = adminPassField.getText();
+        String role = (String.valueOf(rolesComboBox.getEditor().getItem()));
+        
+        if(emailId.isEmpty() || emailId.isBlank()){
+            JOptionPane.showMessageDialog(this, "Please enter the email");
+            return;
+        }
+        
+        if(password.isEmpty() || password.isBlank()){
+            JOptionPane.showMessageDialog(this, "Please enter the password");
+            return;
+        }
+        
+        if(role.equalsIgnoreCase("System Admin")){
+            if(emailId.equalsIgnoreCase(systemAdminEmail) 
+                    && password.equals(systemAdminPassword)){
+                AdminPanel adminPanel = new AdminPanel();
+                adminSplitPane.setBottomComponent(adminPanel);
+            }
+            else{
+               JOptionPane.showMessageDialog(this, "You do not have system admin privileges");
+               return; 
+            }
+        }
+         
     }//GEN-LAST:event_adminLoginButtonActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void rolesComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rolesComboBoxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_rolesComboBoxActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -134,6 +159,6 @@ public class AdminLoginPane extends javax.swing.JPanel {
     private javax.swing.JButton adminLoginButton;
     private javax.swing.JTextField adminPassField;
     private javax.swing.JLabel adminPassLabel;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> rolesComboBox;
     // End of variables declaration//GEN-END:variables
 }
