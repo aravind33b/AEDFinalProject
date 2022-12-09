@@ -20,7 +20,7 @@ public class DBUtils {
         Connection con=null;
         final String DB_URL ="jdbc:mysql://localhost:3306/test_aed";
         final String DB_USER = "root";
-        //final String DB_PASSWD = "Kashyab@19";
+        final String DB_PASSWD = "Kashyab@19";
         //final String DB_PASSWD = "Ramanujar@27";
         try { 
             Class.forName("com.mysql.cj.jdbc.Driver");

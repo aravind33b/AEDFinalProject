@@ -12,6 +12,10 @@ public class DefaultFrame extends javax.swing.JFrame {
 
     public DefaultFrame() {
         initComponents();
+        DefaultBottomPanel defaultPane = new DefaultBottomPanel();
+        DefaultTopPanel defaultTopPane = new DefaultTopPanel(splitPane);
+        splitPane.setBottomComponent(defaultPane);
+        splitPane.setTopComponent(defaultTopPane);
     }
 
     /**
@@ -25,10 +29,6 @@ public class DefaultFrame extends javax.swing.JFrame {
 
         splitPane = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        loginBtn = new javax.swing.JButton();
-        registerBtn = new javax.swing.JButton();
-        adminBtn = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -37,55 +37,15 @@ public class DefaultFrame extends javax.swing.JFrame {
         splitPane.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
         splitPane.setPreferredSize(new java.awt.Dimension(800, 800));
 
-        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        jLabel1.setText("Data Market Place");
-
-        loginBtn.setText("Login");
-        loginBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loginBtnActionPerformed(evt);
-            }
-        });
-
-        registerBtn.setText("Register");
-        registerBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                registerBtnActionPerformed(evt);
-            }
-        });
-
-        adminBtn.setText("Admin");
-        adminBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                adminBtnActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 307, Short.MAX_VALUE)
-                .addComponent(adminBtn)
-                .addGap(18, 18, 18)
-                .addComponent(loginBtn)
-                .addGap(18, 18, 18)
-                .addComponent(registerBtn)
-                .addGap(77, 77, 77))
+            .addGap(0, 800, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(loginBtn)
-                    .addComponent(registerBtn)
-                    .addComponent(adminBtn))
-                .addContainerGap(40, Short.MAX_VALUE))
+            .addGap(0, 100, Short.MAX_VALUE)
         );
 
         splitPane.setTopComponent(jPanel1);
@@ -123,24 +83,6 @@ public class DefaultFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
-        // TODO add your handling code here:
-        LoginPane loginPane = new LoginPane(splitPane);
-        splitPane.setBottomComponent(loginPane);
-    }//GEN-LAST:event_loginBtnActionPerformed
-
-    private void registerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerBtnActionPerformed
-        // TODO add your handling code here:
-        RegisterPane registerPane = new RegisterPane(splitPane);
-        splitPane.setBottomComponent(registerPane);
-    }//GEN-LAST:event_registerBtnActionPerformed
-
-    private void adminBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminBtnActionPerformed
-        // TODO add your handling code here:
-        AdminLoginPane adminLogin = new AdminLoginPane(splitPane);
-        splitPane.setBottomComponent(adminLogin);
-    }//GEN-LAST:event_adminBtnActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -177,12 +119,8 @@ public class DefaultFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton adminBtn;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JButton loginBtn;
-    private javax.swing.JButton registerBtn;
     private javax.swing.JSplitPane splitPane;
     // End of variables declaration//GEN-END:variables
 }
