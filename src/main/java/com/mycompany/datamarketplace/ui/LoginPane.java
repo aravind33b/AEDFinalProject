@@ -59,7 +59,7 @@ public class LoginPane extends javax.swing.JPanel {
         roleLabel.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         roleLabel.setText("Select Role:");
 
-        rolesComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select your role", "Student", "Developer", "Professor", "General" }));
+        rolesComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select your role", "Developer", "General", "Manager", "Professor", "Student" }));
         rolesComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rolesComboBoxActionPerformed(evt);
@@ -132,7 +132,7 @@ public class LoginPane extends javax.swing.JPanel {
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         
-        Student studentObj;
+        Student studentObj = null;
         Professor professorObj;
         Person personObj;
         Developer devObj;
@@ -141,7 +141,7 @@ public class LoginPane extends javax.swing.JPanel {
         String password = passwordTxt.getText();
         String role = (String.valueOf(rolesComboBox.getEditor().getItem()));
         
-        LogoutPanel logoutPanel = new LogoutPanel();
+        LogoutPanel logoutPanel = new LogoutPanel(mainSplitPane, studentObj);
         switch (role) {
             case "Student":
                 studentObj = dbUtils.checkIfStudentUserExists(email, password, role);
@@ -151,7 +151,7 @@ public class LoginPane extends javax.swing.JPanel {
                 }
                 else{
                     JOptionPane.showMessageDialog(this, "Student login success!");
-                    StudentScreen studentScreen = new StudentScreen();
+                    StudentScreen studentScreen = new StudentScreen(mainSplitPane);
                     mainSplitPane.setBottomComponent(studentScreen);
                     mainSplitPane.setTopComponent(logoutPanel);
                     emailTxt.setText("");

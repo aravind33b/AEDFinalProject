@@ -202,62 +202,56 @@ public class RegisterPane extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(289, 289, 289)
-                .addComponent(RegisterButton)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addGap(118, 118, 118)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(userNameLabel)
+                    .addComponent(userNameLabel3)
+                    .addComponent(userNameLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5)
+                    .addComponent(userNameLabel2)
+                    .addComponent(phNoLabel)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2)
+                    .addComponent(universityLabel)
+                    .addComponent(empLabel)
+                    .addComponent(roleSelector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(idLabel)
+                    .addComponent(empLabel2)
+                    .addComponent(generalUserLabel))
+                .addGap(45, 45, 45)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(empLabel2)
-                            .addComponent(idLabel)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(userNameLabel)
-                                    .addComponent(userNameLabel3)
-                                    .addComponent(userNameLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel5)
-                                    .addComponent(userNameLabel2)
-                                    .addComponent(phNoLabel)
-                                    .addComponent(jLabel1))
-                                .addGap(45, 45, 45)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(roleYes)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(roleNo))
-                                    .addComponent(lastNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(firstNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(emailTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(maleRadio)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(femaleRadio)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(undisclosedRadio))
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(ageTxt, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(passwordTxt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE))
-                                    .addComponent(phoneNumberTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                                .addComponent(roleYes)
+                                .addGap(18, 18, 18)
+                                .addComponent(roleNo))
+                            .addComponent(lastNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(firstNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(emailTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(maleRadio)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(femaleRadio)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(undisclosedRadio))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(ageTxt, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(passwordTxt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE))
+                            .addComponent(phoneNumberTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 161, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(generalUserLabel)
-                            .addComponent(jLabel2)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(universityLabel)
-                                    .addComponent(empLabel))
-                                .addGap(128, 128, 128)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(employeeIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(studentIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(universityNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(communityNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(generalUserText, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(roleSelector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(137, 193, Short.MAX_VALUE))))
+                            .addComponent(generalUserText, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(communityNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(studentIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(universityNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(employeeIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(284, 284, 284)
+                .addComponent(RegisterButton)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -304,26 +298,28 @@ public class RegisterPane extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(universityLabel)
-                            .addComponent(universityNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(idLabel)
-                            .addComponent(studentIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(empLabel)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(universityLabel)
+                                            .addComponent(universityNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(idLabel))
+                                    .addComponent(studentIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(15, 15, 15)
+                                .addComponent(empLabel))
                             .addComponent(employeeIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(15, 15, 15)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(empLabel2)
-                            .addComponent(communityNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(12, 12, 12)
-                        .addComponent(generalUserLabel))
+                        .addGap(21, 21, 21)
+                        .addComponent(empLabel2))
+                    .addComponent(communityNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(9, 9, 9)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(generalUserLabel)
                     .addComponent(generalUserText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36)
+                .addGap(18, 18, 18)
                 .addComponent(RegisterButton)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -431,6 +427,10 @@ public class RegisterPane extends javax.swing.JPanel {
             firstNameTxt.setText("");
             lastNameTxt.setText("");
             ageTxt.setText("");
+            genderButtonGroup.clearSelection();
+            roleButtonGroup.clearSelection();
+            roleSelector.setSelectedItem("Select your role");
+            phoneNumberTxt.setText("");
             universityNameTxt.setText("");
             emailTxt.setText("");
             passwordTxt.setText("");
@@ -453,24 +453,6 @@ public class RegisterPane extends javax.swing.JPanel {
         
         
     }//GEN-LAST:event_RegisterButtonActionPerformed
-
-    private void roleYesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roleYesActionPerformed
-        // TODO add your handling code here:
-        if(roleYes.isSelected() == true)
-        {
-            roleSelector.setVisible(true);
-            universityLabel.setVisible(false);
-            universityNameTxt.setVisible(false);
-            idLabel.setVisible(false);
-            studentIdTxt.setVisible(false);
-            empLabel.setVisible(false);
-            employeeIdTxt.setVisible(false);
-            empLabel2.setVisible(false);
-            communityNameTxt.setVisible(false);
-            generalUserLabel.setVisible(false);
-            generalUserText.setVisible(false);
-        }
-    }//GEN-LAST:event_roleYesActionPerformed
 
     private void roleSelectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roleSelectorActionPerformed
         // TODO add your handling code here:
@@ -538,6 +520,18 @@ public class RegisterPane extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_studentIdTxtActionPerformed
 
+    private void maleRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maleRadioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_maleRadioActionPerformed
+
+    private void femaleRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_femaleRadioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_femaleRadioActionPerformed
+
+    private void undisclosedRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_undisclosedRadioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_undisclosedRadioActionPerformed
+
     private void roleNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roleNoActionPerformed
         // TODO add your handling code here:
         if(roleNo.isSelected() == true)
@@ -550,23 +544,29 @@ public class RegisterPane extends javax.swing.JPanel {
             empLabel.setVisible(false);
             employeeIdTxt.setVisible(false);
             empLabel2.setVisible(false);
-            communityNameTxt.setVisible(false);   
+            communityNameTxt.setVisible(false);
             generalUserLabel.setVisible(true);
             generalUserText.setVisible(true);
         }
     }//GEN-LAST:event_roleNoActionPerformed
 
-    private void maleRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maleRadioActionPerformed
+    private void roleYesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roleYesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_maleRadioActionPerformed
-
-    private void femaleRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_femaleRadioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_femaleRadioActionPerformed
-
-    private void undisclosedRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_undisclosedRadioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_undisclosedRadioActionPerformed
+                if(roleYes.isSelected() == true)
+                {
+                        roleSelector.setVisible(true);
+                        universityLabel.setVisible(false);
+                        universityNameTxt.setVisible(false);
+                        idLabel.setVisible(false);
+                        studentIdTxt.setVisible(false);
+                        empLabel.setVisible(false);
+                        employeeIdTxt.setVisible(false);
+                        empLabel2.setVisible(false);
+                        communityNameTxt.setVisible(false);
+                        generalUserLabel.setVisible(false);
+                        generalUserText.setVisible(false);
+                    }
+    }//GEN-LAST:event_roleYesActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

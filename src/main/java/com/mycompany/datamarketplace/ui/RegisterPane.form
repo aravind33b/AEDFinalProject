@@ -23,77 +23,66 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="289" max="-2" attributes="0"/>
-              <Component id="RegisterButton" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="118" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="userNameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="userNameLabel3" min="-2" max="-2" attributes="0"/>
+                  <Component id="userNameLabel1" min="-2" pref="47" max="-2" attributes="0"/>
+                  <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                  <Component id="userNameLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="phNoLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                  <Component id="universityLabel" min="-2" max="-2" attributes="0"/>
+                  <Component id="empLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="roleSelector" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="idLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="empLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="generalUserLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="empLabel2" min="-2" max="-2" attributes="0"/>
-                          <Component id="idLabel" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="userNameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="userNameLabel3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="userNameLabel1" min="-2" pref="47" max="-2" attributes="0"/>
-                                  <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                                  <Component id="userNameLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="phNoLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="roleYes" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="roleNo" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="lastNameTxt" min="-2" pref="200" max="-2" attributes="0"/>
-                                  <Component id="firstNameTxt" min="-2" pref="200" max="-2" attributes="0"/>
-                                  <Component id="emailTxt" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="maleRadio" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="femaleRadio" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="undisclosedRadio" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="ageTxt" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="passwordTxt" alignment="0" pref="200" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Component id="phoneNumberTxt" min="-2" pref="199" max="-2" attributes="0"/>
-                              </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="roleYes" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="roleNo" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="lastNameTxt" min="-2" pref="200" max="-2" attributes="0"/>
+                          <Component id="firstNameTxt" min="-2" pref="200" max="-2" attributes="0"/>
+                          <Component id="emailTxt" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="maleRadio" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="femaleRadio" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="undisclosedRadio" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="ageTxt" alignment="0" max="32767" attributes="0"/>
+                              <Component id="passwordTxt" alignment="0" pref="200" max="32767" attributes="0"/>
+                          </Group>
+                          <Component id="phoneNumberTxt" min="-2" pref="199" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="161" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="generalUserLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="universityLabel" min="-2" max="-2" attributes="0"/>
-                                  <Component id="empLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="128" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="employeeIdTxt" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                                  <Component id="studentIdTxt" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                                  <Component id="universityNameTxt" min="-2" pref="200" max="-2" attributes="0"/>
-                                  <Component id="communityNameTxt" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                                  <Component id="generalUserText" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Component id="roleSelector" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="generalUserText" min="-2" pref="200" max="-2" attributes="0"/>
+                          <Component id="communityNameTxt" min="-2" pref="200" max="-2" attributes="0"/>
+                          <Component id="studentIdTxt" min="-2" pref="200" max="-2" attributes="0"/>
+                          <Component id="universityNameTxt" min="-2" pref="200" max="-2" attributes="0"/>
+                          <Component id="employeeIdTxt" min="-2" pref="200" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="137" pref="193" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="284" max="-2" attributes="0"/>
+              <Component id="RegisterButton" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -151,32 +140,36 @@
               <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="universityLabel" min="-2" max="-2" attributes="0"/>
-                          <Component id="universityNameTxt" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="idLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="studentIdTxt" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="empLabel" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="universityLabel" min="-2" max="-2" attributes="0"/>
+                                          <Component id="universityNameTxt" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="idLabel" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="studentIdTxt" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                              <Component id="empLabel" min="-2" max="-2" attributes="0"/>
+                          </Group>
                           <Component id="employeeIdTxt" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="empLabel2" min="-2" max="-2" attributes="0"/>
-                          <Component id="communityNameTxt" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                      <Component id="generalUserLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                      <Component id="empLabel2" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="generalUserText" min="-2" max="-2" attributes="0"/>
+                  <Component id="communityNameTxt" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="generalUserLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="generalUserText" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="RegisterButton" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="16" max="32767" attributes="0"/>
+              <EmptySpace pref="34" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package com.mycompany.datamarketplace.ui;
+import javax.swing.JSplitPane;
 
 /**
  *
@@ -13,8 +14,12 @@ public class StudentScreen extends javax.swing.JPanel {
     /**
      * Creates new form StudentScreen
      */
-    public StudentScreen() {
+    
+    JSplitPane splitPane;
+    
+    public StudentScreen(JSplitPane splitPane) {
         initComponents();
+        splitPane = splitPane;
     }
 
     /**

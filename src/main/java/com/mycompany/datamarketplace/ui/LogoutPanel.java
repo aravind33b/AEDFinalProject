@@ -1,11 +1,18 @@
 
 package com.mycompany.datamarketplace.ui;
+import javax.swing.JSplitPane;
+import com.mycompany.datamarketplace.datamodels.university.Student;
 
 
 public class LogoutPanel extends javax.swing.JPanel {
 
-    public LogoutPanel() {
+    JSplitPane splitPane;
+    Student studentObject;
+    
+    public LogoutPanel(JSplitPane splitPane, Student studentObject) {
         initComponents();
+        this.splitPane = splitPane;
+        studentObject = studentObject;
     }
 
     
@@ -50,9 +57,11 @@ public class LogoutPanel extends javax.swing.JPanel {
 
     private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtnActionPerformed
         // TODO add your handling code here:
-        DefaultFrame defaultFrame = new DefaultFrame();
-        defaultFrame.setVisible(true);
-
+        studentObject = null;
+        DefaultTopPanel defaultTop = new DefaultTopPanel(splitPane);
+        DefaultBottomPanel defaultpane = new DefaultBottomPanel();
+        splitPane.setTopComponent(defaultTop);
+        splitPane.setBottomComponent(defaultpane);
     }//GEN-LAST:event_logoutBtnActionPerformed
 
 
