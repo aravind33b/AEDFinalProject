@@ -140,7 +140,8 @@ public class LoginPane extends javax.swing.JPanel {
         String email = emailTxt.getText();
         String password = passwordTxt.getText();
         String role = (String.valueOf(rolesComboBox.getEditor().getItem()));
-         
+        
+        LogoutPanel logoutPanel = new LogoutPanel();
         switch (role) {
             case "Student":
                 studentObj = dbUtils.checkIfStudentUserExists(email, password, role);
@@ -150,6 +151,9 @@ public class LoginPane extends javax.swing.JPanel {
                 }
                 else{
                     JOptionPane.showMessageDialog(this, "Student login success!");
+                    StudentScreen studentScreen = new StudentScreen();
+                    mainSplitPane.setBottomComponent(studentScreen);
+                    mainSplitPane.setTopComponent(logoutPanel);
                     emailTxt.setText("");
                     passwordTxt.setText("");
                     return;
@@ -162,6 +166,9 @@ public class LoginPane extends javax.swing.JPanel {
                 }
                 else{
                     JOptionPane.showMessageDialog(this, "Professor login success!");
+                    ProfessorScreen professorScreen = new ProfessorScreen();
+                    mainSplitPane.setBottomComponent(professorScreen);
+                    mainSplitPane.setTopComponent(logoutPanel);
                     emailTxt.setText("");
                     passwordTxt.setText("");
                     return;
@@ -187,6 +194,9 @@ public class LoginPane extends javax.swing.JPanel {
                 }
                 else{
                     JOptionPane.showMessageDialog(this, "DEveloper login success!");
+                    DeveloperScreen developerScreen = new DeveloperScreen();
+                    mainSplitPane.setBottomComponent(developerScreen);
+                    mainSplitPane.setTopComponent(logoutPanel);
                     emailTxt.setText("");
                     passwordTxt.setText("");
                     return;
