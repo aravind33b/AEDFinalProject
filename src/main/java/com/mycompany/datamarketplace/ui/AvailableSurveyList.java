@@ -40,10 +40,7 @@ public class AvailableSurveyList extends javax.swing.JPanel {
 
         surveyListTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+
             },
             new String [] {
                 "SurveyID", "Survey Title"
@@ -78,16 +75,16 @@ public class AvailableSurveyList extends javax.swing.JPanel {
                         .addGap(118, 118, 118))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, availableSurveyPanelLayout.createSequentialGroup()
                         .addComponent(jButton1)
-                        .addGap(297, 297, 297))))
+                        .addGap(285, 285, 285))))
         );
         availableSurveyPanelLayout.setVerticalGroup(
             availableSurveyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(availableSurveyPanelLayout.createSequentialGroup()
                 .addGap(52, 52, 52)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
                 .addComponent(jButton1)
-                .addContainerGap(80, Short.MAX_VALUE))
+                .addContainerGap(121, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
