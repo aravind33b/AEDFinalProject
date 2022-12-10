@@ -7,6 +7,7 @@ package com.mycompany.datamarketplace.ui;
 import com.mycompany.datamarketplace.backend.DBAdminUtils;
 import com.mycompany.datamarketplace.datamodels.company.Company;
 import com.mycompany.datamarketplace.datamodels.misc.SupportAdmin;
+import com.mycompany.datamarketplace.datamodels.university.University;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -19,14 +20,18 @@ public class AdminPanel extends javax.swing.JPanel {
     DBAdminUtils dbAdminUtils;
     ArrayList<Company> companyList;
     ArrayList<SupportAdmin> supportAdminList;
+    ArrayList<University> universityList;
+    
     public AdminPanel() {
         initComponents();
         dbAdminUtils = new DBAdminUtils();
         companyList = dbAdminUtils.retrieveAllCompanyDetails();
         supportAdminList = dbAdminUtils.retrieveAllSupportAdminDetails();
+        universityList = dbAdminUtils.retrieveAllUniversityDetails();
         System.out.println(companyList);
         populateCompanyTable(companyList);
         populateSupportAdminTable(supportAdminList);
+        populateUniversityTable(universityList);
     }
 
     /**
@@ -104,25 +109,25 @@ public class AdminPanel extends javax.swing.JPanel {
         jButton7 = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
-        jTextField11 = new javax.swing.JTextField();
+        cityTxt2 = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
-        jTextField12 = new javax.swing.JTextField();
+        countryTxt2 = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
-        jPasswordField2 = new javax.swing.JPasswordField();
-        jButton20 = new javax.swing.JButton();
+        createUniBtn = new javax.swing.JButton();
         jTextField13 = new javax.swing.JTextField();
         jButton21 = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
-        jButton22 = new javax.swing.JButton();
+        deleteUniBtn = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
-        jTextField14 = new javax.swing.JTextField();
+        companyNameTxt2 = new javax.swing.JTextField();
         jLabel22 = new javax.swing.JLabel();
-        jPasswordField4 = new javax.swing.JPasswordField();
         jLabel23 = new javax.swing.JLabel();
-        jPasswordField5 = new javax.swing.JPasswordField();
         jButton8 = new javax.swing.JButton();
+        companyIdTxt2 = new javax.swing.JTextField();
+        emailTxt2 = new javax.swing.JTextField();
+        phoneNumberTxt2 = new javax.swing.JTextField();
 
         setPreferredSize(new java.awt.Dimension(800, 800));
 
@@ -612,37 +617,29 @@ public class AdminPanel extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(jTable2);
 
-        jPasswordField2.addActionListener(new java.awt.event.ActionListener() {
+        createUniBtn.setText("Create");
+        createUniBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordField2ActionPerformed(evt);
+                createUniBtnActionPerformed(evt);
             }
         });
-
-        jButton20.setText("Create");
 
         jButton21.setText("Update");
 
         jLabel15.setText("Search Universities:");
 
-        jButton22.setText("Delete");
+        deleteUniBtn.setText("Delete");
+        deleteUniBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteUniBtnActionPerformed(evt);
+            }
+        });
 
         jLabel16.setText("University Name");
 
         jLabel22.setText("Email:");
 
-        jPasswordField4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordField4ActionPerformed(evt);
-            }
-        });
-
         jLabel23.setText("Contact No:");
-
-        jPasswordField5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordField5ActionPerformed(evt);
-            }
-        });
 
         jButton8.setText("Create University admin >>>");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
@@ -658,33 +655,36 @@ public class AdminPanel extends javax.swing.JPanel {
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(jPanel7Layout.createSequentialGroup()
                             .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(companyNameTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel7Layout.createSequentialGroup()
                             .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cityTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel7Layout.createSequentialGroup()
                             .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jPasswordField2)
-                                .addComponent(jTextField12, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)))
-                        .addComponent(jPasswordField4, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jPasswordField5, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(countryTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addComponent(jButton20, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(createUniBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jButton21, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton22, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
+                        .addComponent(deleteUniBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(companyIdTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(emailTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(phoneNumberTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel7Layout.createSequentialGroup()
@@ -712,35 +712,38 @@ public class AdminPanel extends javax.swing.JPanel {
                         .addGap(86, 86, 86)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(companyNameTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(20, 20, 20)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cityTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(countryTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
-                            .addComponent(jPasswordField2))
-                        .addGap(12, 12, 12)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPasswordField4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPasswordField5, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(companyIdTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(12, 12, 12)
+                                .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addGap(45, 45, 45)
+                                .addComponent(emailTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(phoneNumberTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton20)
+                            .addComponent(createUniBtn)
                             .addComponent(jButton21)
-                            .addComponent(jButton22))))
+                            .addComponent(deleteUniBtn))))
                 .addGap(71, 71, 71)
                 .addComponent(jButton8)
-                .addContainerGap(294, Short.MAX_VALUE))
+                .addContainerGap(302, Short.MAX_VALUE))
         );
 
         Home1.addTab("University", jPanel7);
@@ -756,18 +759,6 @@ public class AdminPanel extends javax.swing.JPanel {
             .addComponent(Home1, javax.swing.GroupLayout.DEFAULT_SIZE, 784, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jPasswordField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordField2ActionPerformed
-
-    private void jPasswordField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordField4ActionPerformed
-
-    private void jPasswordField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordField5ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
@@ -903,6 +894,73 @@ public class AdminPanel extends javax.swing.JPanel {
         dbAdminUtils.deleteSupportAdmin(email);
         populateSupportAdminTable(supportAdminList);
     }//GEN-LAST:event_deleteSupportAdminBtnActionPerformed
+
+    private void createUniBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createUniBtnActionPerformed
+        // TODO add your handling code here:
+        University companyObject = null;
+        String companyName = companyNameTxt2.getText();
+        String city = cityTxt2.getText();
+        String country = countryTxt2.getText();
+        String companyId = companyIdTxt2.getText();
+        String officialEmail = emailTxt2.getText();
+        String officialPhone = phoneNumberTxt2.getText();
+        
+        String tableName = "university";
+        
+        
+        if(dbAdminUtils.checkIfIdIsUnique(companyId, tableName)){
+            Boolean isSuccess = dbAdminUtils.createAdminBasedOnRoles(
+                companyName,
+                city,
+                country,
+                companyId,
+                officialEmail,
+                officialPhone,
+                tableName
+            );
+            
+            if(isSuccess){
+                companyNameTxt2.setText("");
+                cityTxt2.setText("");
+                countryTxt2.setText("");
+                companyIdTxt2.setText("");
+                emailTxt2.setText("");
+                phoneNumberTxt2.setText("");
+                JOptionPane.showMessageDialog(this, "University details are saved!");
+                companyObject = dbAdminUtils.retrieveUniversityDetails(companyId, tableName);
+                universityList.add(companyObject);
+                populateUniversityTable(universityList);
+            }
+            else{
+                  JOptionPane.showMessageDialog(this, "Please check your errors");
+                  return;
+             }
+            
+        }
+        
+        else{
+            JOptionPane.showMessageDialog(this, "University ID already exists");
+            return;
+        }
+    }//GEN-LAST:event_createUniBtnActionPerformed
+
+    private void deleteUniBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteUniBtnActionPerformed
+        // TODO add your handling code here:
+        int selectedRowInd = jTable2.getSelectedRow();
+        
+        if(selectedRowInd < 0){
+            JOptionPane.showMessageDialog(this, "Please select a row");
+            return;
+        }
+        
+        DefaultTableModel tableModel = (DefaultTableModel) jTable2.getModel();
+        University selectedEmployee = (University)tableModel.getValueAt(selectedRowInd, 0);
+        String companyIdToBeDeleted = selectedEmployee.getUniversityId();
+        universityList.remove(selectedEmployee);
+        JOptionPane.showMessageDialog(this, "University records deleted");
+        dbAdminUtils.deleteUniversity(companyIdToBeDeleted);
+        populateUniversityTable(universityList);
+    }//GEN-LAST:event_deleteUniBtnActionPerformed
  private void populateCompanyTable(ArrayList<Company> companyList) {
         DefaultTableModel tableModel = (DefaultTableModel) jTable3.getModel();
         tableModel.setRowCount(0 );
@@ -942,19 +1000,24 @@ public class AdminPanel extends javax.swing.JPanel {
     private javax.swing.JTabbedPane Home1;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JTextField cityTxt;
+    private javax.swing.JTextField cityTxt2;
     private javax.swing.JTextField companyIdTxt;
+    private javax.swing.JTextField companyIdTxt2;
     private javax.swing.JTextField companyNameTxt;
+    private javax.swing.JTextField companyNameTxt2;
     private javax.swing.JTextField countryTxt;
+    private javax.swing.JTextField countryTxt2;
     private javax.swing.JButton createCompanyBtn;
     private javax.swing.JButton createSupportAdminBtn;
+    private javax.swing.JButton createUniBtn;
     private javax.swing.JButton deleteCompanyBtn;
     private javax.swing.JButton deleteSupportAdminBtn;
+    private javax.swing.JButton deleteUniBtn;
     private javax.swing.JTextField emailTxt;
+    private javax.swing.JTextField emailTxt2;
     private javax.swing.JTextField firstNameTxt;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton20;
     private javax.swing.JButton jButton21;
-    private javax.swing.JButton jButton22;
     private javax.swing.JButton jButton24;
     private javax.swing.JButton jButton28;
     private javax.swing.JButton jButton29;
@@ -995,9 +1058,6 @@ public class AdminPanel extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JPasswordField jPasswordField2;
-    private javax.swing.JPasswordField jPasswordField4;
-    private javax.swing.JPasswordField jPasswordField5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -1008,10 +1068,7 @@ public class AdminPanel extends javax.swing.JPanel {
     private javax.swing.JTable jTable3;
     private javax.swing.JTable jTable4;
     private javax.swing.JTable jTable5;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField18;
     private javax.swing.JTextField jTextField19;
     private javax.swing.JTextField jTextField20;
@@ -1021,8 +1078,25 @@ public class AdminPanel extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField lastNameTxt;
     private javax.swing.JTextField phoneNumberTxt;
+    private javax.swing.JTextField phoneNumberTxt2;
     private javax.swing.JTextField supportEmailTxt;
     private javax.swing.JTextField supportPasswordTxt1;
     private javax.swing.JButton updateSupportAdminBtn;
     // End of variables declaration//GEN-END:variables
+
+    private void populateUniversityTable(ArrayList<University> companyList) {
+        DefaultTableModel tableModel = (DefaultTableModel) jTable2.getModel();
+        tableModel.setRowCount(0 );
+        
+        for(University itr: companyList){
+          if(itr != null){
+            Object[] rowOfRecord =  new Object[5];
+            rowOfRecord[0] = itr;
+            rowOfRecord[1] = itr.getCity();
+            rowOfRecord[2] = itr.getCountry();
+            rowOfRecord[3] = itr.getUniversityId();
+            tableModel.addRow(rowOfRecord);      
+        }     
+        }
+    }
 }
