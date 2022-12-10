@@ -78,6 +78,8 @@ public class ProductManagerScreen extends javax.swing.JPanel {
             }
         });
 
+        Profile.setLayout(new java.awt.CardLayout());
+
         userNameLabel.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         userNameLabel.setText("First Name:");
 
@@ -138,12 +140,12 @@ public class ProductManagerScreen extends javax.swing.JPanel {
                         .addComponent(genderTxt, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(phoneNumberTxt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE))
                     .addComponent(firstNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 192, Short.MAX_VALUE))
+                .addGap(0, 328, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(78, Short.MAX_VALUE)
+                .addContainerGap(88, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addComponent(userNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -173,90 +175,26 @@ public class ProductManagerScreen extends javax.swing.JPanel {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(phNoLabel)
                     .addComponent(phoneNumberTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(172, Short.MAX_VALUE))
+                .addContainerGap(182, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout ProfileLayout = new javax.swing.GroupLayout(Profile);
-        Profile.setLayout(ProfileLayout);
-        ProfileLayout.setHorizontalGroup(
-            ProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ProfileLayout.createSequentialGroup()
-                .addContainerGap(75, Short.MAX_VALUE)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(61, 61, 61))
-        );
-        ProfileLayout.setVerticalGroup(
-            ProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ProfileLayout.createSequentialGroup()
-                .addGap(0, 20, Short.MAX_VALUE)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        Profile.add(jPanel3, "card2");
 
         jTabbedPane1.addTab("Profile", Profile);
 
-        javax.swing.GroupLayout CreateSurveyLayout = new javax.swing.GroupLayout(CreateSurvey);
-        CreateSurvey.setLayout(CreateSurveyLayout);
-        CreateSurveyLayout.setHorizontalGroup(
-            CreateSurveyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 797, Short.MAX_VALUE)
-        );
-        CreateSurveyLayout.setVerticalGroup(
-            CreateSurveyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 533, Short.MAX_VALUE)
-        );
-
+        CreateSurvey.setLayout(new java.awt.CardLayout());
         jTabbedPane1.addTab("Create Survey", CreateSurvey);
 
-        javax.swing.GroupLayout CreateBetaLayout = new javax.swing.GroupLayout(CreateBeta);
-        CreateBeta.setLayout(CreateBetaLayout);
-        CreateBetaLayout.setHorizontalGroup(
-            CreateBetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 797, Short.MAX_VALUE)
-        );
-        CreateBetaLayout.setVerticalGroup(
-            CreateBetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 533, Short.MAX_VALUE)
-        );
-
+        CreateBeta.setLayout(new java.awt.CardLayout());
         jTabbedPane1.addTab("Create Beta Testing", CreateBeta);
 
-        javax.swing.GroupLayout SupportLayout = new javax.swing.GroupLayout(Support);
-        Support.setLayout(SupportLayout);
-        SupportLayout.setHorizontalGroup(
-            SupportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 797, Short.MAX_VALUE)
-        );
-        SupportLayout.setVerticalGroup(
-            SupportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 533, Short.MAX_VALUE)
-        );
-
+        Support.setLayout(new java.awt.CardLayout());
         jTabbedPane1.addTab("Support", Support);
 
-        javax.swing.GroupLayout CreatedSurveyLayout = new javax.swing.GroupLayout(CreatedSurvey);
-        CreatedSurvey.setLayout(CreatedSurveyLayout);
-        CreatedSurveyLayout.setHorizontalGroup(
-            CreatedSurveyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 797, Short.MAX_VALUE)
-        );
-        CreatedSurveyLayout.setVerticalGroup(
-            CreatedSurveyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 533, Short.MAX_VALUE)
-        );
-
+        CreatedSurvey.setLayout(new java.awt.CardLayout());
         jTabbedPane1.addTab("Created Survey List", CreatedSurvey);
 
-        javax.swing.GroupLayout CreatedBetaLayout = new javax.swing.GroupLayout(CreatedBeta);
-        CreatedBeta.setLayout(CreatedBetaLayout);
-        CreatedBetaLayout.setHorizontalGroup(
-            CreatedBetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 797, Short.MAX_VALUE)
-        );
-        CreatedBetaLayout.setVerticalGroup(
-            CreatedBetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 533, Short.MAX_VALUE)
-        );
-
+        CreatedBeta.setLayout(new java.awt.CardLayout());
         jTabbedPane1.addTab("Created Beta Testing List", CreatedBeta);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

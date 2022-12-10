@@ -208,17 +208,7 @@ public class GeneralUserScreen extends javax.swing.JPanel {
         TakeSurvey.setLayout(new java.awt.CardLayout());
         GeneralUser.addTab("Take Survey", TakeSurvey);
 
-        javax.swing.GroupLayout SupportLayout = new javax.swing.GroupLayout(Support);
-        Support.setLayout(SupportLayout);
-        SupportLayout.setHorizontalGroup(
-            SupportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 905, Short.MAX_VALUE)
-        );
-        SupportLayout.setVerticalGroup(
-            SupportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 575, Short.MAX_VALUE)
-        );
-
+        Support.setLayout(new java.awt.CardLayout());
         GeneralUser.addTab("Support", Support);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
