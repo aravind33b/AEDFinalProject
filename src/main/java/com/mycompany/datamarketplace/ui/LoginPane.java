@@ -193,7 +193,7 @@ public class LoginPane extends javax.swing.JPanel {
                     return;
                 }
                 else{
-                    JOptionPane.showMessageDialog(this, "DEveloper login success!");
+                    JOptionPane.showMessageDialog(this, "Developer login success!");
                     DeveloperScreen developerScreen = new DeveloperScreen();
                     mainSplitPane.setBottomComponent(developerScreen);
                     mainSplitPane.setTopComponent(logoutPanel);
