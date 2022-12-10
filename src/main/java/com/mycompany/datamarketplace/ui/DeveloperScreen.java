@@ -4,6 +4,10 @@
  */
 package com.mycompany.datamarketplace.ui;
 
+import com.mycompany.datamarketplace.datamodels.feature.survey.SurveyQuestions;
+import java.awt.CardLayout;
+import javax.swing.JSplitPane;
+
 /**
  *
  * @author Admin
@@ -13,8 +17,28 @@ public class DeveloperScreen extends javax.swing.JPanel {
     /**
      * Creates new form StudentScreen
      */
+    
+    JSplitPane splitPane;
+    AvailableSurveyList availableSurvey;
+    SurveyCreatingPanel createNewSurvey;
+    SurveyQuestions selSurveyData;
+    RewardsPanel rewards;
+    SupportPane supportRequest;
+    AvailableBetaTestingList betaTestingList;
+    CreateBetaTestingPanel createBetaTests;
+    CardLayout layout;
+    
+    int selectedSurveyIndex;
+    
     public DeveloperScreen() {
         initComponents();
+        this.splitPane = splitPane;
+        availableSurvey = new AvailableSurveyList();
+        createNewSurvey = new SurveyCreatingPanel();
+        rewards = new RewardsPanel();
+        supportRequest = new SupportPane();
+        betaTestingList = new AvailableBetaTestingList();
+        createBetaTests = new CreateBetaTestingPanel();
     }
 
     /**
@@ -26,127 +50,221 @@ public class DeveloperScreen extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        DeveloperPanel = new javax.swing.JTabbedPane();
+        Profile = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
-        jPanel5 = new javax.swing.JPanel();
-        jPanel6 = new javax.swing.JPanel();
-        jPanel7 = new javax.swing.JPanel();
+        userNameLabel = new javax.swing.JLabel();
+        firstNameTxt = new javax.swing.JTextField();
+        userNameLabel1 = new javax.swing.JLabel();
+        emailTxt = new javax.swing.JTextField();
+        userNameLabel2 = new javax.swing.JLabel();
+        ageTxt = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        passwordTxt = new javax.swing.JTextField();
+        userNameLabel3 = new javax.swing.JLabel();
+        lastNameTxt = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        phNoLabel = new javax.swing.JLabel();
+        phoneNumberTxt = new javax.swing.JTextField();
+        genderTxt = new javax.swing.JTextField();
+        CreateSurvey = new javax.swing.JPanel();
+        TakeSurvey = new javax.swing.JPanel();
+        CreateBeta = new javax.swing.JPanel();
+        BetaTesting = new javax.swing.JPanel();
+        Rewards = new javax.swing.JPanel();
+        Support = new javax.swing.JPanel();
+
+        DeveloperPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                DeveloperPanelMouseClicked(evt);
+            }
+        });
+
+        Profile.setLayout(new java.awt.CardLayout());
+
+        userNameLabel.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        userNameLabel.setText("First Name:");
+
+        firstNameTxt.setEditable(false);
+
+        userNameLabel1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        userNameLabel1.setText("Email:");
+
+        emailTxt.setEditable(false);
+
+        userNameLabel2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        userNameLabel2.setText("Age:");
+
+        ageTxt.setEditable(false);
+
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel5.setText("Password:");
+
+        passwordTxt.setEditable(false);
+        passwordTxt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+
+        userNameLabel3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        userNameLabel3.setText("Last Name:");
+
+        lastNameTxt.setEditable(false);
+
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel2.setText("Gender:");
+
+        phNoLabel.setText("Phone Number:");
+
+        phoneNumberTxt.setEditable(false);
+
+        genderTxt.setEditable(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 797, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(177, 177, 177)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(userNameLabel3)
+                    .addComponent(userNameLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5)
+                    .addComponent(userNameLabel2)
+                    .addComponent(phNoLabel)
+                    .addComponent(jLabel2)
+                    .addComponent(userNameLabel))
+                .addGap(76, 76, 76)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lastNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(emailTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(ageTxt, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(passwordTxt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(genderTxt, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(phoneNumberTxt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(firstNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(266, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 533, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(73, 73, 73)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(userNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(userNameLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(userNameLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel5))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(firstNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lastNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(emailTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(passwordTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(userNameLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ageTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel2)
+                    .addComponent(genderTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(phNoLabel)
+                    .addComponent(phoneNumberTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(197, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Profile", jPanel1);
+        Profile.add(jPanel1, "card2");
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 797, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 533, Short.MAX_VALUE)
-        );
+        DeveloperPanel.addTab("Profile", Profile);
 
-        jTabbedPane1.addTab("Create Survey", jPanel2);
+        CreateSurvey.setLayout(new java.awt.CardLayout());
+        DeveloperPanel.addTab("Create Survey", CreateSurvey);
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 797, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 533, Short.MAX_VALUE)
-        );
+        TakeSurvey.setLayout(new java.awt.CardLayout());
+        DeveloperPanel.addTab("Take Survey", TakeSurvey);
 
-        jTabbedPane1.addTab("Take Survey", jPanel3);
+        CreateBeta.setLayout(new java.awt.CardLayout());
+        DeveloperPanel.addTab("Create Beta Testing", CreateBeta);
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 797, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 533, Short.MAX_VALUE)
-        );
+        BetaTesting.setLayout(new java.awt.CardLayout());
+        DeveloperPanel.addTab("Beta Testing", BetaTesting);
 
-        jTabbedPane1.addTab("Create Beta Testing", jPanel4);
+        Rewards.setLayout(new java.awt.CardLayout());
+        DeveloperPanel.addTab("Rewards", Rewards);
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 797, Short.MAX_VALUE)
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 533, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("Beta Testing", jPanel5);
-
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 797, Short.MAX_VALUE)
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 533, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("Rewards", jPanel6);
-
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 797, Short.MAX_VALUE)
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 533, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("Support", jPanel7);
+        Support.setLayout(new java.awt.CardLayout());
+        DeveloperPanel.addTab("Support", Support);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addComponent(DeveloperPanel)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addComponent(DeveloperPanel)
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void DeveloperPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DeveloperPanelMouseClicked
+        // TODO add your handling code here:
+        CreateSurvey.add("Create Survey",createNewSurvey); 
+        layout = (CardLayout) CreateSurvey.getLayout();
+        layout.next(CreateSurvey);
+        
+        TakeSurvey.add("Take Survey",availableSurvey); 
+        layout = (CardLayout) TakeSurvey.getLayout();
+        layout.next(TakeSurvey);
+        
+        CreateBeta.add("Create Beta Testing", createBetaTests);
+        layout = (CardLayout) CreateBeta.getLayout();
+        layout.next(CreateBeta);
+        
+        BetaTesting.add("Beta Testing", betaTestingList);
+        layout = (CardLayout) BetaTesting.getLayout();
+        layout.next(BetaTesting);
+        
+        Rewards.add("Rewards",rewards); 
+        layout = (CardLayout) Rewards.getLayout();
+        layout.next(Rewards);
+        
+        Support.add("Support", supportRequest);
+        layout = (CardLayout) Support.getLayout();
+        layout.next(Support);
+    }//GEN-LAST:event_DeveloperPanelMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel BetaTesting;
+    private javax.swing.JPanel CreateBeta;
+    private javax.swing.JPanel CreateSurvey;
+    private javax.swing.JTabbedPane DeveloperPanel;
+    private javax.swing.JPanel Profile;
+    private javax.swing.JPanel Rewards;
+    private javax.swing.JPanel Support;
+    private javax.swing.JPanel TakeSurvey;
+    private javax.swing.JTextField ageTxt;
+    private javax.swing.JTextField emailTxt;
+    private javax.swing.JTextField firstNameTxt;
+    private javax.swing.JTextField genderTxt;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTextField lastNameTxt;
+    private javax.swing.JTextField passwordTxt;
+    private javax.swing.JLabel phNoLabel;
+    private javax.swing.JTextField phoneNumberTxt;
+    private javax.swing.JLabel userNameLabel;
+    private javax.swing.JLabel userNameLabel1;
+    private javax.swing.JLabel userNameLabel2;
+    private javax.swing.JLabel userNameLabel3;
     // End of variables declaration//GEN-END:variables
 }
