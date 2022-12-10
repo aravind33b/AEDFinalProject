@@ -3,7 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package com.mycompany.datamarketplace.ui;
+import com.mycompany.datamarketplace.datamodels.feature.survey.SurveyQuestions;
+import java.awt.CardLayout;
 import javax.swing.JSplitPane;
+//import com.mycompany.datamarketplace.ui.AvailableSurveyList;
+import java.awt.Component;
+import java.awt.GridLayout;
+import javax.swing.JPanel;
 
 /**
  *
@@ -16,11 +22,28 @@ public class StudentScreen extends javax.swing.JPanel {
      */
     
     JSplitPane splitPane;
+    AvailableSurveyList availableSurvey;
+    SurveyQuestions selSurveyData;
+    int selectedSurveyIndex;
     
     public StudentScreen(JSplitPane splitPane) {
         initComponents();
-        splitPane = splitPane;
+        this.splitPane = splitPane;
+        availableSurvey = new AvailableSurveyList();
+//        StudentScreen.add(layout);
     }
+    
+//    public StudentScreen(JSplitPane splitPane, AvailableSurveyList surveyTable, SurveyQuestions selSurvey, int surveyIndex) {
+//        initComponents();
+//        this.splitPane = splitPane;
+//        this.surveyTable = surveyTable;
+//        this.selSurveyData = selSurvey;
+//        this.selectedSurveyIndex = surveyIndex;
+//        
+////        takeSurveyPanel.add("workArea",surveyTable); 
+////        CardLayout layout = (CardLayout) takeSurveyPanel.getLayout();
+////        layout.next(takeSurveyPanel);
+//    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -53,11 +76,17 @@ public class StudentScreen extends javax.swing.JPanel {
         phoneNumberTxt = new javax.swing.JTextField();
         genderTxt = new javax.swing.JTextField();
         createSurveyPanel = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
+        takeSurveyPanel = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
+
+        jTabbedPane1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTabbedPane1MouseClicked(evt);
+            }
+        });
 
         userNameLabel.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         userNameLabel.setText("First Name:");
@@ -230,18 +259,8 @@ public class StudentScreen extends javax.swing.JPanel {
 
         jTabbedPane1.addTab("Create Survey", createSurveyPanel);
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 797, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 533, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("Take Survey", jPanel3);
+        takeSurveyPanel.setLayout(new java.awt.CardLayout());
+        jTabbedPane1.addTab("Take Survey", takeSurveyPanel);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -315,6 +334,24 @@ public class StudentScreen extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_studentIdTxtActionPerformed
 
+    private void jTabbedPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseClicked
+        //Component AvailableSurveyList;
+        // TODO add your handling code here:
+        
+        takeSurveyPanel.add("workArea",availableSurvey); 
+        CardLayout layout = (CardLayout) takeSurveyPanel.getLayout();
+        layout.next(takeSurveyPanel);
+
+//          JPanel panel = new JPanel();
+//          panel.setLayout(new GridLayout(2, 1));
+////the first number is the number of rows, the second is the number of columns
+//
+//        JPanel topPanel = new JPanel();
+//        JPanel bottomPanel = new JPanel();
+//        panel.add(topPanel);
+//        panel.add(bottomPanel);
+    }//GEN-LAST:event_jTabbedPane1MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField ageTxt;
@@ -326,7 +363,6 @@ public class StudentScreen extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
@@ -338,6 +374,7 @@ public class StudentScreen extends javax.swing.JPanel {
     private javax.swing.JTextField phoneNumberTxt;
     private javax.swing.JPanel profilePanel;
     private javax.swing.JTextField studentIdTxt;
+    private javax.swing.JPanel takeSurveyPanel;
     private javax.swing.JLabel universityLabel;
     private javax.swing.JTextField universityNameTxt;
     private javax.swing.JLabel userNameLabel;
