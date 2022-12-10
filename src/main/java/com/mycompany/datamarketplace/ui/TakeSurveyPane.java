@@ -47,7 +47,7 @@ public class TakeSurveyPane extends javax.swing.JPanel {
 
         jLabel1.setText("Q1 here");
 
-        jLabel2.setText("Beta Testing Title here");
+        jLabel2.setText("Survey Title here");
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
