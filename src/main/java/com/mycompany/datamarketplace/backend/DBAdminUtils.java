@@ -222,7 +222,7 @@ public class DBAdminUtils {
                     ResultSet rs = statement.executeQuery(query);
 
                     while(rs.next()){
-                        String ctryName = rs.getString("country_name");
+                        String ctryName = rs.getString("community_name");
                         if(ctryName.equalsIgnoreCase(commonId)){
                             isUnique = false;
                         }
