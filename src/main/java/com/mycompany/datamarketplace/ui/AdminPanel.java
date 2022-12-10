@@ -6,6 +6,7 @@ package com.mycompany.datamarketplace.ui;
 
 import com.mycompany.datamarketplace.backend.DBAdminUtils;
 import com.mycompany.datamarketplace.datamodels.company.Company;
+import com.mycompany.datamarketplace.datamodels.government.Country;
 import com.mycompany.datamarketplace.datamodels.misc.SupportAdmin;
 import com.mycompany.datamarketplace.datamodels.university.University;
 import java.util.ArrayList;
@@ -21,17 +22,19 @@ public class AdminPanel extends javax.swing.JPanel {
     ArrayList<Company> companyList;
     ArrayList<SupportAdmin> supportAdminList;
     ArrayList<University> universityList;
-    
+    ArrayList<Country> countryList;
     public AdminPanel() {
         initComponents();
         dbAdminUtils = new DBAdminUtils();
         companyList = dbAdminUtils.retrieveAllCompanyDetails();
         supportAdminList = dbAdminUtils.retrieveAllSupportAdminDetails();
         universityList = dbAdminUtils.retrieveAllUniversityDetails();
+        countryList = dbAdminUtils.retrieveAllCountryDetails();
         System.out.println(companyList);
         populateCompanyTable(companyList);
         populateSupportAdminTable(supportAdminList);
         populateUniversityTable(universityList);
+        populateCountryTable(countryList);
     }
 
     /**
@@ -97,14 +100,14 @@ public class AdminPanel extends javax.swing.JPanel {
         jTextField22 = new javax.swing.JTextField();
         jButton6 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        jButton32 = new javax.swing.JButton();
+        deleteCountryBtn = new javax.swing.JButton();
         jLabel31 = new javax.swing.JLabel();
-        jTextField21 = new javax.swing.JTextField();
+        createCountryTxt = new javax.swing.JTextField();
         jButton34 = new javax.swing.JButton();
         jLabel29 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
         jTable5 = new javax.swing.JTable();
-        jButton35 = new javax.swing.JButton();
+        createCountryBtn = new javax.swing.JButton();
         jTextField24 = new javax.swing.JTextField();
         jButton7 = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
@@ -505,7 +508,12 @@ public class AdminPanel extends javax.swing.JPanel {
 
         Home1.addTab("Developer Community", jPanel9);
 
-        jButton32.setText("Delete");
+        deleteCountryBtn.setText("Delete");
+        deleteCountryBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteCountryBtnActionPerformed(evt);
+            }
+        });
 
         jLabel31.setText("Country Name");
 
@@ -531,7 +539,12 @@ public class AdminPanel extends javax.swing.JPanel {
         });
         jScrollPane5.setViewportView(jTable5);
 
-        jButton35.setText("Create");
+        createCountryBtn.setText("Create");
+        createCountryBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                createCountryBtnActionPerformed(evt);
+            }
+        });
 
         jButton7.setText("Create Country admin >>>");
 
@@ -547,16 +560,16 @@ public class AdminPanel extends javax.swing.JPanel {
                 .addGap(85, 85, 85)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton35, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(44, 44, 44)
+                        .addComponent(createCountryBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(jButton34, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton32, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(deleteCountryBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField21, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(createCountryTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
@@ -580,15 +593,15 @@ public class AdminPanel extends javax.swing.JPanel {
                         .addGap(95, 95, 95)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField21, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(createCountryTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton35)
+                            .addComponent(createCountryBtn)
                             .addComponent(jButton34)
-                            .addComponent(jButton32))))
+                            .addComponent(deleteCountryBtn))))
                 .addGap(64, 64, 64)
                 .addComponent(jButton7)
-                .addContainerGap(291, Short.MAX_VALUE))
+                .addContainerGap(305, Short.MAX_VALUE))
         );
 
         Home1.addTab("Countries", jPanel1);
@@ -961,6 +974,57 @@ public class AdminPanel extends javax.swing.JPanel {
         dbAdminUtils.deleteUniversity(companyIdToBeDeleted);
         populateUniversityTable(universityList);
     }//GEN-LAST:event_deleteUniBtnActionPerformed
+
+    private void createCountryBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createCountryBtnActionPerformed
+        // TODO add your handling code here:
+        Country companyObject = null;
+        String countryNameForGovt = createCountryTxt.getText();
+        
+        String tableName = "country";
+        
+        if(dbAdminUtils.checkIfIdIsUnique(countryNameForGovt, tableName)){
+            Boolean isSuccess = dbAdminUtils.createCountryForGovt(
+                countryNameForGovt,
+                tableName
+            );
+            
+            if(isSuccess){
+                createCountryTxt.setText("");
+                JOptionPane.showMessageDialog(this, "Country details are saved!");
+                companyObject = dbAdminUtils.retrieveCountryDetails(countryNameForGovt, tableName);
+                countryList.add(companyObject);
+                populateCountryTable(countryList);
+            }
+            else{
+                  JOptionPane.showMessageDialog(this, "Please check your errors");
+                  return;
+             }
+            
+        }
+        
+        else{
+            JOptionPane.showMessageDialog(this, "University ID already exists");
+            return;
+        }
+    }//GEN-LAST:event_createCountryBtnActionPerformed
+
+    private void deleteCountryBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteCountryBtnActionPerformed
+        // TODO add your handling code here:
+        int selectedRowInd = jTable5.getSelectedRow();
+        
+        if(selectedRowInd < 0){
+            JOptionPane.showMessageDialog(this, "Please select a row");
+            return;
+        }
+        
+        DefaultTableModel tableModel = (DefaultTableModel) jTable5.getModel();
+        Country selectedEmployee = (Country)tableModel.getValueAt(selectedRowInd, 0);
+        String companyIdToBeDeleted = selectedEmployee.getCountryName();
+        countryList.remove(selectedEmployee);
+        JOptionPane.showMessageDialog(this, "Country records deleted, UN takes notice!");
+        dbAdminUtils.deleteCountry(companyIdToBeDeleted);
+        populateCountryTable(countryList);
+    }//GEN-LAST:event_deleteCountryBtnActionPerformed
  private void populateCompanyTable(ArrayList<Company> companyList) {
         DefaultTableModel tableModel = (DefaultTableModel) jTable3.getModel();
         tableModel.setRowCount(0 );
@@ -1008,9 +1072,12 @@ public class AdminPanel extends javax.swing.JPanel {
     private javax.swing.JTextField countryTxt;
     private javax.swing.JTextField countryTxt2;
     private javax.swing.JButton createCompanyBtn;
+    private javax.swing.JButton createCountryBtn;
+    private javax.swing.JTextField createCountryTxt;
     private javax.swing.JButton createSupportAdminBtn;
     private javax.swing.JButton createUniBtn;
     private javax.swing.JButton deleteCompanyBtn;
+    private javax.swing.JButton deleteCountryBtn;
     private javax.swing.JButton deleteSupportAdminBtn;
     private javax.swing.JButton deleteUniBtn;
     private javax.swing.JTextField emailTxt;
@@ -1022,9 +1089,7 @@ public class AdminPanel extends javax.swing.JPanel {
     private javax.swing.JButton jButton28;
     private javax.swing.JButton jButton29;
     private javax.swing.JButton jButton31;
-    private javax.swing.JButton jButton32;
     private javax.swing.JButton jButton34;
-    private javax.swing.JButton jButton35;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
@@ -1072,7 +1137,6 @@ public class AdminPanel extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField18;
     private javax.swing.JTextField jTextField19;
     private javax.swing.JTextField jTextField20;
-    private javax.swing.JTextField jTextField21;
     private javax.swing.JTextField jTextField22;
     private javax.swing.JTextField jTextField24;
     private javax.swing.JTextField jTextField7;
@@ -1099,4 +1163,16 @@ public class AdminPanel extends javax.swing.JPanel {
         }     
         }
     }
+
+    private void populateCountryTable(ArrayList<Country> countryList) {
+       DefaultTableModel tableModel = (DefaultTableModel) jTable5.getModel();
+        tableModel.setRowCount(0 );
+        
+        for(Country itr: countryList){
+          if(itr != null){
+            Object[] rowOfRecord =  new Object[5];
+            rowOfRecord[0] = itr;
+            tableModel.addRow(rowOfRecord);      
+        }     
+        }}
 }

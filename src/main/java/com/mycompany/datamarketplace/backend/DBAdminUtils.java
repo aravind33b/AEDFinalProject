@@ -5,6 +5,7 @@
 package com.mycompany.datamarketplace.backend;
 
 import com.mycompany.datamarketplace.datamodels.company.Company;
+import com.mycompany.datamarketplace.datamodels.government.Country;
 import com.mycompany.datamarketplace.datamodels.misc.SupportAdmin;
 import com.mycompany.datamarketplace.datamodels.university.University;
 import java.sql.Connection;
@@ -193,7 +194,7 @@ public class DBAdminUtils {
                 }
                 return isUnique;
             }
-            else{
+            else if(role.equalsIgnoreCase("country")){
                 try{
                     Connection conn = createConnection();
                     Statement statement = conn.createStatement();
@@ -201,8 +202,8 @@ public class DBAdminUtils {
                     ResultSet rs = statement.executeQuery(query);
 
                     while(rs.next()){
-                        String idNumber = rs.getString(role+"_id");
-                        if(idNumber.equalsIgnoreCase(commonId)){
+                        String ctryName = rs.getString("country_name");
+                        if(ctryName.equalsIgnoreCase(commonId)){
                             isUnique = false;
                         }
                     }
@@ -375,6 +376,87 @@ public class DBAdminUtils {
         } catch (Exception e) {
             System.out.println(e);
         }    
+    }
+
+    public Boolean createCountryForGovt(String countryNameForGovt, String tableName) {
+        Boolean isSuccess = false;
+            try{
+                System.out.println("In DB");
+                System.out.println("Your role is" + tableName);
+                Connection conn = createConnection();
+                Statement statement = conn.createStatement();
+                String query = "INSERT INTO `test_aed`.`"+tableName+"` (`country_name`) VALUES ('"+countryNameForGovt+"')";
+                statement.executeUpdate(query);
+                isSuccess = true;
+            }
+            catch(Exception e){
+                System.out.println(e);
+            }
+
+            return isSuccess;    
+    }
+
+    public ArrayList<Country> retrieveAllCountryDetails() {
+        ArrayList<Country> companyList = new ArrayList<>();
+        Country company = null;
+            try{
+                Connection conn = createConnection();
+                Statement statement = conn.createStatement();
+                String queryToExecute = "SELECT * FROM COUNTRY";
+                System.out.println(queryToExecute);
+
+                ResultSet rs = statement.executeQuery(queryToExecute);
+
+                while(rs.next()){
+                        company = new Country();
+                        company.setCountryName(rs.getString("country_name"));
+                        companyList.add(company);
+                }
+
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+       
+        return companyList;  }
+
+    public Country retrieveCountryDetails(String countryNameForGovt, String tableName) {
+        Country company = null;
+        try {
+            String companyIdentity = "";
+            
+            Connection conn = createConnection();
+            Statement statement = conn.createStatement();
+            String queryToExecute = "SELECT * FROM "+tableName;
+            System.out.println(queryToExecute);
+            
+            ResultSet rs = statement.executeQuery(queryToExecute);
+            
+            while(rs.next()){
+                companyIdentity = rs.getString("country_name");
+               
+                if (companyIdentity.equalsIgnoreCase(countryNameForGovt)){
+                    company = new Country();
+                    company.setCountryName(rs.getString("country_name"));
+                }
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+       
+        return company;
+    }
+
+    public void deleteCountry(String companyIdToBeDeleted) {
+        try{
+            Connection conn = createConnection();
+            Statement statement = conn.createStatement();
+            String queryToExecute = "DELETE from country where country_name ='"+companyIdToBeDeleted+"'";
+            statement.execute(queryToExecute);
+            System.out.println(queryToExecute);
+            
+        } catch (Exception e) {
+            System.out.println(e);
+        } 
     }
 
    
