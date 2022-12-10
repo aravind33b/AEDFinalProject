@@ -23,13 +23,25 @@ public class StudentScreen extends javax.swing.JPanel {
     
     JSplitPane splitPane;
     AvailableSurveyList availableSurvey;
+    SurveyCreatingPanel createNewSurvey;
     SurveyQuestions selSurveyData;
+    RewardsPanel rewards;
+    SupportPane supportRequest;
+    AvailableBetaTestingList betaTestingList;
+    CreateBetaTestingPanel createBetaTests;
+    CardLayout layout;
     int selectedSurveyIndex;
     
     public StudentScreen(JSplitPane splitPane) {
         initComponents();
         this.splitPane = splitPane;
         availableSurvey = new AvailableSurveyList();
+        createNewSurvey = new SurveyCreatingPanel();
+        rewards = new RewardsPanel();
+        supportRequest = new SupportPane();
+        betaTestingList = new AvailableBetaTestingList();
+        createBetaTests = new CreateBetaTestingPanel();
+        
 //        StudentScreen.add(layout);
     }
     
@@ -77,10 +89,10 @@ public class StudentScreen extends javax.swing.JPanel {
         genderTxt = new javax.swing.JTextField();
         createSurveyPanel = new javax.swing.JPanel();
         takeSurveyPanel = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
-        jPanel5 = new javax.swing.JPanel();
-        jPanel6 = new javax.swing.JPanel();
-        jPanel7 = new javax.swing.JPanel();
+        createBetaTest = new javax.swing.JPanel();
+        takeBetaTest = new javax.swing.JPanel();
+        rewardsPanel = new javax.swing.JPanel();
+        supportPanel = new javax.swing.JPanel();
 
         jTabbedPane1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -246,73 +258,23 @@ public class StudentScreen extends javax.swing.JPanel {
 
         jTabbedPane1.addTab("Profile", profilePanel);
 
-        javax.swing.GroupLayout createSurveyPanelLayout = new javax.swing.GroupLayout(createSurveyPanel);
-        createSurveyPanel.setLayout(createSurveyPanelLayout);
-        createSurveyPanelLayout.setHorizontalGroup(
-            createSurveyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 797, Short.MAX_VALUE)
-        );
-        createSurveyPanelLayout.setVerticalGroup(
-            createSurveyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 533, Short.MAX_VALUE)
-        );
-
+        createSurveyPanel.setLayout(new java.awt.CardLayout());
         jTabbedPane1.addTab("Create Survey", createSurveyPanel);
 
         takeSurveyPanel.setLayout(new java.awt.CardLayout());
         jTabbedPane1.addTab("Take Survey", takeSurveyPanel);
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 797, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 533, Short.MAX_VALUE)
-        );
+        createBetaTest.setLayout(new java.awt.CardLayout());
+        jTabbedPane1.addTab("Create Beta Testing", createBetaTest);
 
-        jTabbedPane1.addTab("Create Beta Testing", jPanel4);
+        takeBetaTest.setLayout(new java.awt.CardLayout());
+        jTabbedPane1.addTab("Beta Testing", takeBetaTest);
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 797, Short.MAX_VALUE)
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 533, Short.MAX_VALUE)
-        );
+        rewardsPanel.setLayout(new java.awt.CardLayout());
+        jTabbedPane1.addTab("Rewards", rewardsPanel);
 
-        jTabbedPane1.addTab("Beta Testing", jPanel5);
-
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 797, Short.MAX_VALUE)
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 533, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("Rewards", jPanel6);
-
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 797, Short.MAX_VALUE)
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 533, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("Support", jPanel7);
+        supportPanel.setLayout(new java.awt.CardLayout());
+        jTabbedPane1.addTab("Support", supportPanel);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -338,9 +300,29 @@ public class StudentScreen extends javax.swing.JPanel {
         //Component AvailableSurveyList;
         // TODO add your handling code here:
         
+        createSurveyPanel.add("workArea",createNewSurvey); 
+        layout = (CardLayout) createSurveyPanel.getLayout();
+        layout.next(createSurveyPanel);
+        
         takeSurveyPanel.add("workArea",availableSurvey); 
-        CardLayout layout = (CardLayout) takeSurveyPanel.getLayout();
+        layout = (CardLayout) takeSurveyPanel.getLayout();
         layout.next(takeSurveyPanel);
+        
+        createBetaTest.add("workArea", createBetaTests);
+        layout = (CardLayout) createBetaTest.getLayout();
+        layout.next(createBetaTest);
+        
+        takeBetaTest.add("workArea", betaTestingList);
+        layout = (CardLayout) takeBetaTest.getLayout();
+        layout.next(takeBetaTest);
+        
+        rewardsPanel.add("workArea",rewards); 
+        layout = (CardLayout) rewardsPanel.getLayout();
+        layout.next(rewardsPanel);
+        
+        supportPanel.add("workArea", supportRequest);
+        layout = (CardLayout) supportPanel.getLayout();
+        layout.next(supportPanel);
 
 //          JPanel panel = new JPanel();
 //          panel.setLayout(new GridLayout(2, 1));
@@ -355,6 +337,7 @@ public class StudentScreen extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField ageTxt;
+    private javax.swing.JPanel createBetaTest;
     private javax.swing.JPanel createSurveyPanel;
     private javax.swing.JTextField emailTxt;
     private javax.swing.JTextField firstNameTxt;
@@ -363,17 +346,16 @@ public class StudentScreen extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField lastNameTxt;
     private javax.swing.JTextField passwordTxt;
     private javax.swing.JLabel phNoLabel;
     private javax.swing.JTextField phoneNumberTxt;
     private javax.swing.JPanel profilePanel;
+    private javax.swing.JPanel rewardsPanel;
     private javax.swing.JTextField studentIdTxt;
+    private javax.swing.JPanel supportPanel;
+    private javax.swing.JPanel takeBetaTest;
     private javax.swing.JPanel takeSurveyPanel;
     private javax.swing.JLabel universityLabel;
     private javax.swing.JTextField universityNameTxt;
