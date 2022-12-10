@@ -1083,12 +1083,12 @@
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="jLabel36" min="-2" pref="86" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="companyNameTxt3" min="-2" pref="188" max="-2" attributes="0"/>
+                                  <Component id="adminEmailTxt" min="-2" pref="188" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="jLabel37" min="-2" pref="86" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="cityTxt3" min="-2" pref="188" max="-2" attributes="0"/>
+                                  <Component id="adminPasswordTxt" min="-2" pref="188" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -1103,14 +1103,14 @@
                                   </Group>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="rolesComboBox" max="32767" attributes="0"/>
-                                      <Component id="countryTxt3" pref="188" max="32767" attributes="0"/>
+                                      <Component id="institutionTx" pref="188" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="createUniBtn1" min="-2" pref="102" max="-2" attributes="0"/>
+                              <Component id="createAdminRoleBtn" min="-2" pref="102" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
-                              <Component id="deleteUniBtn1" min="-2" pref="127" max="-2" attributes="0"/>
+                              <Component id="deleteAdminRoleBtn" min="-2" pref="127" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace pref="31" max="32767" attributes="0"/>
@@ -1143,17 +1143,17 @@
                               <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel36" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                                  <Component id="companyNameTxt3" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                                  <Component id="adminEmailTxt" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel37" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                                  <Component id="cityTxt3" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                                  <Component id="adminPasswordTxt" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel27" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                                  <Component id="countryTxt3" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                                  <Component id="institutionTx" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -1162,8 +1162,8 @@
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="createUniBtn1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="deleteUniBtn1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="createAdminRoleBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="deleteAdminRoleBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -1178,7 +1178,7 @@
                 <Property name="text" type="java.lang.String" value="Insitution"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="cityTxt3">
+            <Component class="javax.swing.JTextField" name="adminPasswordTxt">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel32">
               <Properties>
@@ -1187,12 +1187,12 @@
             </Component>
             <Component class="javax.swing.JTextField" name="jTextField14">
             </Component>
-            <Component class="javax.swing.JButton" name="createUniBtn1">
+            <Component class="javax.swing.JButton" name="createAdminRoleBtn">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Create"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="createUniBtn1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="createAdminRoleBtnActionPerformed"/>
               </Events>
             </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane6">
@@ -1242,9 +1242,9 @@
                 <Property name="text" type="java.lang.String" value="Role"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="countryTxt3">
+            <Component class="javax.swing.JTextField" name="institutionTx">
             </Component>
-            <Component class="javax.swing.JTextField" name="companyNameTxt3">
+            <Component class="javax.swing.JTextField" name="adminEmailTxt">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel36">
               <Properties>
@@ -1256,25 +1256,23 @@
                 <Property name="text" type="java.lang.String" value="Password"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="deleteUniBtn1">
+            <Component class="javax.swing.JButton" name="deleteAdminRoleBtn">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Delete"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="deleteUniBtn1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="deleteAdminRoleBtnActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JComboBox" name="rolesComboBox">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="7">
+                  <StringArray count="5">
                     <StringItem index="0" value="Please select Admin Type"/>
                     <StringItem index="1" value="University Admin"/>
                     <StringItem index="2" value="Company Admin"/>
                     <StringItem index="3" value="Community Admin"/>
                     <StringItem index="4" value="Country Govt Admin"/>
-                    <StringItem index="5" value="Support Admin"/>
-                    <StringItem index="6" value="System Admin"/>
                   </StringArray>
                 </Property>
               </Properties>

@@ -133,18 +133,18 @@ public class AdminPanel extends javax.swing.JPanel {
         phoneNumberTxt2 = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jLabel27 = new javax.swing.JLabel();
-        cityTxt3 = new javax.swing.JTextField();
+        adminPasswordTxt = new javax.swing.JTextField();
         jLabel32 = new javax.swing.JLabel();
         jTextField14 = new javax.swing.JTextField();
-        createUniBtn1 = new javax.swing.JButton();
+        createAdminRoleBtn = new javax.swing.JButton();
         jScrollPane6 = new javax.swing.JScrollPane();
         jTable6 = new javax.swing.JTable();
         jLabel33 = new javax.swing.JLabel();
-        countryTxt3 = new javax.swing.JTextField();
-        companyNameTxt3 = new javax.swing.JTextField();
+        institutionTx = new javax.swing.JTextField();
+        adminEmailTxt = new javax.swing.JTextField();
         jLabel36 = new javax.swing.JLabel();
         jLabel37 = new javax.swing.JLabel();
-        deleteUniBtn1 = new javax.swing.JButton();
+        deleteAdminRoleBtn = new javax.swing.JButton();
         rolesComboBox = new javax.swing.JComboBox<>();
 
         setPreferredSize(new java.awt.Dimension(800, 800));
@@ -742,10 +742,10 @@ public class AdminPanel extends javax.swing.JPanel {
 
         jLabel32.setText("Search Admin:");
 
-        createUniBtn1.setText("Create");
-        createUniBtn1.addActionListener(new java.awt.event.ActionListener() {
+        createAdminRoleBtn.setText("Create");
+        createAdminRoleBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                createUniBtn1ActionPerformed(evt);
+                createAdminRoleBtnActionPerformed(evt);
             }
         });
 
@@ -773,14 +773,14 @@ public class AdminPanel extends javax.swing.JPanel {
 
         jLabel37.setText("Password");
 
-        deleteUniBtn1.setText("Delete");
-        deleteUniBtn1.addActionListener(new java.awt.event.ActionListener() {
+        deleteAdminRoleBtn.setText("Delete");
+        deleteAdminRoleBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteUniBtn1ActionPerformed(evt);
+                deleteAdminRoleBtnActionPerformed(evt);
             }
         });
 
-        rolesComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Please select Admin Type", "University Admin", "Company Admin", "Community Admin", "Country Govt Admin", "Support Admin", "System Admin" }));
+        rolesComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Please select Admin Type", "University Admin", "Company Admin", "Community Admin", "Country Govt Admin" }));
         rolesComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rolesComboBoxActionPerformed(evt);
@@ -798,11 +798,11 @@ public class AdminPanel extends javax.swing.JPanel {
                         .addGroup(jPanel2Layout.createSequentialGroup()
                             .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(companyNameTxt3, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(adminEmailTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel2Layout.createSequentialGroup()
                             .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(cityTxt3, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(adminPasswordTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel2Layout.createSequentialGroup()
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
@@ -813,11 +813,11 @@ public class AdminPanel extends javax.swing.JPanel {
                                     .addGap(18, 18, 18)))
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(rolesComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(countryTxt3, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE))))
+                                .addComponent(institutionTx, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(createUniBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(createAdminRoleBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(106, 106, 106)
-                        .addComponent(deleteUniBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(deleteAdminRoleBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -842,23 +842,23 @@ public class AdminPanel extends javax.swing.JPanel {
                         .addGap(86, 86, 86)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(companyNameTxt3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(adminEmailTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(20, 20, 20)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cityTxt3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(adminPasswordTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(countryTxt3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(institutionTx, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(rolesComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(createUniBtn1)
-                            .addComponent(deleteUniBtn1))))
+                            .addComponent(createAdminRoleBtn)
+                            .addComponent(deleteAdminRoleBtn))))
                 .addContainerGap(145, Short.MAX_VALUE))
         );
 
@@ -1125,13 +1125,167 @@ public class AdminPanel extends javax.swing.JPanel {
         populateCountryTable(countryList);
     }//GEN-LAST:event_deleteCountryBtnActionPerformed
 
-    private void createUniBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createUniBtn1ActionPerformed
+    private void createAdminRoleBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createAdminRoleBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_createUniBtn1ActionPerformed
+        String adminEmail = adminEmailTxt.getText();
+        String adminPass  = adminPasswordTxt.getText();
+        String institution = institutionTx.getText();
+        String tableName= "";
+        String parentTable = "";
+        String role =(String.valueOf(rolesComboBox.getEditor().getItem()));
+        
+//        University Admin
+//        Company Admin
+//        Community Admin
+//        Country Govt Admin
 
-    private void deleteUniBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteUniBtn1ActionPerformed
+        switch(role){
+            case "University Admin":
+                System.out.println(role);
+                tableName = "university_admin";
+                parentTable = "university";
+                
+                if(dbAdminUtils.checkIfInstituionExists(institution, parentTable)){
+                    Boolean isSuccess = dbAdminUtils.createDifferentAdminRoles(
+                           adminEmail,
+                           adminPass,
+                           institution,
+                           tableName,
+                           parentTable
+                    );
+
+                    if(isSuccess){
+                     JOptionPane.showMessageDialog(this, "University Admin Details are stored");
+                     adminEmailTxt.setText("");
+                     adminPasswordTxt.setText("");
+                     institutionTx.setText("");
+                     rolesComboBox.setSelectedItem("Please select Admin Type");
+                     return;
+                    }
+                    else{
+                        //Pop up here
+                     JOptionPane.showMessageDialog(this, "Details are not stored");
+                     return;
+                    }
+                
+                }
+                else{
+                    //Pop up
+                    JOptionPane.showMessageDialog(this, "Cannot find university name, contact System Admin");
+                    return;
+                }
+            
+            case "Company Admin":
+                System.out.println(role);
+                tableName = "company_admin";
+                parentTable = "company";
+                
+                if(dbAdminUtils.checkIfInstituionExists(institution, parentTable)){
+                    Boolean isSuccess = dbAdminUtils.createDifferentAdminRoles(
+                           adminEmail,
+                           adminPass,
+                           institution,
+                           tableName,
+                           parentTable
+                    );
+
+                    if(isSuccess){
+                     JOptionPane.showMessageDialog(this, "Company Admin Details are stored");
+                     adminEmailTxt.setText("");
+                     adminPasswordTxt.setText("");
+                     institutionTx.setText("");
+                     rolesComboBox.setSelectedItem("Please select Admin Type");
+                     return;
+                    }
+                    else{
+                        //Pop up here
+                     JOptionPane.showMessageDialog(this, "Details are not stored");
+                     return;
+                    }
+                
+                }
+                else{
+                    //Pop up
+                    JOptionPane.showMessageDialog(this, "Cannot find company name, contact System Admin");
+                    return;
+                }
+            case "Community Admin":
+                System.out.println(role);
+                tableName = "community_admin";
+                parentTable = "developer_community";
+                
+                if(dbAdminUtils.checkIfInstituionExists(institution, parentTable)){
+                    System.out.println("QH oh");
+                    Boolean isSuccess = dbAdminUtils.createDifferentAdminRoles(
+                           adminEmail,
+                           adminPass,
+                           institution,
+                           tableName,
+                           parentTable
+                    );
+
+                    if(isSuccess){
+                     JOptionPane.showMessageDialog(this, "Community Admin Details are stored");
+                     adminEmailTxt.setText("");
+                     adminPasswordTxt.setText("");
+                     institutionTx.setText("");
+                     rolesComboBox.setSelectedItem("Please select Admin Type");
+                     return;
+                    }
+                    else{
+                        //Pop up here
+                     JOptionPane.showMessageDialog(this, "Details are not stored");
+                     return;
+                    }
+                
+                }
+                else{
+                    //Pop up
+                    JOptionPane.showMessageDialog(this, "Cannot find community name, contact System Admin");
+                    return;
+                }
+            case "Country Govt Admin":
+                System.out.println(role);
+                tableName = "country_admin";
+                parentTable = "country";
+                
+                if(dbAdminUtils.checkIfInstituionExists(institution, parentTable)){
+                    Boolean isSuccess = dbAdminUtils.createDifferentAdminRoles(
+                           adminEmail,
+                           adminPass,
+                           institution,
+                           tableName,
+                           parentTable
+                    );
+
+                    if(isSuccess){
+                     JOptionPane.showMessageDialog(this, "Country Admin Details are stored");
+                     adminEmailTxt.setText("");
+                     adminPasswordTxt.setText("");
+                     institutionTx.setText("");
+                     rolesComboBox.setSelectedItem("Please select Admin Type");
+                     return;
+                    }
+                    else{
+                        //Pop up here
+                     JOptionPane.showMessageDialog(this, "Details are not stored");
+                     return;
+                    }
+                
+                }
+                else{
+                    //Pop up
+                    JOptionPane.showMessageDialog(this, "Cannot find country name, contact System Admin");
+                    return;
+                }
+        }
+        
+    }//GEN-LAST:event_createAdminRoleBtnActionPerformed
+
+    private void deleteAdminRoleBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteAdminRoleBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_deleteUniBtn1ActionPerformed
+        
+    }//GEN-LAST:event_deleteAdminRoleBtnActionPerformed
 
     private void rolesComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rolesComboBoxActionPerformed
         // TODO add your handling code here:
@@ -1229,32 +1383,32 @@ public class AdminPanel extends javax.swing.JPanel {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane Home1;
+    private javax.swing.JTextField adminEmailTxt;
+    private javax.swing.JTextField adminPasswordTxt;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JTextField cityTxt;
     private javax.swing.JTextField cityTxt2;
-    private javax.swing.JTextField cityTxt3;
     private javax.swing.JTextField companyIdTxt;
     private javax.swing.JTextField companyIdTxt2;
     private javax.swing.JTextField companyNameTxt;
     private javax.swing.JTextField companyNameTxt2;
-    private javax.swing.JTextField companyNameTxt3;
     private javax.swing.JTextField countryTxt;
     private javax.swing.JTextField countryTxt2;
-    private javax.swing.JTextField countryTxt3;
+    private javax.swing.JButton createAdminRoleBtn;
     private javax.swing.JButton createCompanyBtn;
     private javax.swing.JButton createCountryBtn;
     private javax.swing.JTextField createCountryTxt;
     private javax.swing.JButton createSupportAdminBtn;
     private javax.swing.JButton createUniBtn;
-    private javax.swing.JButton createUniBtn1;
+    private javax.swing.JButton deleteAdminRoleBtn;
     private javax.swing.JButton deleteCompanyBtn;
     private javax.swing.JButton deleteCountryBtn;
     private javax.swing.JButton deleteSupportAdminBtn;
     private javax.swing.JButton deleteUniBtn;
-    private javax.swing.JButton deleteUniBtn1;
     private javax.swing.JTextField emailTxt;
     private javax.swing.JTextField emailTxt2;
     private javax.swing.JTextField firstNameTxt;
+    private javax.swing.JTextField institutionTx;
     private javax.swing.JButton jButton21;
     private javax.swing.JButton jButton24;
     private javax.swing.JButton jButton28;
