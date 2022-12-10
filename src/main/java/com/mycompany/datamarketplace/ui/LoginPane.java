@@ -204,6 +204,22 @@ public class LoginPane extends javax.swing.JPanel {
                     passwordTxt.setText("");
                     return;
                 }
+                
+            case "Manager":
+                personObj = dbUtils.checkIfUserExists(email, password, role);
+                if(personObj == null) {
+                    JOptionPane.showMessageDialog(this, "Manager does not exist");
+                    return;
+                }
+                else{
+                    JOptionPane.showMessageDialog(this, "Manager login success!");
+                    ProductManagerScreen managerScreen = new ProductManagerScreen();
+                    mainSplitPane.setBottomComponent(managerScreen);
+                    mainSplitPane.setTopComponent(logoutPanel);
+                    emailTxt.setText("");
+                    passwordTxt.setText("");
+                    return;
+                }
         }
     }//GEN-LAST:event_loginButtonActionPerformed
 
