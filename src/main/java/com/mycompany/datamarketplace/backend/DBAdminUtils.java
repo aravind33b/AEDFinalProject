@@ -4,6 +4,7 @@
  */
 package com.mycompany.datamarketplace.backend;
 
+import com.mycompany.datamarketplace.datamodels.community.Community;
 import com.mycompany.datamarketplace.datamodels.company.Company;
 import com.mycompany.datamarketplace.datamodels.government.Country;
 import com.mycompany.datamarketplace.datamodels.misc.SupportAdmin;
@@ -195,6 +196,25 @@ public class DBAdminUtils {
                 return isUnique;
             }
             else if(role.equalsIgnoreCase("country")){
+                try{
+                    Connection conn = createConnection();
+                    Statement statement = conn.createStatement();
+                    String query = "SELECT * FROM `"+role+"` ";
+                    ResultSet rs = statement.executeQuery(query);
+
+                    while(rs.next()){
+                        String ctryName = rs.getString("country_name");
+                        if(ctryName.equalsIgnoreCase(commonId)){
+                            isUnique = false;
+                        }
+                    }
+                }
+
+                catch(Exception e){
+                    System.out.println("Error at unique check" + e);
+                }
+            }
+            else if(role.equalsIgnoreCase("developer_community")){
                 try{
                     Connection conn = createConnection();
                     Statement statement = conn.createStatement();
@@ -417,7 +437,8 @@ public class DBAdminUtils {
                 System.out.println(e);
             }
        
-        return companyList;  }
+        return companyList;  
+    }
 
     public Country retrieveCountryDetails(String countryNameForGovt, String tableName) {
         Country company = null;
@@ -451,6 +472,88 @@ public class DBAdminUtils {
             Connection conn = createConnection();
             Statement statement = conn.createStatement();
             String queryToExecute = "DELETE from country where country_name ='"+companyIdToBeDeleted+"'";
+            statement.execute(queryToExecute);
+            System.out.println(queryToExecute);
+            
+        } catch (Exception e) {
+            System.out.println(e);
+        } 
+    }
+
+    public ArrayList<Community> retrieveAllDeveloperCommunity() {
+        ArrayList<Community> companyList = new ArrayList<>();
+        Community company = null;
+            try{
+                Connection conn = createConnection();
+                Statement statement = conn.createStatement();
+                String queryToExecute = "SELECT * FROM DEVELOPER_COMMUNITY";
+                System.out.println(queryToExecute);
+
+                ResultSet rs = statement.executeQuery(queryToExecute);
+
+                while(rs.next()){
+                        company = new Community();
+                        company.setCommunityName(rs.getString("community_name"));
+                        companyList.add(company);
+                }
+
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+       
+        return companyList;
+    }
+
+    public Boolean createCommunity(String countryNameForGovt, String tableName) {
+        Boolean isSuccess = false;
+            try{
+                System.out.println("In DB");
+                System.out.println("Your role is" + tableName);
+                Connection conn = createConnection();
+                Statement statement = conn.createStatement();
+                String query = "INSERT INTO `test_aed`.`"+tableName+"` (`community_name`) VALUES ('"+countryNameForGovt+"')";
+                statement.executeUpdate(query);
+                isSuccess = true;
+            }
+            catch(Exception e){
+                System.out.println(e);
+            }
+
+            return isSuccess;
+    }
+
+    public Community retrieveCommunityDetails(String countryNameForGovt, String tableName) {
+        Community company = null;
+        try {
+            String companyIdentity = "";
+            
+            Connection conn = createConnection();
+            Statement statement = conn.createStatement();
+            String queryToExecute = "SELECT * FROM "+tableName;
+            System.out.println(queryToExecute);
+            
+            ResultSet rs = statement.executeQuery(queryToExecute);
+            
+            while(rs.next()){
+                companyIdentity = rs.getString("community_name");
+               
+                if (companyIdentity.equalsIgnoreCase(countryNameForGovt)){
+                    company = new Community();
+                    company.setCommunityName(rs.getString("community_name"));
+                }
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+       
+        return company;
+    }
+
+    public void deleteCommunity(String companyIdToBeDeleted) {
+         try{
+            Connection conn = createConnection();
+            Statement statement = conn.createStatement();
+            String queryToExecute = "DELETE from developer_community where community_name ='"+companyIdToBeDeleted+"'";
             statement.execute(queryToExecute);
             System.out.println(queryToExecute);
             

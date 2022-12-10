@@ -5,6 +5,7 @@
 package com.mycompany.datamarketplace.ui;
 
 import com.mycompany.datamarketplace.backend.DBAdminUtils;
+import com.mycompany.datamarketplace.datamodels.community.Community;
 import com.mycompany.datamarketplace.datamodels.company.Company;
 import com.mycompany.datamarketplace.datamodels.government.Country;
 import com.mycompany.datamarketplace.datamodels.misc.SupportAdmin;
@@ -23,18 +24,23 @@ public class AdminPanel extends javax.swing.JPanel {
     ArrayList<SupportAdmin> supportAdminList;
     ArrayList<University> universityList;
     ArrayList<Country> countryList;
+    ArrayList<Community> communityList;
+    
     public AdminPanel() {
         initComponents();
         dbAdminUtils = new DBAdminUtils();
+        
         companyList = dbAdminUtils.retrieveAllCompanyDetails();
         supportAdminList = dbAdminUtils.retrieveAllSupportAdminDetails();
         universityList = dbAdminUtils.retrieveAllUniversityDetails();
         countryList = dbAdminUtils.retrieveAllCountryDetails();
-        System.out.println(companyList);
+        communityList = dbAdminUtils.retrieveAllDeveloperCommunity();
+        
         populateCompanyTable(companyList);
         populateSupportAdminTable(supportAdminList);
         populateUniversityTable(universityList);
         populateCountryTable(countryList);
+        populateDevCommunity(communityList);
     }
 
     /**
@@ -87,12 +93,10 @@ public class AdminPanel extends javax.swing.JPanel {
         supportPasswordTxt1 = new javax.swing.JTextField();
         jPanel9 = new javax.swing.JPanel();
         jButton28 = new javax.swing.JButton();
-        jLabel26 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         jButton29 = new javax.swing.JButton();
         jLabel30 = new javax.swing.JLabel();
         jTextField19 = new javax.swing.JTextField();
-        jTextField20 = new javax.swing.JTextField();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTable4 = new javax.swing.JTable();
         jButton31 = new javax.swing.JButton();
@@ -413,13 +417,16 @@ public class AdminPanel extends javax.swing.JPanel {
 
         jButton28.setText("Update");
 
-        jLabel26.setText("Community Type");
-
         jLabel28.setText("Search Community:");
 
         jButton29.setText("Delete");
+        jButton29.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton29ActionPerformed(evt);
+            }
+        });
 
-        jLabel30.setText("Community Name");
+        jLabel30.setText("Comm. Name");
 
         jTable4.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -440,6 +447,11 @@ public class AdminPanel extends javax.swing.JPanel {
         jScrollPane4.setViewportView(jTable4);
 
         jButton31.setText("Create");
+        jButton31.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton31ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -456,15 +468,9 @@ public class AdminPanel extends javax.swing.JPanel {
                         .addComponent(jButton29, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addGap(104, 104, 104)
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel9Layout.createSequentialGroup()
-                                .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel9Layout.createSequentialGroup()
-                                .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -489,16 +495,12 @@ public class AdminPanel extends javax.swing.JPanel {
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton31)
                             .addComponent(jButton28)
                             .addComponent(jButton29))))
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addContainerGap(392, Short.MAX_VALUE))
         );
 
         Home1.addTab("Developer Community", jPanel9);
@@ -712,7 +714,6 @@ public class AdminPanel extends javax.swing.JPanel {
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(countryTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -732,7 +733,7 @@ public class AdminPanel extends javax.swing.JPanel {
                     .addComponent(createUniBtn)
                     .addComponent(jButton21)
                     .addComponent(deleteUniBtn))
-                .addContainerGap(70, Short.MAX_VALUE))
+                .addContainerGap(405, Short.MAX_VALUE))
         );
 
         Home1.addTab("University", jPanel7);
@@ -1135,6 +1136,62 @@ public class AdminPanel extends javax.swing.JPanel {
     private void rolesComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rolesComboBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_rolesComboBoxActionPerformed
+
+    private void jButton31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton31ActionPerformed
+        // TODO add your handling code here:
+        //Create Dev Community Button
+        Community companyObject = null;
+        String countryNameForGovt = jTextField19.getText();
+        
+        String tableName = "developer_community";
+        
+        if(dbAdminUtils.checkIfIdIsUnique(countryNameForGovt, tableName)){
+            Boolean isSuccess = dbAdminUtils.createCommunity(
+                countryNameForGovt,
+                tableName
+            );
+            
+            if(isSuccess){
+                createCountryTxt.setText("");
+                JOptionPane.showMessageDialog(this, "Country details are saved!");
+                companyObject = dbAdminUtils.retrieveCommunityDetails(countryNameForGovt, tableName);
+                communityList.add(companyObject);
+                populateDevCommunity(communityList);
+            }
+            else{
+                  JOptionPane.showMessageDialog(this, "Please check your errors");
+                  return;
+             }
+            
+        }
+        
+        else{
+            JOptionPane.showMessageDialog(this, "University ID already exists");
+            return;
+        }
+        
+    }//GEN-LAST:event_jButton31ActionPerformed
+
+    private void jButton29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton29ActionPerformed
+        // TODO add your handling code here:
+        
+        //Delete
+        
+        int selectedRowInd = jTable4.getSelectedRow();
+        
+        if(selectedRowInd < 0){
+            JOptionPane.showMessageDialog(this, "Please select a row");
+            return;
+        }
+        
+        DefaultTableModel tableModel = (DefaultTableModel) jTable4.getModel();
+        Community selectedEmployee = (Community)tableModel.getValueAt(selectedRowInd, 0);
+        String companyIdToBeDeleted = selectedEmployee.getCommunityName();
+        communityList.remove(selectedEmployee);
+        JOptionPane.showMessageDialog(this, "Community records deleted");
+        dbAdminUtils.deleteCommunity(companyIdToBeDeleted);
+        populateDevCommunity(communityList);
+    }//GEN-LAST:event_jButton29ActionPerformed
  private void populateCompanyTable(ArrayList<Company> companyList) {
         DefaultTableModel tableModel = (DefaultTableModel) jTable3.getModel();
         tableModel.setRowCount(0 );
@@ -1221,7 +1278,6 @@ public class AdminPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
@@ -1256,7 +1312,6 @@ public class AdminPanel extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField18;
     private javax.swing.JTextField jTextField19;
-    private javax.swing.JTextField jTextField20;
     private javax.swing.JTextField jTextField22;
     private javax.swing.JTextField jTextField24;
     private javax.swing.JTextField jTextField7;
@@ -1295,5 +1350,19 @@ public class AdminPanel extends javax.swing.JPanel {
             rowOfRecord[0] = itr;
             tableModel.addRow(rowOfRecord);      
         }     
-        }}
+        }
+    }
+    
+    private void populateDevCommunity(ArrayList<Community> communityList) {
+        DefaultTableModel tableModel = (DefaultTableModel) jTable4.getModel();
+        tableModel.setRowCount(0 );
+        
+        for(Community itr: communityList){
+          if(itr != null){
+            Object[] rowOfRecord =  new Object[5];
+            rowOfRecord[0] = itr;
+            tableModel.addRow(rowOfRecord);      
+        }     
+        }
+    }
 }
