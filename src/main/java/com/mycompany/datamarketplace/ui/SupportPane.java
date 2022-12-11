@@ -26,8 +26,8 @@ public class SupportPane extends javax.swing.JPanel {
     /**
      * Creates new form SupportPane
      */
-    public static final String ACCOUNT_SID = "AC7d992395aabb46f3245476e2a7dee666";
-    public static final String AUTH_TOKEN = "2ee039a61eef95c5622ab2f2a043beb5";
+    public static final String ACCOUNT_SID = "";
+    public static final String AUTH_TOKEN = "";
     public SupportPane() {
         initComponents();
     }
@@ -210,7 +210,7 @@ public class SupportPane extends javax.swing.JPanel {
 
             Mail mail = new Mail(from, subject, to, content);
 
-            SendGrid sg = new SendGrid("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");
+            SendGrid sg = new SendGrid("");
             Request request = new Request();
 
             request.setMethod(Method.POST);
