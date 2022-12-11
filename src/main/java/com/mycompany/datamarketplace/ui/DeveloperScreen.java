@@ -37,10 +37,11 @@ public class DeveloperScreen extends javax.swing.JPanel {
     public DeveloperScreen(JSplitPane splitPane, Developer developerObj) {
         initComponents();
         this.splitPane = splitPane;
+        this.developerObj = developerObj;
         availableSurvey = new AvailableSurveyList(developerObj, splitPane);
         createNewSurvey = new SurveyCreatingPanel(developerObj);
         rewards = new RewardsPanel();
-        supportRequest = new SupportPane();
+        supportRequest = new SupportPane(developerObj);
         betaTestingList = new AvailableBetaTestingList();
         createBetaTests = new CreateBetaTestingPanel();
         
