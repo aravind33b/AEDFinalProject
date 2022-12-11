@@ -80,6 +80,7 @@ public class AdminPanel extends javax.swing.JPanel {
         emailTxt = new javax.swing.JTextField();
         phoneNumberTxt = new javax.swing.JTextField();
         validationLbl = new javax.swing.JLabel();
+        populateValuesBtn = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         supportAdminTbl = new javax.swing.JTable();
@@ -244,11 +245,23 @@ public class AdminPanel extends javax.swing.JPanel {
 
         validationLbl.setForeground(new java.awt.Color(255, 51, 51));
 
+        populateValuesBtn.setText("Populate Values");
+        populateValuesBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                populateValuesBtnMouseEntered(evt);
+            }
+        });
+        populateValuesBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                populateValuesBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel8Layout.createSequentialGroup()
@@ -285,12 +298,14 @@ public class AdminPanel extends javax.swing.JPanel {
                             .addComponent(emailTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(validationLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel8Layout.createSequentialGroup()
-                        .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(searchTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(populateValuesBtn)
+                    .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel8Layout.createSequentialGroup()
+                            .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(searchTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(74, 74, 74))
         );
         jPanel8Layout.setVerticalGroup(
@@ -330,7 +345,9 @@ public class AdminPanel extends javax.swing.JPanel {
                             .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(12, 12, 12)
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(48, 48, 48)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(populateValuesBtn)
+                .addGap(13, 13, 13)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(createCompanyBtn)
                     .addComponent(updateCompanyBtn)
@@ -1614,7 +1631,7 @@ public class AdminPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_supportEmailTxtKeyReleased
 
-<<<<<<< HEAD
+//<<<<<<< HEAD
     private void emailTxt2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_emailTxt2KeyReleased
         // TODO add your handling code here:
         String e = emailTxt2.getText();
@@ -1692,12 +1709,34 @@ public class AdminPanel extends javax.swing.JPanel {
             
         }
     }//GEN-LAST:event_companyTblMouseClicked
-=======
+//=======
     private void Home1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Home1MouseEntered
         // TODO add your handling code here:
         Home1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
     }//GEN-LAST:event_Home1MouseEntered
->>>>>>> b49f35430f90e99e70bcf00cf28fae2db6f7a1c0
+
+    private void populateValuesBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_populateValuesBtnMouseEntered
+        // TODO add your handling code here:
+        populateValuesBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_populateValuesBtnMouseEntered
+
+    private void populateValuesBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_populateValuesBtnActionPerformed
+        // TODO add your handling code here:
+        int selectedRowInd = companyTbl.getSelectedRow();
+        if(selectedRowInd < 0){
+            JOptionPane.showMessageDialog(this, "Please select a row");
+            return;
+        }
+        DefaultTableModel tableModel = (DefaultTableModel) companyTbl.getModel();
+        Company selectedEmployee = (Company)tableModel.getValueAt(selectedRowInd, 0);
+        companyNameTxt.setText(selectedEmployee.getCompanyName());
+        cityTxt.setText(selectedEmployee.getCity());
+        countryTxt.setText(selectedEmployee.getCountry());
+        companyIdTxt.setText(selectedEmployee.getCompanyId());
+        emailTxt.setText(selectedEmployee.getOfficialEmail());
+        phoneNumberTxt.setText(selectedEmployee.getOfficialPhone());
+    }//GEN-LAST:event_populateValuesBtnActionPerformed
+//>>>>>>> b49f35430f90e99e70bcf00cf28fae2db6f7a1c0
  private void populateCompanyTable(ArrayList<Company> companyList) {
         DefaultTableModel tableModel = (DefaultTableModel) companyTbl.getModel();
         tableModel.setRowCount(0 );
@@ -1814,6 +1853,7 @@ public class AdminPanel extends javax.swing.JPanel {
     private javax.swing.JTextField lastNameTxt;
     private javax.swing.JTextField phoneNumberTxt;
     private javax.swing.JTextField phoneNumberTxt2;
+    private javax.swing.JButton populateValuesBtn;
     private javax.swing.JComboBox<String> rolesComboBox;
     private javax.swing.JTextField searchAdmin;
     private javax.swing.JTextField searchCommunity;
