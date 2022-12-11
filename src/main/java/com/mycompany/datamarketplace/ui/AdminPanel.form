@@ -276,6 +276,9 @@
                       <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="companyTblMouseClicked"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -904,7 +907,7 @@
                           <Group type="102" attributes="0">
                               <Component id="createUniBtn" min="-2" pref="86" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jButton21" min="-2" pref="86" max="-2" attributes="0"/>
+                              <Component id="updateUniBtn" min="-2" pref="86" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="deleteUniBtn" min="-2" pref="127" max="-2" attributes="0"/>
                           </Group>
@@ -977,7 +980,7 @@
                       </Group>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="createUniBtn" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButton21" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="updateUniBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="deleteUniBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="324" max="32767" attributes="0"/>
@@ -1066,7 +1069,7 @@
                 <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="searchUniversityKeyReleased"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton21">
+            <Component class="javax.swing.JButton" name="updateUniBtn">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Update"/>
               </Properties>
@@ -1104,8 +1107,14 @@
             <Component class="javax.swing.JTextField" name="companyIdTxt2">
             </Component>
             <Component class="javax.swing.JTextField" name="emailTxt2">
+              <Events>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="emailTxt2KeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="phoneNumberTxt2">
+              <Events>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="phoneNumberTxt2KeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="validationLbl2">
               <Properties>
@@ -1303,6 +1312,9 @@
             <Component class="javax.swing.JTextField" name="institutionTx">
             </Component>
             <Component class="javax.swing.JTextField" name="adminEmailTxt">
+              <Events>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="adminEmailTxtKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel36">
               <Properties>
