@@ -36,6 +36,9 @@
   </Layout>
   <SubComponents>
     <Container class="javax.swing.JTabbedPane" name="Home1">
+      <Events>
+        <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Home1MouseEntered"/>
+      </Events>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
       <SubComponents>
@@ -949,7 +952,6 @@
                                   <Component id="jLabel13" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                                   <Component id="countryTxt2" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="3" attributes="0">

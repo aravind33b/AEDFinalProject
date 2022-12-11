@@ -8,6 +8,7 @@ import com.mycompany.datamarketplace.datamodels.company.CompanyAdmin;
 import com.mycompany.datamarketplace.datamodels.government.GovernmentAdmin;
 import com.mycompany.datamarketplace.datamodels.university.UniversityAdmin;
 import com.mycompany.datamarketplace.datamodels.misc.SupportAdmin;
+import java.awt.Cursor;
 
 /**
  *
@@ -64,6 +65,11 @@ public class AdminLoginPane extends javax.swing.JPanel {
         });
 
         adminLoginButton.setText("Login");
+        adminLoginButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                adminLoginButtonMouseEntered(evt);
+            }
+        });
         adminLoginButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 adminLoginButtonActionPerformed(evt);
@@ -158,10 +164,11 @@ public class AdminLoginPane extends javax.swing.JPanel {
                         AdminPanel adminPanel = new AdminPanel();
                         adminSplitPane.setBottomComponent(adminPanel);
                         adminSplitPane.setTopComponent(logoutPanel);
+                        adminSplitPane.setDividerSize(0);
                         return;
                     }
                     else{
-                       JOptionPane.showMessageDialog(this, "You do not have system admin privileges");
+                       JOptionPane.showMessageDialog(this, "You do not have System admin privileges");
                        return; 
                     }
             }
@@ -171,13 +178,14 @@ public class AdminLoginPane extends javax.swing.JPanel {
                 tableName = "community_admin";
                 commAdminObj = dbAdminUtils.checkIfCommAdminRoleExists(emailId, password, tableName);
                 if(commAdminObj == null) {
-                    JOptionPane.showMessageDialog(this, "You do not have community admin privileges");
+                    JOptionPane.showMessageDialog(this, "You do not have Community admin privileges");
                     return;
                 }
                 else{
                     CommunityAdminPane commAdmin = new CommunityAdminPane();
                     adminSplitPane.setBottomComponent(commAdmin);
                     adminSplitPane.setTopComponent(logoutPanel);
+                    adminSplitPane.setDividerSize(0);
                     return;
                 }
             }
@@ -187,13 +195,14 @@ public class AdminLoginPane extends javax.swing.JPanel {
                 tableName = "company_admin";
                 compAdminObj = dbAdminUtils.checkIfCompAdminRoleExists(emailId, password, tableName);
                 if(compAdminObj == null) {
-                    JOptionPane.showMessageDialog(this, "You do not have company admin privileges");
+                    JOptionPane.showMessageDialog(this, "You do not have Company admin privileges");
                     return;
                 }
                 else{
                     CompanyAdminPane compAdmin = new CompanyAdminPane();
                     adminSplitPane.setBottomComponent(compAdmin);
                     adminSplitPane.setTopComponent(logoutPanel);
+                    adminSplitPane.setDividerSize(0);
                     return;
                 }
             }
@@ -203,13 +212,14 @@ public class AdminLoginPane extends javax.swing.JPanel {
                 tableName = "country_admin";
                 govtAdminObj = dbAdminUtils.checkIfGovtAdminRoleExists(emailId, password, tableName);
                 if(govtAdminObj == null) {
-                    JOptionPane.showMessageDialog(this, "You do not have company admin privileges");
+                    JOptionPane.showMessageDialog(this, "You do not have Government admin privileges");
                     return;
                 }
                 else{
                     GovernmentAdminPane govtAdminPane = new GovernmentAdminPane();
                     adminSplitPane.setBottomComponent(govtAdminPane);
                     adminSplitPane.setTopComponent(logoutPanel);
+                    adminSplitPane.setDividerSize(0);
                     return;
                 }
             }
@@ -219,13 +229,14 @@ public class AdminLoginPane extends javax.swing.JPanel {
                 tableName = "university_admin";
                 uniAdminObj = dbAdminUtils.checkIfUniAdminRoleExists(emailId, password, tableName);
                 if(uniAdminObj == null) {
-                    JOptionPane.showMessageDialog(this, "You do not have company admin privileges");
+                    JOptionPane.showMessageDialog(this, "You do not have University admin privileges");
                     return;
                 }
                 else{
                     UniversityAdminPane uniAdminPane = new UniversityAdminPane();
                     adminSplitPane.setBottomComponent(uniAdminPane);
                     adminSplitPane.setTopComponent(logoutPanel);
+                    adminSplitPane.setDividerSize(0);
                     return;
                 }
             }
@@ -242,6 +253,7 @@ public class AdminLoginPane extends javax.swing.JPanel {
                     SupportPane supportAdminPane = new SupportPane();
                     adminSplitPane.setBottomComponent(supportAdminPane);
                     adminSplitPane.setTopComponent(logoutPanel);
+                    adminSplitPane.setDividerSize(0);
                     return;
                 }
             }
@@ -251,6 +263,11 @@ public class AdminLoginPane extends javax.swing.JPanel {
     private void rolesComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rolesComboBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_rolesComboBoxActionPerformed
+
+    private void adminLoginButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_adminLoginButtonMouseEntered
+        // TODO add your handling code here:
+        adminLoginButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_adminLoginButtonMouseEntered
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

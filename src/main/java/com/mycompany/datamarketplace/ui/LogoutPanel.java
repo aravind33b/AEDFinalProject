@@ -2,6 +2,7 @@
 package com.mycompany.datamarketplace.ui;
 import javax.swing.JSplitPane;
 import com.mycompany.datamarketplace.datamodels.university.Student;
+import java.awt.Cursor;
 
 
 public class LogoutPanel extends javax.swing.JPanel {
@@ -27,6 +28,11 @@ public class LogoutPanel extends javax.swing.JPanel {
         jLabel1.setText("Data Market Place");
 
         logoutBtn.setText("Logout");
+        logoutBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                logoutBtnMouseEntered(evt);
+            }
+        });
         logoutBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 logoutBtnActionPerformed(evt);
@@ -63,6 +69,11 @@ public class LogoutPanel extends javax.swing.JPanel {
         splitPane.setTopComponent(defaultTop);
         splitPane.setBottomComponent(defaultpane);
     }//GEN-LAST:event_logoutBtnActionPerformed
+
+    private void logoutBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutBtnMouseEntered
+        // TODO add your handling code here:
+        logoutBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_logoutBtnMouseEntered
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
