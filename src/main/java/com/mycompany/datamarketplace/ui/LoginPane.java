@@ -166,7 +166,7 @@ public class LoginPane extends javax.swing.JPanel {
                 }
                 else{
                     JOptionPane.showMessageDialog(this, "Professor login success!");
-                    ProfessorScreen professorScreen = new ProfessorScreen();
+                    ProfessorScreen professorScreen = new ProfessorScreen(mainSplitPane, professorObj);
                     mainSplitPane.setBottomComponent(professorScreen);
                     mainSplitPane.setTopComponent(logoutPanel);
                     emailTxt.setText("");
@@ -181,7 +181,7 @@ public class LoginPane extends javax.swing.JPanel {
                 }
                 else{
                     JOptionPane.showMessageDialog(this, "User login success!");
-                    GeneralUserScreen generalUserScreen = new GeneralUserScreen();
+                    GeneralUserScreen generalUserScreen = new GeneralUserScreen(mainSplitPane, personObj);
                     mainSplitPane.setBottomComponent(generalUserScreen);
                     mainSplitPane.setTopComponent(logoutPanel);
                     emailTxt.setText("");
@@ -197,7 +197,7 @@ public class LoginPane extends javax.swing.JPanel {
                 }
                 else{
                     JOptionPane.showMessageDialog(this, "Developer login success!");
-                    DeveloperScreen developerScreen = new DeveloperScreen();
+                    DeveloperScreen developerScreen = new DeveloperScreen(mainSplitPane, devObj);
                     mainSplitPane.setBottomComponent(developerScreen);
                     mainSplitPane.setTopComponent(logoutPanel);
                     emailTxt.setText("");

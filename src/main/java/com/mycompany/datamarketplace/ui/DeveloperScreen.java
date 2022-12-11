@@ -5,6 +5,9 @@
 package com.mycompany.datamarketplace.ui;
 
 import com.mycompany.datamarketplace.datamodels.feature.survey.SurveyQuestions;
+import com.mycompany.datamarketplace.datamodels.university.Professor;
+import com.mycompany.datamarketplace.datamodels.community.Developer;
+
 import java.awt.CardLayout;
 import javax.swing.JSplitPane;
 
@@ -27,18 +30,21 @@ public class DeveloperScreen extends javax.swing.JPanel {
     AvailableBetaTestingList betaTestingList;
     CreateBetaTestingPanel createBetaTests;
     CardLayout layout;
+    Developer developerObj;
     
     int selectedSurveyIndex;
     
-    public DeveloperScreen() {
+    public DeveloperScreen(JSplitPane splitPane, Developer developerObj) {
         initComponents();
         this.splitPane = splitPane;
-        availableSurvey = new AvailableSurveyList();
-        createNewSurvey = new SurveyCreatingPanel();
+        availableSurvey = new AvailableSurveyList(developerObj, splitPane);
+        createNewSurvey = new SurveyCreatingPanel(developerObj);
         rewards = new RewardsPanel();
         supportRequest = new SupportPane();
         betaTestingList = new AvailableBetaTestingList();
         createBetaTests = new CreateBetaTestingPanel();
+        
+        loadDeveloperDetails(developerObj);
     }
 
     /**
@@ -67,6 +73,10 @@ public class DeveloperScreen extends javax.swing.JPanel {
         phNoLabel = new javax.swing.JLabel();
         phoneNumberTxt = new javax.swing.JTextField();
         genderTxt = new javax.swing.JTextField();
+        universityLabel = new javax.swing.JLabel();
+        communityNameTxt = new javax.swing.JTextField();
+        idLabel = new javax.swing.JLabel();
+        communityIdTxt = new javax.swing.JTextField();
         CreateSurvey = new javax.swing.JPanel();
         TakeSurvey = new javax.swing.JPanel();
         CreateBeta = new javax.swing.JPanel();
@@ -117,32 +127,63 @@ public class DeveloperScreen extends javax.swing.JPanel {
 
         genderTxt.setEditable(false);
 
+        universityLabel.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        universityLabel.setText("Community Name:");
+
+        communityNameTxt.setEditable(false);
+        communityNameTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                communityNameTxtActionPerformed(evt);
+            }
+        });
+
+        idLabel.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        idLabel.setText("Community ID:");
+
+        communityIdTxt.setEditable(false);
+        communityIdTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                communityIdTxtActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(177, 177, 177)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(userNameLabel3)
-                    .addComponent(userNameLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5)
-                    .addComponent(userNameLabel2)
-                    .addComponent(phNoLabel)
-                    .addComponent(jLabel2)
-                    .addComponent(userNameLabel))
-                .addGap(76, 76, 76)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lastNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(emailTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(ageTxt, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(passwordTxt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(genderTxt, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(phoneNumberTxt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(firstNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(266, Short.MAX_VALUE))
+                .addGap(157, 157, 157)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(userNameLabel3)
+                            .addComponent(userNameLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5)
+                            .addComponent(userNameLabel2)
+                            .addComponent(phNoLabel)
+                            .addComponent(jLabel2)
+                            .addComponent(userNameLabel))
+                        .addGap(76, 76, 76)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lastNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(emailTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(ageTxt, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(passwordTxt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(genderTxt, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(phoneNumberTxt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(firstNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(universityLabel)
+                            .addComponent(idLabel))
+                        .addGap(72, 72, 72)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(communityIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(communityNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(1, 1, 1)))
+                .addContainerGap(257, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -177,7 +218,15 @@ public class DeveloperScreen extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(phNoLabel)
                     .addComponent(phoneNumberTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(197, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(universityLabel)
+                    .addComponent(communityNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(idLabel)
+                    .addComponent(communityIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(123, Short.MAX_VALUE))
         );
 
         Profile.add(jPanel1, "card2");
@@ -241,6 +290,14 @@ public class DeveloperScreen extends javax.swing.JPanel {
         layout.next(Support);
     }//GEN-LAST:event_DeveloperPanelMouseClicked
 
+    private void communityNameTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_communityNameTxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_communityNameTxtActionPerformed
+
+    private void communityIdTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_communityIdTxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_communityIdTxtActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BetaTesting;
@@ -252,9 +309,12 @@ public class DeveloperScreen extends javax.swing.JPanel {
     private javax.swing.JPanel Support;
     private javax.swing.JPanel TakeSurvey;
     private javax.swing.JTextField ageTxt;
+    private javax.swing.JTextField communityIdTxt;
+    private javax.swing.JTextField communityNameTxt;
     private javax.swing.JTextField emailTxt;
     private javax.swing.JTextField firstNameTxt;
     private javax.swing.JTextField genderTxt;
+    private javax.swing.JLabel idLabel;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
@@ -262,9 +322,20 @@ public class DeveloperScreen extends javax.swing.JPanel {
     private javax.swing.JTextField passwordTxt;
     private javax.swing.JLabel phNoLabel;
     private javax.swing.JTextField phoneNumberTxt;
+    private javax.swing.JLabel universityLabel;
     private javax.swing.JLabel userNameLabel;
     private javax.swing.JLabel userNameLabel1;
     private javax.swing.JLabel userNameLabel2;
     private javax.swing.JLabel userNameLabel3;
     // End of variables declaration//GEN-END:variables
+private void loadDeveloperDetails(Developer developerObj) {
+        firstNameTxt.setText(developerObj.getFirstName());
+        lastNameTxt.setText(developerObj.getLastName());
+        emailTxt.setText(developerObj.getEmail());
+        ageTxt.setText(String.valueOf(developerObj.getAge()));
+        genderTxt.setText(developerObj.getGender());
+        phoneNumberTxt.setText(String.valueOf(developerObj.getPhoneNumber()));
+        communityNameTxt.setText(developerObj.getCommunityName());
+        communityIdTxt.setText(developerObj.getSocialId());
+    }
 }
