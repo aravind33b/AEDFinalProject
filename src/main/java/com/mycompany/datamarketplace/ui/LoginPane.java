@@ -49,6 +49,7 @@ public class LoginPane extends javax.swing.JPanel {
         rolesComboBox = new javax.swing.JComboBox<>();
         loginButton = new javax.swing.JButton();
         navigateToRegisterLabel = new javax.swing.JLabel();
+        navigateToResetPassword = new javax.swing.JLabel();
 
         userNameLabel.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         userNameLabel.setText("Email:");
@@ -80,6 +81,13 @@ public class LoginPane extends javax.swing.JPanel {
             }
         });
 
+        navigateToResetPassword.setText("Forgot Password?");
+        navigateToResetPassword.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                navigateToResetPasswordMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -94,7 +102,8 @@ public class LoginPane extends javax.swing.JPanel {
                     .addComponent(roleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(passwordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(emailTxt)
-                    .addComponent(userNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(userNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(navigateToResetPassword, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE))
                 .addContainerGap(215, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -114,9 +123,11 @@ public class LoginPane extends javax.swing.JPanel {
                 .addComponent(rolesComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(navigateToResetPassword)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(navigateToRegisterLabel)
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -223,11 +234,18 @@ public class LoginPane extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_loginButtonActionPerformed
 
+    private void navigateToResetPasswordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_navigateToResetPasswordMouseClicked
+        // TODO add your handling code here:
+        VerifyPasswordCodePane verifyCode = new VerifyPasswordCodePane(mainSplitPane);
+        mainSplitPane.setBottomComponent(verifyCode);
+    }//GEN-LAST:event_navigateToResetPasswordMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField emailTxt;
     private javax.swing.JButton loginButton;
     private javax.swing.JLabel navigateToRegisterLabel;
+    private javax.swing.JLabel navigateToResetPassword;
     private javax.swing.JLabel passwordLabel;
     private javax.swing.JTextField passwordTxt;
     private javax.swing.JLabel roleLabel;
