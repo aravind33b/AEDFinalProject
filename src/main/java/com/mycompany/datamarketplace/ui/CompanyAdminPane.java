@@ -4,17 +4,27 @@
  */
 package com.mycompany.datamarketplace.ui;
 
+import com.mycompany.datamarketplace.backend.DBUtils;
+import com.mycompany.datamarketplace.datamodels.community.Community;
+import com.mycompany.datamarketplace.datamodels.company.Company;
+import com.mycompany.datamarketplace.datamodels.company.ProductManager;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Admin
  */
 public class CompanyAdminPane extends javax.swing.JPanel {
 
-    /**
-     * Creates new form CompanyAdmin
-     */
+    DBUtils dbUtils;
+    ArrayList<ProductManager> productManagerLists = new ArrayList<>();
     public CompanyAdminPane() {
         initComponents();
+        dbUtils = new DBUtils();
+        productManagerLists = dbUtils.retrieveAllProductManagers(); 
+        populatePMTable(productManagerLists);
     }
 
     /**
@@ -45,26 +55,19 @@ public class CompanyAdminPane extends javax.swing.JPanel {
         passwordTxt1 = new javax.swing.JTextField();
         jTextField19 = new javax.swing.JTextField();
         userNameLabel5 = new javax.swing.JLabel();
-        femaleRadio1 = new javax.swing.JRadioButton();
         emailTxt2 = new javax.swing.JTextField();
         firstNameTxt1 = new javax.swing.JTextField();
         lastNameTxt1 = new javax.swing.JTextField();
         phNoLabel1 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
-        undisclosedRadio1 = new javax.swing.JRadioButton();
-        userNameLabel6 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         userNameLabel4 = new javax.swing.JLabel();
-        maleRadio1 = new javax.swing.JRadioButton();
         phoneNumberTxt2 = new javax.swing.JTextField();
-        ageTxt1 = new javax.swing.JTextField();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTable4 = new javax.swing.JTable();
         idLabel1 = new javax.swing.JLabel();
         deleteCompanyBtn1 = new javax.swing.JButton();
         userNameLabel7 = new javax.swing.JLabel();
-        jButton26 = new javax.swing.JButton();
         createCompanyBtn1 = new javax.swing.JButton();
         studentIdTxt1 = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
@@ -151,46 +154,16 @@ public class CompanyAdminPane extends javax.swing.JPanel {
         userNameLabel5.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         userNameLabel5.setText("Last Name:");
 
-        femaleRadio1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        femaleRadio1.setText("Female");
-        femaleRadio1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                femaleRadio1ActionPerformed(evt);
-            }
-        });
-
         phNoLabel1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         phNoLabel1.setText("Phone Number:");
 
         jLabel30.setText("Search Product Manager:");
 
-        undisclosedRadio1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        undisclosedRadio1.setText("Rather not say");
-        undisclosedRadio1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                undisclosedRadio1ActionPerformed(evt);
-            }
-        });
-
-        userNameLabel6.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        userNameLabel6.setText("Age:");
-
         jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel6.setText("Password:");
 
-        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel3.setText("Gender:");
-
         userNameLabel4.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         userNameLabel4.setText("Email:");
-
-        maleRadio1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        maleRadio1.setText("Male");
-        maleRadio1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                maleRadio1ActionPerformed(evt);
-            }
-        });
 
         jTable4.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -223,8 +196,6 @@ public class CompanyAdminPane extends javax.swing.JPanel {
         userNameLabel7.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         userNameLabel7.setText("First Name:");
 
-        jButton26.setText("Update");
-
         createCompanyBtn1.setText("Create");
         createCompanyBtn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -245,11 +216,9 @@ public class CompanyAdminPane extends javax.swing.JPanel {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
+                        .addGap(135, 135, 135)
                         .addComponent(createCompanyBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton26, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(27, 27, 27)
                         .addComponent(deleteCompanyBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
@@ -258,27 +227,20 @@ public class CompanyAdminPane extends javax.swing.JPanel {
                             .addComponent(userNameLabel5)
                             .addComponent(userNameLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel6)
-                            .addComponent(userNameLabel6)
                             .addComponent(phNoLabel1)
-                            .addComponent(jLabel3)
                             .addComponent(idLabel1))
-                        .addGap(156, 156, 156)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(studentIdTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lastNameTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(firstNameTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(emailTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(155, 155, 155)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lastNameTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(firstNameTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(emailTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(passwordTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(phoneNumberTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(maleRadio1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(femaleRadio1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(undisclosedRadio1))
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(ageTxt1, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(passwordTxt1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(phoneNumberTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(studentIdTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(1, 1, 1)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 127, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
@@ -313,30 +275,19 @@ public class CompanyAdminPane extends javax.swing.JPanel {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6)
                             .addComponent(passwordTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(userNameLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ageTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(phoneNumberTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(phNoLabel1))
+                        .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(maleRadio1)
-                            .addComponent(femaleRadio1)
-                            .addComponent(undisclosedRadio1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(phNoLabel1)
-                            .addComponent(phoneNumberTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(idLabel1)
                             .addComponent(studentIdTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(createCompanyBtn1)
-                            .addComponent(jButton26)
                             .addComponent(deleteCompanyBtn1))))
-                .addContainerGap(102, Short.MAX_VALUE))
+                .addContainerGap(96, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Manage Product manager", jPanel2);
@@ -379,24 +330,77 @@ public class CompanyAdminPane extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void femaleRadio1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_femaleRadio1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_femaleRadio1ActionPerformed
-
-    private void undisclosedRadio1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_undisclosedRadio1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_undisclosedRadio1ActionPerformed
-
-    private void maleRadio1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maleRadio1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_maleRadio1ActionPerformed
-
     private void deleteCompanyBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteCompanyBtn1ActionPerformed
         // TODO add your handling code here:
+        int selectedRowInd = jTable4.getSelectedRow();
+        
+        if(selectedRowInd < 0){
+            JOptionPane.showMessageDialog(this, "Please select a row");
+            return;
+        }
+        
+        DefaultTableModel tableModel = (DefaultTableModel) jTable4.getModel();
+        ProductManager selectedEmployee = (ProductManager)tableModel.getValueAt(selectedRowInd, 0);
+        String companyIdToBeDeleted = selectedEmployee.getEmail();
+        productManagerLists.remove(selectedEmployee);
+        JOptionPane.showMessageDialog(this, "Records deleted");
+        dbUtils.deletePM(companyIdToBeDeleted);
+        populatePMTable(productManagerLists);
     }//GEN-LAST:event_deleteCompanyBtn1ActionPerformed
 
     private void createCompanyBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createCompanyBtn1ActionPerformed
         // TODO add your handling code here:
+        ProductManager productManager = null;
+       String firstName = firstNameTxt1.getText();
+       String lastName = lastNameTxt1.getText();
+       String email = emailTxt2.getText();
+       String gender = "";
+       int age = 0;
+       String universityName = "";
+       String studentId ="";
+       String role = "product_manager";
+       String generalId = "";
+       String password = passwordTxt1.getText();
+       String phoneNo = phoneNumberTxt2.getText();
+       String employeeId = studentIdTxt1.getText();
+       
+       if(dbUtils.checkIfEmailIsUnique(email, role) && dbUtils.checkIfIdIsUnique(employeeId, role)){
+          
+            Boolean isSuccess = dbUtils.insertValuesBasedOnRoles(
+                firstName,
+                lastName,
+                email,
+                password,
+                gender,
+                age,
+                universityName,
+                studentId,
+                employeeId,
+                generalId,
+                role,
+                phoneNo
+            );  
+          
+          if(isSuccess){
+            firstNameTxt1.setText("");
+            lastNameTxt1.setText("");
+            emailTxt2.setText("");
+            phoneNumberTxt2.setText("");
+            emailTxt.setText("");
+            studentIdTxt1.setText("");
+            passwordTxt1.setText("");
+            JOptionPane.showMessageDialog(this, "Your details are saved");
+            productManager= dbUtils.retrievePMDetails(email, "product_manager");
+            productManagerLists.add(productManager);
+            populatePMTable(productManagerLists);
+            return; 
+            }
+          else{
+              JOptionPane.showMessageDialog(this, "Please check your errors");
+              return;
+          }
+          
+        }
     }//GEN-LAST:event_createCompanyBtn1ActionPerformed
 
     private void studentIdTxt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentIdTxt1ActionPerformed
@@ -405,7 +409,6 @@ public class CompanyAdminPane extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField ageTxt1;
     private javax.swing.JTextField cityTxt;
     private javax.swing.JTextField companyIdTxt;
     private javax.swing.JTextField companyNameTxt;
@@ -414,18 +417,15 @@ public class CompanyAdminPane extends javax.swing.JPanel {
     private javax.swing.JButton deleteCompanyBtn1;
     private javax.swing.JTextField emailTxt;
     private javax.swing.JTextField emailTxt2;
-    private javax.swing.JRadioButton femaleRadio1;
     private javax.swing.JTextField firstNameTxt1;
     private javax.swing.JLabel idLabel1;
     private javax.swing.JButton jButton24;
-    private javax.swing.JButton jButton26;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
@@ -437,16 +437,28 @@ public class CompanyAdminPane extends javax.swing.JPanel {
     private javax.swing.JTable jTable4;
     private javax.swing.JTextField jTextField19;
     private javax.swing.JTextField lastNameTxt1;
-    private javax.swing.JRadioButton maleRadio1;
     private javax.swing.JTextField passwordTxt1;
     private javax.swing.JLabel phNoLabel1;
     private javax.swing.JTextField phoneNumberTxt;
     private javax.swing.JTextField phoneNumberTxt2;
     private javax.swing.JTextField studentIdTxt1;
-    private javax.swing.JRadioButton undisclosedRadio1;
     private javax.swing.JLabel userNameLabel4;
     private javax.swing.JLabel userNameLabel5;
-    private javax.swing.JLabel userNameLabel6;
     private javax.swing.JLabel userNameLabel7;
     // End of variables declaration//GEN-END:variables
+
+    private void populatePMTable(ArrayList<ProductManager> productManagerLists) {
+     DefaultTableModel tableModel = (DefaultTableModel) jTable4.getModel();
+        tableModel.setRowCount(0 );
+        
+        for(ProductManager itr: productManagerLists){
+          if(itr != null){
+            Object[] rowOfRecord =  new Object[5];
+            rowOfRecord[0] = itr;
+            rowOfRecord[1] = itr.getLastName();
+            rowOfRecord[2] = itr.getEmail();
+            tableModel.addRow(rowOfRecord);      
+        }     
+        }    
+    }
 }
