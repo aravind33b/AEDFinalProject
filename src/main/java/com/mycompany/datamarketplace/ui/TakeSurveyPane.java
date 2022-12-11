@@ -3,6 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package com.mycompany.datamarketplace.ui;
+import com.mycompany.datamarketplace.backend.DBFeaturesUtils;
+import com.mycompany.datamarketplace.datamodels.feature.survey.SurveyQuestions;
+import com.mycompany.datamarketplace.datamodels.feature.survey.SurveyResponses;
+import com.mycompany.datamarketplace.datamodels.university.Student;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.JSplitPane;
 
 /**
  *
@@ -13,8 +20,17 @@ public class TakeSurveyPane extends javax.swing.JPanel {
     /**
      * Creates new form TakeSurveyPane
      */
-    public TakeSurveyPane() {
+    JSplitPane splitPane;
+    Student studentObj;
+    DBFeaturesUtils dBFeaturesUtils = new DBFeaturesUtils();
+    SurveyQuestions surveyQuestions;
+    ArrayList<SurveyResponses> surveyAnswersList = dBFeaturesUtils.retrieveAllSurveyAnswers();
+    public TakeSurveyPane(JSplitPane splitPane, Student studentObj, SurveyQuestions surveyQuestions) {
         initComponents();
+        this.splitPane = splitPane;
+        this.studentObj = studentObj;
+        this.surveyQuestions = surveyQuestions;
+        populateQuestions();
     }
 
     /**
@@ -47,7 +63,7 @@ public class TakeSurveyPane extends javax.swing.JPanel {
 
         jLabel1.setText("Q1 here");
 
-        jLabel2.setText("Survey Title here");
+        jLabel2.setText("SURVEY TITLE HERE");
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -192,6 +208,79 @@ public class TakeSurveyPane extends javax.swing.JPanel {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        StudentScreen studentSrn;
+        
+        String answer1 = jTextArea1.getText();
+        String answer2 = jTextArea2.getText();
+        String answer3 = jTextArea3.getText();
+        String answer4 = populateAnswer4();
+        String answer5 = populateAnswer5();
+        
+        if(studentObj!=null){
+            String answerGiver = studentObj.getEmail();
+            int surveyId = surveyQuestions.getSurveyId();
+            for(SurveyResponses sq: surveyAnswersList){
+                if(sq.getSurveyId()== surveyId){
+                    JOptionPane.showMessageDialog(this, "Survey already taken");
+                    return;
+                }
+            }
+           
+                    
+            Boolean isSuccess = dBFeaturesUtils.createAnswer(
+                surveyId,
+                answerGiver,
+                answer1,
+                answer2,
+                answer3,
+                answer4,
+                answer5
+            );
+            if(isSuccess){ 
+                JOptionPane.showMessageDialog(this, "Answers are stored");
+                studentSrn = new StudentScreen(splitPane, studentObj);
+                splitPane.setBottomComponent(studentSrn); 
+                
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "Answers are not stored");
+                studentSrn = new StudentScreen(splitPane, studentObj);
+                splitPane.setBottomComponent(studentSrn); 
+            }
+        }
+        
+//        else if(professorObj!=null){
+//            String answerGiver = studentObj.getEmail();
+//            int surveyId = surveyQuestions.getSurveyId();
+//            for(SurveyResponses sq: surveyAnswersList){
+//                if(sq.getSurveyId()== surveyId){
+//                    JOptionPane.showMessageDialog(this, "Survey already taken");
+//                    return;
+//                }
+//            }
+//           
+//                    
+//            Boolean isSuccess = dBFeaturesUtils.createAnswer(
+//                surveyId,
+//                answerGiver,
+//                answer1,
+//                answer2,
+//                answer3,
+//                answer4,
+//                answer5
+//            );
+//            if(isSuccess){ 
+//                JOptionPane.showMessageDialog(this, "Answers are stored");
+//                studentSrn = new StudentScreen(splitPane, studentObj);
+//                splitPane.setBottomComponent(studentSrn); 
+//                
+//            }
+//            else{
+//                JOptionPane.showMessageDialog(this, "Answers are not stored");
+//                studentSrn = new StudentScreen(splitPane, studentObj);
+//                splitPane.setBottomComponent(studentSrn); 
+//            }
+//        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
 
@@ -215,4 +304,25 @@ public class TakeSurveyPane extends javax.swing.JPanel {
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea3;
     // End of variables declaration//GEN-END:variables
+
+    private void populateQuestions() {
+        jLabel2.setText(surveyQuestions.getSurveyTitle());
+        jLabel1.setText(surveyQuestions.getQuestion1());
+        jLabel3.setText(surveyQuestions.getQuestion2());
+        jLabel5.setText(surveyQuestions.getQuestion3());
+        jLabel4.setText(surveyQuestions.getQuestion4());
+        jLabel6.setText(surveyQuestions.getQuestion5());
+    }
+
+    private String populateAnswer4() {
+        if(jRadioButton1.isSelected())
+            return "Agree";
+        return "Disagree";
+    }
+    
+    private String populateAnswer5() {
+        if(jRadioButton3.isSelected())
+            return "Agree";
+        return "Disagree";
+    }
 }

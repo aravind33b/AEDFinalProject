@@ -151,7 +151,7 @@ public class LoginPane extends javax.swing.JPanel {
                 }
                 else{
                     JOptionPane.showMessageDialog(this, "Student login success!");
-                    StudentScreen studentScreen = new StudentScreen(mainSplitPane);
+                    StudentScreen studentScreen = new StudentScreen(mainSplitPane, studentObj);
                     mainSplitPane.setBottomComponent(studentScreen);
                     mainSplitPane.setTopComponent(logoutPanel);
                     emailTxt.setText("");
