@@ -27,6 +27,7 @@
                   <Component id="passwordLabel" alignment="0" min="-2" pref="153" max="-2" attributes="0"/>
                   <Component id="emailTxt" max="32767" attributes="0"/>
                   <Component id="userNameLabel" min="-2" pref="153" max="-2" attributes="0"/>
+                  <Component id="navigateToResetPassword" alignment="1" pref="257" max="32767" attributes="0"/>
               </Group>
               <EmptySpace pref="215" max="32767" attributes="0"/>
           </Group>
@@ -49,9 +50,11 @@
               <Component id="rolesComboBox" min="-2" pref="35" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="loginButton" min="-2" pref="38" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="navigateToResetPassword" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="navigateToRegisterLabel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="65" max="32767" attributes="0"/>
+              <EmptySpace pref="42" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -119,6 +122,14 @@
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="navigateToRegisterLabelMouseClicked"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="navigateToResetPassword">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Forgot Password?"/>
+      </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="navigateToResetPasswordMouseClicked"/>
       </Events>
     </Component>
   </SubComponents>

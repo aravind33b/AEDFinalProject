@@ -256,6 +256,36 @@ public class DBUtils {
        
         return person; 
     }
+    
+    public Person verifyEmail(String emailId) {
+       Person person = null;
+        try {
+            String mailId = "";
+            //String pass = "";
+            
+            Connection conn = createConnection();
+            Statement statement = conn.createStatement();
+            String queryToExecute = "SELECT * FROM forgot_password";
+            System.out.println(queryToExecute);
+            
+            ResultSet rs = statement.executeQuery(queryToExecute);
+            
+            while(rs.next()){
+                mailId = rs.getString("email");
+                //pass = rs.getString("password");
+                
+                
+                if (mailId.equalsIgnoreCase(emailId)){
+                    person = new Person();
+                    person.setEmail(rs.getString("email"));
+                }
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+       
+        return person; 
+    }
 
     public Developer checkIfDeveloperUserExists(String emailId, String pword, String role) {
         Developer dev = null;
