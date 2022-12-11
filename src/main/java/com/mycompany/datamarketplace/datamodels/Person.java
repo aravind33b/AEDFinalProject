@@ -9,6 +9,17 @@ public class Person extends Credentials{
     String phoneNumber;
     Credentials credentials;
     String socialId;
+    int walletBalance;
+
+    public int getWalletBalance() {
+        return walletBalance;
+    }
+
+    public void setWalletBalance(int walletBalance) {
+        this.walletBalance = walletBalance;
+    }
+    
+    
 
     public String getSocialId() {
         return socialId;
