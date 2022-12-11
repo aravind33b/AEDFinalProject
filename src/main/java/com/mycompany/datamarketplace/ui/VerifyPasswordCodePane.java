@@ -188,7 +188,7 @@ public class VerifyPasswordCodePane extends javax.swing.JPanel {
 //            return;
 //        }
 //        else {
-            emailObj.sendEmail(emailTxt.getText(), msg);
+            emailObj.sendEmail("krish765m@gmail.com", msg);
             JOptionPane.showMessageDialog(this, "Please check Email for verification code");
 //            DeveloperScreen developerScreen = new DeveloperScreen();
 //            splitPane.setBottomComponent(developerScreen);

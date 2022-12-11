@@ -139,6 +139,7 @@ public class LoginPane extends javax.swing.JPanel {
         
         RegisterPane registerPane = new RegisterPane(mainSplitPane);
         mainSplitPane.setBottomComponent(registerPane);
+        mainSplitPane.setDividerSize(0);
     }//GEN-LAST:event_navigateToRegisterLabelMouseClicked
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
@@ -165,6 +166,7 @@ public class LoginPane extends javax.swing.JPanel {
                     StudentScreen studentScreen = new StudentScreen(mainSplitPane, studentObj);
                     mainSplitPane.setBottomComponent(studentScreen);
                     mainSplitPane.setTopComponent(logoutPanel);
+                    mainSplitPane.setDividerSize(0);
                     emailTxt.setText("");
                     passwordTxt.setText("");
                     return;
@@ -180,6 +182,7 @@ public class LoginPane extends javax.swing.JPanel {
                     ProfessorScreen professorScreen = new ProfessorScreen(mainSplitPane, professorObj);
                     mainSplitPane.setBottomComponent(professorScreen);
                     mainSplitPane.setTopComponent(logoutPanel);
+                    mainSplitPane.setDividerSize(0);
                     emailTxt.setText("");
                     passwordTxt.setText("");
                     return;
@@ -195,6 +198,7 @@ public class LoginPane extends javax.swing.JPanel {
                     GeneralUserScreen generalUserScreen = new GeneralUserScreen(mainSplitPane, personObj);
                     mainSplitPane.setBottomComponent(generalUserScreen);
                     mainSplitPane.setTopComponent(logoutPanel);
+                    mainSplitPane.setDividerSize(0);
                     emailTxt.setText("");
                     passwordTxt.setText("");
                     return;
@@ -211,6 +215,7 @@ public class LoginPane extends javax.swing.JPanel {
                     DeveloperScreen developerScreen = new DeveloperScreen(mainSplitPane, devObj);
                     mainSplitPane.setBottomComponent(developerScreen);
                     mainSplitPane.setTopComponent(logoutPanel);
+                    mainSplitPane.setDividerSize(0);
                     emailTxt.setText("");
                     passwordTxt.setText("");
                     return;
@@ -227,6 +232,7 @@ public class LoginPane extends javax.swing.JPanel {
                     ProductManagerScreen managerScreen = new ProductManagerScreen();
                     mainSplitPane.setBottomComponent(managerScreen);
                     mainSplitPane.setTopComponent(logoutPanel);
+                    mainSplitPane.setDividerSize(0);
                     emailTxt.setText("");
                     passwordTxt.setText("");
                     return;
@@ -238,6 +244,7 @@ public class LoginPane extends javax.swing.JPanel {
         // TODO add your handling code here:
         VerifyPasswordCodePane verifyCode = new VerifyPasswordCodePane(mainSplitPane);
         mainSplitPane.setBottomComponent(verifyCode);
+        mainSplitPane.setDividerSize(0);
     }//GEN-LAST:event_navigateToResetPasswordMouseClicked
 
 

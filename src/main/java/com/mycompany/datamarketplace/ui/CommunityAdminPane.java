@@ -4,6 +4,8 @@
  */
 package com.mycompany.datamarketplace.ui;
 
+import java.awt.Cursor;
+
 /**
  *
  * @author aravind
@@ -70,6 +72,12 @@ public class CommunityAdminPane extends javax.swing.JPanel {
         jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
 
+        jTabbedPane3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jTabbedPane3MouseEntered(evt);
+            }
+        });
+
         jLabel29.setText("Contact No:");
 
         jLabel30.setText("Company Name");
@@ -77,6 +85,11 @@ public class CommunityAdminPane extends javax.swing.JPanel {
         jLabel31.setText("Country");
 
         jButton26.setText("Update");
+        jButton26.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton26MouseEntered(evt);
+            }
+        });
 
         jLabel32.setText("Company ID:");
 
@@ -403,46 +416,32 @@ public class CommunityAdminPane extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_studentIdTxt1ActionPerformed
 
+    private void jTabbedPane3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane3MouseEntered
+        // TODO add your handling code here:
+        jTabbedPane3.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_jTabbedPane3MouseEntered
+
+    private void jButton26MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton26MouseEntered
+        // TODO add your handling code here:
+        jButton26.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_jButton26MouseEntered
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField ageTxt1;
-    private javax.swing.JTextField cityTxt;
-    private javax.swing.JTextField cityTxt1;
     private javax.swing.JTextField cityTxt2;
-    private javax.swing.JTextField companyIdTxt;
-    private javax.swing.JTextField companyIdTxt1;
     private javax.swing.JTextField companyIdTxt2;
-    private javax.swing.JTextField companyNameTxt;
-    private javax.swing.JTextField companyNameTxt1;
     private javax.swing.JTextField companyNameTxt2;
-    private javax.swing.JTextField countryTxt;
-    private javax.swing.JTextField countryTxt1;
     private javax.swing.JTextField countryTxt2;
     private javax.swing.JButton createCompanyBtn1;
     private javax.swing.JButton deleteCompanyBtn1;
-    private javax.swing.JTextField emailTxt;
-    private javax.swing.JTextField emailTxt1;
     private javax.swing.JTextField emailTxt2;
     private javax.swing.JTextField emailTxt3;
     private javax.swing.JRadioButton femaleRadio1;
     private javax.swing.JTextField firstNameTxt1;
     private javax.swing.JLabel idLabel1;
-    private javax.swing.JButton jButton24;
-    private javax.swing.JButton jButton25;
     private javax.swing.JButton jButton26;
     private javax.swing.JButton jButton27;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
@@ -452,15 +451,11 @@ public class CommunityAdminPane extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTabbedPane jTabbedPane3;
     private javax.swing.JTable jTable4;
     private javax.swing.JTextField jTextField19;
@@ -468,8 +463,6 @@ public class CommunityAdminPane extends javax.swing.JPanel {
     private javax.swing.JRadioButton maleRadio1;
     private javax.swing.JTextField passwordTxt1;
     private javax.swing.JLabel phNoLabel1;
-    private javax.swing.JTextField phoneNumberTxt;
-    private javax.swing.JTextField phoneNumberTxt1;
     private javax.swing.JTextField phoneNumberTxt2;
     private javax.swing.JTextField phoneNumberTxt3;
     private javax.swing.JTextField studentIdTxt1;
