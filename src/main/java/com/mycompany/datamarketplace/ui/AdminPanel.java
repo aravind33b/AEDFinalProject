@@ -28,6 +28,7 @@ public class AdminPanel extends javax.swing.JPanel {
     ArrayList<University> universityList;
     ArrayList<Country> countryList;
     ArrayList<Community> communityList;
+    int row,col;
     
     public AdminPanel() {
         initComponents();
@@ -126,7 +127,7 @@ public class AdminPanel extends javax.swing.JPanel {
         universityTbl = new javax.swing.JTable();
         createUniBtn = new javax.swing.JButton();
         searchUniversity = new javax.swing.JTextField();
-        jButton21 = new javax.swing.JButton();
+        updateUniBtn = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
         deleteUniBtn = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
@@ -195,6 +196,11 @@ public class AdminPanel extends javax.swing.JPanel {
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        companyTbl.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                companyTblMouseClicked(evt);
             }
         });
         jScrollPane3.setViewportView(companyTbl);
@@ -726,7 +732,7 @@ public class AdminPanel extends javax.swing.JPanel {
             }
         });
 
-        jButton21.setText("Update");
+        updateUniBtn.setText("Update");
 
         jLabel15.setText("Search Universities:");
 
@@ -742,6 +748,18 @@ public class AdminPanel extends javax.swing.JPanel {
         jLabel22.setText("Email:");
 
         jLabel23.setText("Contact No:");
+
+        emailTxt2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                emailTxt2KeyReleased(evt);
+            }
+        });
+
+        phoneNumberTxt2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                phoneNumberTxt2KeyReleased(evt);
+            }
+        });
 
         validationLbl2.setForeground(new java.awt.Color(255, 51, 51));
 
@@ -778,7 +796,7 @@ public class AdminPanel extends javax.swing.JPanel {
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addComponent(createUniBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton21, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(updateUniBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(deleteUniBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(validationLbl2, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -835,7 +853,7 @@ public class AdminPanel extends javax.swing.JPanel {
                         .addGap(40, 40, 40)))
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(createUniBtn)
-                    .addComponent(jButton21)
+                    .addComponent(updateUniBtn)
                     .addComponent(deleteUniBtn))
                 .addContainerGap(324, Short.MAX_VALUE))
         );
@@ -883,6 +901,12 @@ public class AdminPanel extends javax.swing.JPanel {
         jScrollPane6.setViewportView(adminsTable);
 
         jLabel33.setText("Role");
+
+        adminEmailTxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                adminEmailTxtKeyReleased(evt);
+            }
+        });
 
         jLabel36.setText("Admin Email");
 
@@ -1583,6 +1607,84 @@ public class AdminPanel extends javax.swing.JPanel {
             updateSupportAdminBtn.setEnabled(false);
         }
     }//GEN-LAST:event_supportEmailTxtKeyReleased
+
+    private void emailTxt2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_emailTxt2KeyReleased
+        // TODO add your handling code here:
+        String e = emailTxt2.getText();
+       
+        if(Pattern.matches("^(.+)@(\\S+)$", e)){
+              validationLbl2.setText("");
+              createUniBtn.setEnabled(true);
+              updateUniBtn.setEnabled(true);
+         }
+        else{
+            validationLbl2.setText("You must enter valid Email address");
+            createUniBtn.setEnabled(false);
+            updateUniBtn.setEnabled(false);
+        }
+    }//GEN-LAST:event_emailTxt2KeyReleased
+
+    private void phoneNumberTxt2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_phoneNumberTxt2KeyReleased
+        // TODO add your handling code here:
+        String p = phoneNumberTxt2.getText();
+       
+        if(Pattern.matches("^\\+?[1-9][0-9]{9,14}$", p)){
+              validationLbl2.setText("");
+              createUniBtn.setEnabled(true);
+              updateUniBtn.setEnabled(true);
+         }
+        else{
+            validationLbl2.setText("You must enter valid Contact Number");
+            createUniBtn.setEnabled(false);
+            updateUniBtn.setEnabled(false);
+        }
+    }//GEN-LAST:event_phoneNumberTxt2KeyReleased
+
+    private void adminEmailTxtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_adminEmailTxtKeyReleased
+        // TODO add your handling code here:
+        String e = adminEmailTxt.getText();
+       
+        if(Pattern.matches("^(.+)@(\\S+)$", e)){
+              validationLbl3.setText("");
+              createAdminRoleBtn.setEnabled(true);
+         }
+        else{
+            validationLbl3.setText("You must enter valid Email address");
+            createAdminRoleBtn.setEnabled(false);
+        }
+    }//GEN-LAST:event_adminEmailTxtKeyReleased
+
+    private void companyTblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_companyTblMouseClicked
+        // TODO add your handling code here:
+        DefaultTableModel ShowDetails = (DefaultTableModel)companyTbl.getModel();
+        row = companyTbl.getSelectedRow();
+        col = companyTbl.getColumnCount();
+        System.out.println(row+","+ col);
+        if(companyTbl.getSelectedRow()==-1){
+            
+            if(companyTbl.getRowCount()==0){
+                validationLbl.setText("Table is Empty");
+            }
+            else{
+                validationLbl.setText("You must select a Row");
+            }
+        }
+        else{
+//            EmpID.setText(employee.get(row).id);
+//            EmpName.setText(employee.get(row).name);
+//            EmpPhone.setText(employee.get(row).phoneNo);
+//            EmpEmail.setText(employee.get(row).email);
+//            EmpAge.setText(Integer.toString(employee.get(row).age));
+//            EmpGender.setText(employee.get(row).empGender);
+//            EmpStartDate.setText(employee.get(row).startDate);
+//            EmpLevel.setText(employee.get(row).empLevel);
+//            EmpTeam.setText(employee.get(row).empTeam);
+//            EmpPosition.setText(employee.get(row).position);
+//            ProfilePicIcon.setIcon(employee.get(row).profilePic);
+            
+            
+        }
+    }//GEN-LAST:event_companyTblMouseClicked
  private void populateCompanyTable(ArrayList<Company> companyList) {
         DefaultTableModel tableModel = (DefaultTableModel) companyTbl.getModel();
         tableModel.setRowCount(0 );
@@ -1650,7 +1752,6 @@ public class AdminPanel extends javax.swing.JPanel {
     private javax.swing.JTextField emailTxt2;
     private javax.swing.JTextField firstNameTxt;
     private javax.swing.JTextField institutionTx;
-    private javax.swing.JButton jButton21;
     private javax.swing.JButton jButton28;
     private javax.swing.JButton jButton29;
     private javax.swing.JButton jButton31;
@@ -1713,6 +1814,7 @@ public class AdminPanel extends javax.swing.JPanel {
     private javax.swing.JTable universityTbl;
     private javax.swing.JButton updateCompanyBtn;
     private javax.swing.JButton updateSupportAdminBtn;
+    private javax.swing.JButton updateUniBtn;
     private javax.swing.JLabel validationLbl;
     private javax.swing.JLabel validationLbl1;
     private javax.swing.JLabel validationLbl2;

@@ -233,6 +233,8 @@ public class RegisterPane extends javax.swing.JPanel {
             }
         });
 
+        validationLbl.setForeground(new java.awt.Color(255, 51, 51));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
