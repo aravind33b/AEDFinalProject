@@ -30,6 +30,7 @@ public class AdminPanel extends javax.swing.JPanel {
     ArrayList<Country> countryList;
     ArrayList<Community> communityList;
     int row,col;
+    int selectedRowTemp;
     
     public AdminPanel() {
         initComponents();
@@ -168,6 +169,11 @@ public class AdminPanel extends javax.swing.JPanel {
         jPanel8.setPreferredSize(new java.awt.Dimension(800, 800));
 
         updateCompanyBtn.setText("Update");
+        updateCompanyBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateCompanyBtnActionPerformed(evt);
+            }
+        });
 
         jLabel17.setText("City");
 
@@ -230,6 +236,8 @@ public class AdminPanel extends javax.swing.JPanel {
                 searchTxtKeyReleased(evt);
             }
         });
+
+        companyIdTxt.setEditable(false);
 
         emailTxt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -1041,7 +1049,7 @@ public class AdminPanel extends javax.swing.JPanel {
             .addComponent(Home1, javax.swing.GroupLayout.DEFAULT_SIZE, 784, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void createCompanyBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createCompanyBtnActionPerformed
         // TODO add your handling code here:
         Company companyObject = null;
@@ -1723,6 +1731,7 @@ public class AdminPanel extends javax.swing.JPanel {
     private void populateValuesBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_populateValuesBtnActionPerformed
         // TODO add your handling code here:
         int selectedRowInd = companyTbl.getSelectedRow();
+        selectedRowTemp = selectedRowInd;
         if(selectedRowInd < 0){
             JOptionPane.showMessageDialog(this, "Please select a row");
             return;
@@ -1736,6 +1745,47 @@ public class AdminPanel extends javax.swing.JPanel {
         emailTxt.setText(selectedEmployee.getOfficialEmail());
         phoneNumberTxt.setText(selectedEmployee.getOfficialPhone());
     }//GEN-LAST:event_populateValuesBtnActionPerformed
+
+    private void updateCompanyBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateCompanyBtnActionPerformed
+        // TODO add your handling code here:
+        Company companyObject = null;
+        String companyName = companyNameTxt.getText();
+        String city = cityTxt.getText();
+        String country = countryTxt.getText();
+        String companyId = companyIdTxt.getText();
+        String officialEmail = emailTxt.getText();
+        String officialPhone = phoneNumberTxt.getText();
+        String tableName = "company";
+        Boolean isSuccess = dbAdminUtils.updateDetails(
+                companyName,
+                city,
+                country,
+                companyId,
+                officialEmail,
+                officialPhone,
+                tableName
+            );
+
+            if(isSuccess){
+                System.out.println(isSuccess);
+                companyNameTxt.setText("");
+                cityTxt.setText("");
+                countryTxt.setText("");
+                companyIdTxt.setText("");
+                emailTxt.setText("");
+                phoneNumberTxt.setText("");
+                companyList.remove(selectedRowTemp);
+                JOptionPane.showMessageDialog(this, "Company details are updated!");
+                companyObject = dbAdminUtils.retrieveCompanyDetails(companyId, tableName);
+                companyList.add(companyObject);
+                populateCompanyTable(companyList);
+            }
+            else{
+                  System.out.println(isSuccess);
+                  JOptionPane.showMessageDialog(this, "Please check your errors");
+                  return;
+             }
+    }//GEN-LAST:event_updateCompanyBtnActionPerformed
 //>>>>>>> b49f35430f90e99e70bcf00cf28fae2db6f7a1c0
  private void populateCompanyTable(ArrayList<Company> companyList) {
         DefaultTableModel tableModel = (DefaultTableModel) companyTbl.getModel();
@@ -1746,8 +1796,8 @@ public class AdminPanel extends javax.swing.JPanel {
             Object[] rowOfRecord =  new Object[5];
             rowOfRecord[0] = itr;
             rowOfRecord[1] = itr.getCity();
-            rowOfRecord[2] = itr.getCountry();
-            rowOfRecord[3] = itr.getCompanyId();
+            rowOfRecord[2] = itr.getCompanyId();
+            rowOfRecord[3] = itr.getOfficialPhone();
             tableModel.addRow(rowOfRecord);      
         }     
         }
