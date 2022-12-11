@@ -10,6 +10,7 @@ import com.mycompany.datamarketplace.datamodels.company.Company;
 import com.mycompany.datamarketplace.datamodels.government.Country;
 import com.mycompany.datamarketplace.datamodels.misc.SupportAdmin;
 import com.mycompany.datamarketplace.datamodels.university.University;
+import java.awt.Cursor;
 import java.util.ArrayList;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
@@ -156,6 +157,12 @@ public class AdminPanel extends javax.swing.JPanel {
         validationLbl3 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(800, 800));
+
+        Home1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Home1MouseEntered(evt);
+            }
+        });
 
         jPanel8.setPreferredSize(new java.awt.Dimension(800, 800));
 
@@ -833,7 +840,6 @@ public class AdminPanel extends javax.swing.JPanel {
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(countryTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel7Layout.createSequentialGroup()
                                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1608,6 +1614,7 @@ public class AdminPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_supportEmailTxtKeyReleased
 
+<<<<<<< HEAD
     private void emailTxt2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_emailTxt2KeyReleased
         // TODO add your handling code here:
         String e = emailTxt2.getText();
@@ -1685,6 +1692,12 @@ public class AdminPanel extends javax.swing.JPanel {
             
         }
     }//GEN-LAST:event_companyTblMouseClicked
+=======
+    private void Home1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Home1MouseEntered
+        // TODO add your handling code here:
+        Home1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_Home1MouseEntered
+>>>>>>> b49f35430f90e99e70bcf00cf28fae2db6f7a1c0
  private void populateCompanyTable(ArrayList<Company> companyList) {
         DefaultTableModel tableModel = (DefaultTableModel) companyTbl.getModel();
         tableModel.setRowCount(0 );

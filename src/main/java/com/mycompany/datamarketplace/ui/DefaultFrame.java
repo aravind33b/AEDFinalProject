@@ -4,6 +4,8 @@
  */
 package com.mycompany.datamarketplace.ui;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author Admin
@@ -12,7 +14,9 @@ public class DefaultFrame extends javax.swing.JFrame {
 
     public DefaultFrame() {
         initComponents();
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         DefaultBottomPanel defaultPane = new DefaultBottomPanel();
+        splitPane.setDividerSize(0);
         DefaultTopPanel defaultTopPane = new DefaultTopPanel(splitPane);
         splitPane.setBottomComponent(defaultPane);
         splitPane.setTopComponent(defaultTopPane);
@@ -32,6 +36,8 @@ public class DefaultFrame extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("DeForms by The Survey Apes");
+        setSize(new java.awt.Dimension(1024, 640));
 
         splitPane.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
         splitPane.setPreferredSize(new java.awt.Dimension(800, 800));
@@ -40,7 +46,7 @@ public class DefaultFrame extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
+            .addGap(0, 1920, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -53,11 +59,11 @@ public class DefaultFrame extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
+            .addGap(0, 1920, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 695, Short.MAX_VALUE)
+            .addGap(0, 1080, Short.MAX_VALUE)
         );
 
         splitPane.setRightComponent(jPanel2);

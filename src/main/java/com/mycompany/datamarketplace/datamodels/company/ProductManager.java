@@ -4,9 +4,7 @@ package com.mycompany.datamarketplace.datamodels.company;
 import com.mycompany.datamarketplace.datamodels.Person;
 
 public class ProductManager extends Person {
-    
     Person person;
-    
     String companyId;
     String companyName;
     String employeeId;
@@ -36,5 +34,9 @@ public class ProductManager extends Person {
         this.employeeId = employeeId;
     }
     
+     @Override
+    public String toString(){
+        return employeeId;
+    }
     
 }

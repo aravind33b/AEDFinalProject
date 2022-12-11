@@ -1,14 +1,18 @@
 
 package com.mycompany.datamarketplace.backend;
 
+import static com.mycompany.datamarketplace.backend.DBAdminUtils.createConnection;
 import com.mycompany.datamarketplace.datamodels.Person;
 import com.mycompany.datamarketplace.datamodels.community.Developer;
+import com.mycompany.datamarketplace.datamodels.company.ProductManager;
+import com.mycompany.datamarketplace.datamodels.misc.SupportAdmin;
 import com.mycompany.datamarketplace.datamodels.university.Professor;
 import com.mycompany.datamarketplace.datamodels.university.Student;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 /**
  *
@@ -322,5 +326,74 @@ public class DBUtils {
         }
        
         return dev; 
+    }
+
+    public ArrayList<ProductManager> retrieveAllProductManagers() {
+        ArrayList<ProductManager> companyList = new ArrayList<>();
+            ProductManager supportAdmin = null;
+                try{
+                    Connection conn = createConnection();
+                    Statement statement = conn.createStatement();
+                    String queryToExecute = "SELECT * FROM product_manager";
+                    System.out.println(queryToExecute);
+
+                    ResultSet rs = statement.executeQuery(queryToExecute);
+
+                    while(rs.next()){
+                            supportAdmin = new ProductManager();
+                            supportAdmin.setFirstName(rs.getString("first_name"));
+                            supportAdmin.setLastName(rs.getString("last_name"));
+                            supportAdmin.setEmail(rs.getString("email"));
+                            supportAdmin.setPassword(rs.getString("password"));
+                            
+                            companyList.add(supportAdmin);
+                    }
+
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
+
+            return companyList;  
+    }
+
+    public ProductManager retrievePMDetails(String email, String tableName) {
+            ProductManager supportAdmin = null;
+            try {
+                String companyIdentity = "";
+                Connection conn = createConnection();
+                Statement statement = conn.createStatement();
+                String queryToExecute = "SELECT * FROM product_manager";
+                System.out.println(queryToExecute);
+
+                ResultSet rs = statement.executeQuery(queryToExecute);
+
+                while(rs.next()){
+                    companyIdentity = rs.getString("email");
+                    if (companyIdentity.equalsIgnoreCase(email)){
+                            supportAdmin = new ProductManager();
+                            supportAdmin.setFirstName(rs.getString("first_name"));
+                            supportAdmin.setLastName(rs.getString("last_name"));
+                            supportAdmin.setEmail(rs.getString("email"));
+                            supportAdmin.setPassword(rs.getString("password"));
+                    }
+                }
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+
+            return supportAdmin;
+    }
+
+    public void deletePM(String companyIdToBeDeleted) {
+        try{
+                Connection conn = createConnection();
+                Statement statement = conn.createStatement();
+                String queryToExecute = "DELETE from product_manager where email ='"+companyIdToBeDeleted+"'";
+                statement.execute(queryToExecute);
+                System.out.println(queryToExecute);
+
+            } catch (Exception e) {
+                System.out.println(e);
+            } 
     }
 }
