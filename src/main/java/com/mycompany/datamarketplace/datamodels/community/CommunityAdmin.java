@@ -10,8 +10,23 @@ import com.mycompany.datamarketplace.datamodels.Person;
  *
  * @author kashyabmurali
  */
-public class CommunityAdmin {
-    Person person;
+public class CommunityAdmin extends Person{
     int communityId;
     String communityName;
+
+    public int getCommunityId() {
+        return communityId;
+    }
+
+    public void setCommunityId(int communityId) {
+        this.communityId = communityId;
+    }
+
+    public String getCommunityName() {
+        return communityName;
+    }
+
+    public void setCommunityName(String communityName) {
+        this.communityName = communityName;
+    }
 }

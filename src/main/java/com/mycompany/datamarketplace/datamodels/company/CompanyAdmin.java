@@ -10,7 +10,15 @@ import com.mycompany.datamarketplace.datamodels.Person;
  *
  * @author kashyabmurali
  */
-public class CompanyAdmin {
+public class CompanyAdmin extends Person{
     String companyId;
     Person person;
+
+    public String getCompanyId() {
+        return companyId;
+    }
+
+    public void setCompanyId(String companyId) {
+        this.companyId = companyId;
+    }
 }
