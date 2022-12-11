@@ -4,11 +4,14 @@
  */
 package com.mycompany.datamarketplace.ui;
 import com.mycompany.datamarketplace.backend.DBFeaturesUtils;
+import com.mycompany.datamarketplace.datamodels.Person;
 import com.mycompany.datamarketplace.datamodels.community.Community;
+import com.mycompany.datamarketplace.datamodels.community.Developer;
 import com.mycompany.datamarketplace.datamodels.company.Company;
 import javax.swing.JOptionPane;
 import javax.swing.JSplitPane;
 import com.mycompany.datamarketplace.datamodels.feature.survey.SurveyQuestions;
+import com.mycompany.datamarketplace.datamodels.university.Professor;
 import com.mycompany.datamarketplace.datamodels.university.Student;
 import com.mycompany.datamarketplace.ui.StudentScreen;
 import java.util.ArrayList;
@@ -38,6 +41,33 @@ public class AvailableSurveyList extends javax.swing.JPanel {
         this.studentObj = studentObj;
         this.splitPane = splitPane;
         ownerOfTheEmail = studentObj.getEmail();
+        populateSurveyTable();
+    }
+    
+    Professor professorObj;
+    public AvailableSurveyList(Professor professorObj, JSplitPane splitPane) {
+        initComponents();
+        this.professorObj = professorObj;
+        this.splitPane = splitPane;
+        ownerOfTheEmail = professorObj.getEmail();
+        populateSurveyTable();
+    }
+    
+    Developer developerObj;
+    public AvailableSurveyList(Developer developerObj, JSplitPane splitPane) {
+        initComponents();
+        this.developerObj = developerObj;
+        this.splitPane = splitPane;
+        ownerOfTheEmail = developerObj.getEmail();
+        populateSurveyTable();
+    }
+    
+    Person personObj;
+    public AvailableSurveyList(Person personObj, JSplitPane splitPane) {
+        initComponents();
+        this.personObj = personObj;
+        this.splitPane = splitPane;
+        ownerOfTheEmail = personObj.getEmail();
         populateSurveyTable();
     }
 
@@ -140,6 +170,18 @@ public class AvailableSurveyList extends javax.swing.JPanel {
         TakeSurveyPane takeSurvey;
         if(studentObj!=null){
             takeSurvey = new TakeSurveyPane(splitPane, studentObj, selectedSurvey);
+            splitPane.setBottomComponent(takeSurvey);
+        }
+        else if(developerObj!=null){
+            takeSurvey = new TakeSurveyPane(splitPane, developerObj, selectedSurvey);
+            splitPane.setBottomComponent(takeSurvey);
+        }
+        else if(professorObj!=null){
+            takeSurvey = new TakeSurveyPane(splitPane, professorObj, selectedSurvey);
+            splitPane.setBottomComponent(takeSurvey);
+        }
+        else if(personObj!=null){
+            takeSurvey = new TakeSurveyPane(splitPane, personObj, selectedSurvey);
             splitPane.setBottomComponent(takeSurvey);
         }
         

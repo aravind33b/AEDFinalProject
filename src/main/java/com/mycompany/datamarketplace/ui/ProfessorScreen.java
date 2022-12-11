@@ -5,6 +5,7 @@
 package com.mycompany.datamarketplace.ui;
 
 import com.mycompany.datamarketplace.datamodels.feature.survey.SurveyQuestions;
+import com.mycompany.datamarketplace.datamodels.university.Professor;
 import java.awt.CardLayout;
 import javax.swing.JSplitPane;
 
@@ -26,17 +27,21 @@ public class ProfessorScreen extends javax.swing.JPanel {
     AvailableBetaTestingList betaTestingList;
     CreateBetaTestingPanel createBetaTests;
     CardLayout layout;
+    Professor professorObj;
     
     int selectedSurveyIndex;
-    public ProfessorScreen() {
+    public ProfessorScreen(JSplitPane splitPane, Professor professorObj) {
         initComponents();
         this.splitPane = splitPane;
-        availableSurvey = new AvailableSurveyList();
-        createNewSurvey = new SurveyCreatingPanel();
+        this.professorObj = professorObj;
+        availableSurvey = new AvailableSurveyList(professorObj, splitPane);
+        createNewSurvey = new SurveyCreatingPanel(professorObj);
         rewards = new RewardsPanel();
         supportRequest = new SupportPane();
         betaTestingList = new AvailableBetaTestingList();
         createBetaTests = new CreateBetaTestingPanel();
+        
+        loadProfessorDetails(professorObj);
     }
 
     /**
@@ -65,6 +70,10 @@ public class ProfessorScreen extends javax.swing.JPanel {
         phNoLabel = new javax.swing.JLabel();
         phoneNumberTxt = new javax.swing.JTextField();
         genderTxt = new javax.swing.JTextField();
+        studentIdTxt = new javax.swing.JTextField();
+        universityLabel = new javax.swing.JLabel();
+        universityNameTxt = new javax.swing.JTextField();
+        idLabel = new javax.swing.JLabel();
         CreateSurvey = new javax.swing.JPanel();
         TakeSurvey = new javax.swing.JPanel();
         CreateBeta = new javax.swing.JPanel();
@@ -115,31 +124,60 @@ public class ProfessorScreen extends javax.swing.JPanel {
 
         genderTxt.setEditable(false);
 
+        studentIdTxt.setEditable(false);
+        studentIdTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                studentIdTxtActionPerformed(evt);
+            }
+        });
+
+        universityLabel.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        universityLabel.setText("University Name:");
+
+        universityNameTxt.setEditable(false);
+        universityNameTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                universityNameTxtActionPerformed(evt);
+            }
+        });
+
+        idLabel.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        idLabel.setText("ID Number:");
+
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGap(118, 118, 118)
+                .addGap(95, 95, 95)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(userNameLabel3)
+                        .addComponent(userNameLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel5)
+                        .addComponent(userNameLabel2)
+                        .addComponent(phNoLabel)
+                        .addComponent(jLabel2)
+                        .addComponent(userNameLabel))
+                    .addComponent(universityLabel)
+                    .addComponent(idLabel))
+                .addGap(72, 72, 72)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(userNameLabel3)
-                    .addComponent(userNameLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5)
-                    .addComponent(userNameLabel2)
-                    .addComponent(phNoLabel)
-                    .addComponent(jLabel2)
-                    .addComponent(userNameLabel))
-                .addGap(73, 73, 73)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lastNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(emailTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(ageTxt, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(passwordTxt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE))
-                    .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(genderTxt, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(phoneNumberTxt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE))
-                    .addComponent(firstNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(lastNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(emailTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(ageTxt, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(passwordTxt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE))
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(genderTxt, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(phoneNumberTxt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE))
+                        .addComponent(firstNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(studentIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(universityNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(1, 1, 1)))
                 .addGap(0, 328, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
@@ -175,7 +213,15 @@ public class ProfessorScreen extends javax.swing.JPanel {
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(phNoLabel)
                     .addComponent(phoneNumberTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(182, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(universityLabel)
+                    .addComponent(universityNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(idLabel)
+                    .addComponent(studentIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(108, Short.MAX_VALUE))
         );
 
         Profile.add(jPanel8, "card2");
@@ -239,6 +285,14 @@ public class ProfessorScreen extends javax.swing.JPanel {
         layout.next(Support);
     }//GEN-LAST:event_jTabbedPane1MouseClicked
 
+    private void studentIdTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentIdTxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_studentIdTxtActionPerformed
+
+    private void universityNameTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_universityNameTxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_universityNameTxtActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BetaTesting;
@@ -252,6 +306,7 @@ public class ProfessorScreen extends javax.swing.JPanel {
     private javax.swing.JTextField emailTxt;
     private javax.swing.JTextField firstNameTxt;
     private javax.swing.JTextField genderTxt;
+    private javax.swing.JLabel idLabel;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel8;
@@ -260,9 +315,22 @@ public class ProfessorScreen extends javax.swing.JPanel {
     private javax.swing.JTextField passwordTxt;
     private javax.swing.JLabel phNoLabel;
     private javax.swing.JTextField phoneNumberTxt;
+    private javax.swing.JTextField studentIdTxt;
+    private javax.swing.JLabel universityLabel;
+    private javax.swing.JTextField universityNameTxt;
     private javax.swing.JLabel userNameLabel;
     private javax.swing.JLabel userNameLabel1;
     private javax.swing.JLabel userNameLabel2;
     private javax.swing.JLabel userNameLabel3;
     // End of variables declaration//GEN-END:variables
+    private void loadProfessorDetails(Professor professorObj) {
+        firstNameTxt.setText(professorObj.getFirstName());
+        lastNameTxt.setText(professorObj.getLastName());
+        emailTxt.setText(professorObj.getEmail());
+        ageTxt.setText(String.valueOf(professorObj.getAge()));
+        genderTxt.setText(professorObj.getGender());
+        phoneNumberTxt.setText(String.valueOf(professorObj.getPhoneNumber()));
+        universityNameTxt.setText(professorObj.getUniversityName());
+        studentIdTxt.setText(professorObj.getEmployeeId());
+    }
 }

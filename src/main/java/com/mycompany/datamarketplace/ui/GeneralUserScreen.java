@@ -5,6 +5,7 @@
 package com.mycompany.datamarketplace.ui;
 
 import com.mycompany.datamarketplace.datamodels.feature.survey.SurveyQuestions;
+import com.mycompany.datamarketplace.datamodels.Person;
 import java.awt.CardLayout;
 import java.awt.Component;
 import java.awt.GridLayout;
@@ -28,14 +29,18 @@ public class GeneralUserScreen extends javax.swing.JPanel {
     SupportPane supportPanel;
     int selectedSurveyIndex;
     CardLayout layout;
+    Person personObj;
     
-    public GeneralUserScreen() {
+    public GeneralUserScreen(JSplitPane splitPane, Person personObj) {
         initComponents();
         this.splitPane = splitPane;
-        availableSurvey = new AvailableSurveyList();
-        createSurvey = new SurveyCreatingPanel();
+        this.personObj = personObj;
+        availableSurvey = new AvailableSurveyList(personObj, splitPane);
+        createSurvey = new SurveyCreatingPanel(personObj);
         rewardsScreen = new RewardsPanel();
         supportPanel = new SupportPane();
+        loadPersonDetails(personObj);
+        
     }
 
     /**
@@ -296,4 +301,14 @@ public class GeneralUserScreen extends javax.swing.JPanel {
     private javax.swing.JLabel userNameLabel2;
     private javax.swing.JLabel userNameLabel3;
     // End of variables declaration//GEN-END:variables
+
+private void loadPersonDetails(Person personObj) {
+        firstNameTxt.setText(personObj.getFirstName());
+        lastNameTxt.setText(personObj.getLastName());
+        emailTxt.setText(personObj.getEmail());
+        ageTxt.setText(String.valueOf(personObj.getAge()));
+        genderTxt.setText(personObj.getGender());
+        phoneNumberTxt.setText(String.valueOf(personObj.getPhoneNumber()));
+        
+    }
 }

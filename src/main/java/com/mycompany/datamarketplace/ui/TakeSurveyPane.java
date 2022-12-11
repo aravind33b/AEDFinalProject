@@ -4,8 +4,11 @@
  */
 package com.mycompany.datamarketplace.ui;
 import com.mycompany.datamarketplace.backend.DBFeaturesUtils;
+import com.mycompany.datamarketplace.datamodels.Person;
+import com.mycompany.datamarketplace.datamodels.community.Developer;
 import com.mycompany.datamarketplace.datamodels.feature.survey.SurveyQuestions;
 import com.mycompany.datamarketplace.datamodels.feature.survey.SurveyResponses;
+import com.mycompany.datamarketplace.datamodels.university.Professor;
 import com.mycompany.datamarketplace.datamodels.university.Student;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -22,6 +25,9 @@ public class TakeSurveyPane extends javax.swing.JPanel {
      */
     JSplitPane splitPane;
     Student studentObj;
+    Person personObj;
+    Developer developerObj;
+    Professor professorObj;
     DBFeaturesUtils dBFeaturesUtils = new DBFeaturesUtils();
     SurveyQuestions surveyQuestions;
     ArrayList<SurveyResponses> surveyAnswersList = dBFeaturesUtils.retrieveAllSurveyAnswers();
@@ -29,6 +35,27 @@ public class TakeSurveyPane extends javax.swing.JPanel {
         initComponents();
         this.splitPane = splitPane;
         this.studentObj = studentObj;
+        this.surveyQuestions = surveyQuestions;
+        populateQuestions();
+    }
+    public TakeSurveyPane(JSplitPane splitPane, Person personObj, SurveyQuestions surveyQuestions) {
+        initComponents();
+        this.splitPane = splitPane;
+        this.personObj = personObj;
+        this.surveyQuestions = surveyQuestions;
+        populateQuestions();
+    }
+    public TakeSurveyPane(JSplitPane splitPane, Developer developerObj, SurveyQuestions surveyQuestions) {
+        initComponents();
+        this.splitPane = splitPane;
+        this.developerObj = developerObj;
+        this.surveyQuestions = surveyQuestions;
+        populateQuestions();
+    }
+    public TakeSurveyPane(JSplitPane splitPane, Professor professorObj, SurveyQuestions surveyQuestions) {
+        initComponents();
+        this.splitPane = splitPane;
+        this.professorObj = professorObj;
         this.surveyQuestions = surveyQuestions;
         populateQuestions();
     }
@@ -209,6 +236,9 @@ public class TakeSurveyPane extends javax.swing.JPanel {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         StudentScreen studentSrn;
+        ProfessorScreen prfsScrn;
+        DeveloperScreen devScrn;
+        GeneralUserScreen userScrn;
         
         String answer1 = jTextArea1.getText();
         String answer2 = jTextArea2.getText();
@@ -219,8 +249,11 @@ public class TakeSurveyPane extends javax.swing.JPanel {
         if(studentObj!=null){
             String answerGiver = studentObj.getEmail();
             int surveyId = surveyQuestions.getSurveyId();
+            System.out.println(surveyId);
             for(SurveyResponses sq: surveyAnswersList){
+                System.out.println(sq.getSurveyId());
                 if(sq.getSurveyId()== surveyId){
+//                    System.out.print(sq.getSurveyId() + "==" + surveyId);
                     JOptionPane.showMessageDialog(this, "Survey already taken");
                     return;
                 }
@@ -249,38 +282,102 @@ public class TakeSurveyPane extends javax.swing.JPanel {
             }
         }
         
-//        else if(professorObj!=null){
-//            String answerGiver = studentObj.getEmail();
-//            int surveyId = surveyQuestions.getSurveyId();
-//            for(SurveyResponses sq: surveyAnswersList){
-//                if(sq.getSurveyId()== surveyId){
-//                    JOptionPane.showMessageDialog(this, "Survey already taken");
-//                    return;
-//                }
-//            }
-//           
-//                    
-//            Boolean isSuccess = dBFeaturesUtils.createAnswer(
-//                surveyId,
-//                answerGiver,
-//                answer1,
-//                answer2,
-//                answer3,
-//                answer4,
-//                answer5
-//            );
-//            if(isSuccess){ 
-//                JOptionPane.showMessageDialog(this, "Answers are stored");
-//                studentSrn = new StudentScreen(splitPane, studentObj);
-//                splitPane.setBottomComponent(studentSrn); 
-//                
-//            }
-//            else{
-//                JOptionPane.showMessageDialog(this, "Answers are not stored");
-//                studentSrn = new StudentScreen(splitPane, studentObj);
-//                splitPane.setBottomComponent(studentSrn); 
-//            }
-//        }
+        else if(professorObj!=null){
+            String answerGiver = professorObj.getEmail();
+            int surveyId = surveyQuestions.getSurveyId();
+            for(SurveyResponses sq: surveyAnswersList){
+                if(sq.getSurveyId()== surveyId){
+                    JOptionPane.showMessageDialog(this, "Survey already taken");
+                    return;
+                }
+            }
+           
+                    
+            Boolean isSuccess = dBFeaturesUtils.createAnswer(
+                surveyId,
+                answerGiver,
+                answer1,
+                answer2,
+                answer3,
+                answer4,
+                answer5
+            );
+            if(isSuccess){ 
+                JOptionPane.showMessageDialog(this, "Answers are stored");
+                prfsScrn = new ProfessorScreen(splitPane, professorObj);
+                splitPane.setBottomComponent(prfsScrn); 
+                
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "Answers are not stored");
+                prfsScrn = new ProfessorScreen(splitPane, professorObj);
+                splitPane.setBottomComponent(prfsScrn); 
+            }
+        }
+        else if(developerObj!=null){
+            String answerGiver = developerObj.getEmail();
+            int surveyId = surveyQuestions.getSurveyId();
+            for(SurveyResponses sq: surveyAnswersList){
+                if(sq.getSurveyId()== surveyId){
+                    JOptionPane.showMessageDialog(this, "Survey already taken");
+                    return;
+                }
+            }
+           
+                    
+            Boolean isSuccess = dBFeaturesUtils.createAnswer(
+                surveyId,
+                answerGiver,
+                answer1,
+                answer2,
+                answer3,
+                answer4,
+                answer5
+            );
+            if(isSuccess){ 
+                JOptionPane.showMessageDialog(this, "Answers are stored");
+                devScrn = new DeveloperScreen(splitPane, developerObj);
+                splitPane.setBottomComponent(devScrn); 
+                
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "Answers are not stored");
+                devScrn = new DeveloperScreen(splitPane, developerObj);
+                splitPane.setBottomComponent(devScrn);  
+            }
+        }
+        else if(personObj!=null){
+            String answerGiver = personObj.getEmail();
+            int surveyId = surveyQuestions.getSurveyId();
+            for(SurveyResponses sq: surveyAnswersList){
+                if(sq.getSurveyId()== surveyId){
+                    JOptionPane.showMessageDialog(this, "Survey already taken");
+                    return;
+                }
+            }
+           
+                    
+            Boolean isSuccess = dBFeaturesUtils.createAnswer(
+                surveyId,
+                answerGiver,
+                answer1,
+                answer2,
+                answer3,
+                answer4,
+                answer5
+            );
+            if(isSuccess){ 
+                JOptionPane.showMessageDialog(this, "Answers are stored");
+                userScrn = new GeneralUserScreen(splitPane, personObj);
+                splitPane.setBottomComponent(userScrn); 
+                
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "Answers are not stored");
+                userScrn = new GeneralUserScreen(splitPane, personObj);
+                splitPane.setBottomComponent(userScrn); 
+            }
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
 

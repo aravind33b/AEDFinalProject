@@ -5,6 +5,9 @@
 package com.mycompany.datamarketplace.ui;
 
 import com.mycompany.datamarketplace.backend.DBFeaturesUtils;
+import com.mycompany.datamarketplace.datamodels.Person;
+import com.mycompany.datamarketplace.datamodels.community.Developer;
+import com.mycompany.datamarketplace.datamodels.university.Professor;
 import com.mycompany.datamarketplace.datamodels.university.Student;
 import javax.swing.JOptionPane;
 
@@ -22,6 +25,24 @@ public class SurveyCreatingPanel extends javax.swing.JPanel {
     public SurveyCreatingPanel(Student studentObj) {
         initComponents();
         this.studentObj = studentObj;
+    }
+    
+    Professor professorObj;
+    public SurveyCreatingPanel(Professor professorObj) {
+        initComponents();
+        this.professorObj = professorObj;
+    }
+    
+    Developer developerObj;
+    public SurveyCreatingPanel(Developer developerObj) {
+        initComponents();
+        this.developerObj = developerObj;
+    }
+    
+    Person personObj;
+    public SurveyCreatingPanel(Person personObj) {
+        initComponents();
+        this.personObj = personObj;
     }
 
     /**
@@ -180,6 +201,7 @@ public class SurveyCreatingPanel extends javax.swing.JPanel {
 
     private void publishSurveyBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_publishSurveyBtnActionPerformed
         // TODO add your handling code here:
+    if (studentObj!=null){
         String surveyTitle = jTextField1.getText();
         String surveyQuestion1 = jTextArea1.getText();
         String surveyQuestion2 = jTextArea2.getText();
@@ -213,7 +235,116 @@ public class SurveyCreatingPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Survey not created");
             return;  
         }
+    }
+    else if(professorObj!=null){
+        String surveyTitle = jTextField1.getText();
+        String surveyQuestion1 = jTextArea1.getText();
+        String surveyQuestion2 = jTextArea2.getText();
+        String surveyQuestion3 = jTextArea3.getText();
+        String surveyQuestion4 = jTextArea4.getText();
+        String surveyQuestion5 = jTextArea5.getText();
+        String owner = professorObj.getEmail();
         
+        Boolean isSuccess = dbFeaturesUtils.createSurvey(
+                surveyTitle,
+                surveyQuestion1,
+                surveyQuestion2,
+                surveyQuestion3,
+                surveyQuestion4,
+                surveyQuestion5,
+                owner
+        );
+        
+        if(isSuccess){
+            JOptionPane.showMessageDialog(this, "Survey created successfully");
+            jTextField1.setText("");
+            jTextArea1.setText("");
+            jTextArea2.setText("");
+            jTextArea3.setText("");
+            jTextArea4.setText("");
+            jTextArea5.setText("");
+            return;    
+        }
+        
+        else{
+            JOptionPane.showMessageDialog(this, "Survey not created");
+            return;  
+        }
+    }
+    else if(developerObj!=null){
+        String surveyTitle = jTextField1.getText();
+        String surveyQuestion1 = jTextArea1.getText();
+        String surveyQuestion2 = jTextArea2.getText();
+        String surveyQuestion3 = jTextArea3.getText();
+        String surveyQuestion4 = jTextArea4.getText();
+        String surveyQuestion5 = jTextArea5.getText();
+        String owner = developerObj.getEmail();
+        
+        Boolean isSuccess = dbFeaturesUtils.createSurvey(
+                surveyTitle,
+                surveyQuestion1,
+                surveyQuestion2,
+                surveyQuestion3,
+                surveyQuestion4,
+                surveyQuestion5,
+                owner
+        );
+        
+        if(isSuccess){
+            JOptionPane.showMessageDialog(this, "Survey created successfully");
+            jTextField1.setText("");
+            jTextArea1.setText("");
+            jTextArea2.setText("");
+            jTextArea3.setText("");
+            jTextArea4.setText("");
+            jTextArea5.setText("");
+            return;    
+        }
+        
+        else{
+            JOptionPane.showMessageDialog(this, "Survey not created");
+            return;  
+        }
+    }
+    else if(personObj!=null){
+        String surveyTitle = jTextField1.getText();
+        String surveyQuestion1 = jTextArea1.getText();
+        String surveyQuestion2 = jTextArea2.getText();
+        String surveyQuestion3 = jTextArea3.getText();
+        String surveyQuestion4 = jTextArea4.getText();
+        String surveyQuestion5 = jTextArea5.getText();
+        String owner = personObj.getEmail();
+        
+        Boolean isSuccess = dbFeaturesUtils.createSurvey(
+                surveyTitle,
+                surveyQuestion1,
+                surveyQuestion2,
+                surveyQuestion3,
+                surveyQuestion4,
+                surveyQuestion5,
+                owner
+        );
+        
+        if(isSuccess){
+            JOptionPane.showMessageDialog(this, "Survey created successfully");
+            jTextField1.setText("");
+            jTextArea1.setText("");
+            jTextArea2.setText("");
+            jTextArea3.setText("");
+            jTextArea4.setText("");
+            jTextArea5.setText("");
+            return;    
+        }
+        
+        else{
+            JOptionPane.showMessageDialog(this, "Survey not created");
+            return;  
+        }
+    }
+    else{
+        JOptionPane.showMessageDialog(this, "Please login again!!!");
+            return;
+    }
         
     }//GEN-LAST:event_publishSurveyBtnActionPerformed
 
