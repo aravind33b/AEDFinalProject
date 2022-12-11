@@ -8,6 +8,7 @@ import com.mycompany.datamarketplace.backend.DBUtils;
 import com.mycompany.datamarketplace.datamodels.community.Community;
 import com.mycompany.datamarketplace.datamodels.company.Company;
 import com.mycompany.datamarketplace.datamodels.company.ProductManager;
+import java.awt.Cursor;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -72,6 +73,12 @@ public class CompanyAdminPane extends javax.swing.JPanel {
         studentIdTxt1 = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
+
+        jTabbedPane1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jTabbedPane1MouseEntered(evt);
+            }
+        });
 
         jLabel25.setText("Contact No:");
 
@@ -406,6 +413,11 @@ public class CompanyAdminPane extends javax.swing.JPanel {
     private void studentIdTxt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentIdTxt1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_studentIdTxt1ActionPerformed
+
+    private void jTabbedPane1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseEntered
+        // TODO add your handling code here:
+        jTabbedPane1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_jTabbedPane1MouseEntered
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -4,6 +4,8 @@
  */
 package com.mycompany.datamarketplace.ui;
 
+import java.awt.Cursor;
+
 /**
  *
  * @author aravind
@@ -99,6 +101,12 @@ public class GovernmentAdminPane extends javax.swing.JPanel {
         jScrollPane5 = new javax.swing.JScrollPane();
         jTable5 = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
+
+        jTabbedPane1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jTabbedPane1MouseEntered(evt);
+            }
+        });
 
         jLabel25.setText("Contact No:");
 
@@ -751,6 +759,11 @@ public class GovernmentAdminPane extends javax.swing.JPanel {
     private void studentIdTxt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentIdTxt1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_studentIdTxt1ActionPerformed
+
+    private void jTabbedPane1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseEntered
+        // TODO add your handling code here:
+        jTabbedPane1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_jTabbedPane1MouseEntered
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
