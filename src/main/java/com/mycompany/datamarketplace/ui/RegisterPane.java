@@ -5,6 +5,7 @@
 package com.mycompany.datamarketplace.ui;
 
 import com.mycompany.datamarketplace.backend.DBUtils;
+import java.awt.Cursor;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import javax.swing.JSplitPane;
@@ -83,15 +84,18 @@ public class RegisterPane extends javax.swing.JPanel {
         phoneNumberTxt = new javax.swing.JTextField();
         validationLbl = new javax.swing.JLabel();
 
-        RegisterButton.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         RegisterButton.setText("Register");
+        RegisterButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                RegisterButtonMouseEntered(evt);
+            }
+        });
         RegisterButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RegisterButtonActionPerformed(evt);
             }
         });
 
-        userNameLabel.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         userNameLabel.setText("First Name:");
 
         firstNameTxt.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -100,7 +104,6 @@ public class RegisterPane extends javax.swing.JPanel {
             }
         });
 
-        userNameLabel1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         userNameLabel1.setText("Email:");
 
         emailTxt.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -109,7 +112,6 @@ public class RegisterPane extends javax.swing.JPanel {
             }
         });
 
-        userNameLabel2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         userNameLabel2.setText("Age:");
 
         ageTxt.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -121,11 +123,9 @@ public class RegisterPane extends javax.swing.JPanel {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel1.setText("Student / Professor / Developer?");
 
         roleButtonGroup.add(roleYes);
-        roleYes.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         roleYes.setText("Yes");
         roleYes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -134,7 +134,6 @@ public class RegisterPane extends javax.swing.JPanel {
         });
 
         roleButtonGroup.add(roleNo);
-        roleNo.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         roleNo.setText("No");
         roleNo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -142,7 +141,6 @@ public class RegisterPane extends javax.swing.JPanel {
             }
         });
 
-        roleSelector.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         roleSelector.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select your role", "Student", "Professor", "Developer" }));
         roleSelector.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -150,7 +148,6 @@ public class RegisterPane extends javax.swing.JPanel {
             }
         });
 
-        universityLabel.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         universityLabel.setText("University Name:");
 
         universityNameTxt.addActionListener(new java.awt.event.ActionListener() {
@@ -159,7 +156,6 @@ public class RegisterPane extends javax.swing.JPanel {
             }
         });
 
-        idLabel.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         idLabel.setText("ID Number:");
 
         studentIdTxt.addActionListener(new java.awt.event.ActionListener() {
@@ -168,15 +164,12 @@ public class RegisterPane extends javax.swing.JPanel {
             }
         });
 
-        empLabel.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         empLabel.setText("Employee ID:");
 
-        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel5.setText("Password:");
 
         passwordTxt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
-        userNameLabel3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         userNameLabel3.setText("Last Name:");
 
         lastNameTxt.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -185,11 +178,9 @@ public class RegisterPane extends javax.swing.JPanel {
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel2.setText("Gender:");
 
         genderButtonGroup.add(maleRadio);
-        maleRadio.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         maleRadio.setText("Male");
         maleRadio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -198,7 +189,6 @@ public class RegisterPane extends javax.swing.JPanel {
         });
 
         genderButtonGroup.add(femaleRadio);
-        femaleRadio.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         femaleRadio.setText("Female");
         femaleRadio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -207,7 +197,6 @@ public class RegisterPane extends javax.swing.JPanel {
         });
 
         genderButtonGroup.add(undisclosedRadio);
-        undisclosedRadio.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         undisclosedRadio.setText("Rather not say");
         undisclosedRadio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -215,16 +204,13 @@ public class RegisterPane extends javax.swing.JPanel {
             }
         });
 
-        empLabel2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         empLabel2.setText("Community Name:");
 
-        generalUserLabel.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         generalUserLabel.setText("Role:");
 
         generalUserText.setEditable(false);
         generalUserText.setText("General");
 
-        phNoLabel.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         phNoLabel.setText("Phone Number:");
 
         phoneNumberTxt.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -239,9 +225,6 @@ public class RegisterPane extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(254, 254, 254)
-                        .addComponent(RegisterButton, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(158, 158, 158)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -286,8 +269,11 @@ public class RegisterPane extends javax.swing.JPanel {
                                             .addComponent(femaleRadio, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(undisclosedRadio))
-                                        .addComponent(phoneNumberTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
-                .addContainerGap(463, Short.MAX_VALUE))
+                                        .addComponent(phoneNumberTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(246, 246, 246)
+                        .addComponent(RegisterButton, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(461, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -355,8 +341,9 @@ public class RegisterPane extends javax.swing.JPanel {
                     .addComponent(generalUserText, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(validationLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(RegisterButton, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(RegisterButton, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(12, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -679,6 +666,11 @@ public class RegisterPane extends javax.swing.JPanel {
             RegisterButton.setEnabled(false);
         }
     }//GEN-LAST:event_lastNameTxtKeyReleased
+
+    private void RegisterButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegisterButtonMouseEntered
+        // TODO add your handling code here:
+        RegisterButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_RegisterButtonMouseEntered
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -41,28 +41,24 @@
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace pref="164" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="149" max="-2" attributes="0"/>
-                          <Component id="RegisterButton" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="200" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="userNameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="userNameLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="userNameLabel1" alignment="0" min="-2" pref="47" max="-2" attributes="0"/>
-                              <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="162" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="userNameField2" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                              <Component id="userNameField" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                              <Component id="userNameField1" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                              <Component id="jTextField5" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
+                      <Component id="userNameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="userNameLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="userNameLabel1" alignment="0" min="-2" pref="47" max="-2" attributes="0"/>
+                      <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="162" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="userNameField2" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                      <Component id="userNameField" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                      <Component id="userNameField1" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                      <Component id="jTextField5" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="146" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="324" max="-2" attributes="0"/>
+                  <Component id="RegisterButton" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -99,20 +95,15 @@
       <SubComponents>
         <Component class="javax.swing.JButton" name="RegisterButton">
           <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Times New Roman" size="14" style="0"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Register"/>
           </Properties>
           <Events>
+            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="RegisterButtonMouseEntered"/>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RegisterButtonActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="userNameLabel">
           <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Times New Roman" size="14" style="0"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="First Name:"/>
           </Properties>
         </Component>
@@ -120,9 +111,6 @@
         </Component>
         <Component class="javax.swing.JLabel" name="userNameLabel1">
           <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Times New Roman" size="14" style="0"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Email:"/>
           </Properties>
         </Component>
@@ -132,24 +120,13 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Times New Roman" size="14" style="0"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Password:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField5">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Times New Roman" size="14" style="0"/>
-            </Property>
-          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="userNameLabel3">
           <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Times New Roman" size="14" style="0"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Last Name:"/>
           </Properties>
         </Component>
