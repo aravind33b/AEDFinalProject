@@ -368,7 +368,7 @@ public class RegisterPane extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Phone Number is Empty");
             return;
         }
-        int phoneNumber = Integer.parseInt(phoneNo);
+        //String phoneNumber = Integer.parseInt(phoneNo);
         
         String universityName = universityNameTxt.getText();
         
@@ -420,7 +420,7 @@ public class RegisterPane extends javax.swing.JPanel {
                 employeeId,
                 generalId,
                 role,
-                phoneNumber
+                phoneNo
             );  
           
           if(isSuccess){
