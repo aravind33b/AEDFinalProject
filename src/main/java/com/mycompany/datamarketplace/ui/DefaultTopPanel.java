@@ -41,7 +41,11 @@ public class DefaultTopPanel extends javax.swing.JPanel {
 
         jPanel1.setBackground(new java.awt.Color(153, 204, 255));
 
+        loginBtn.setBackground(new java.awt.Color(255, 255, 255));
+        loginBtn.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        loginBtn.setForeground(new java.awt.Color(0, 0, 0));
         loginBtn.setText("Login");
+        loginBtn.setBorderPainted(false);
         loginBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 loginBtnMouseEntered(evt);
@@ -53,7 +57,11 @@ public class DefaultTopPanel extends javax.swing.JPanel {
             }
         });
 
+        registerBtn.setBackground(new java.awt.Color(255, 255, 255));
+        registerBtn.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        registerBtn.setForeground(new java.awt.Color(0, 0, 0));
         registerBtn.setText("Register");
+        registerBtn.setBorderPainted(false);
         registerBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 registerBtnMouseEntered(evt);
@@ -65,7 +73,11 @@ public class DefaultTopPanel extends javax.swing.JPanel {
             }
         });
 
+        adminBtn.setBackground(new java.awt.Color(255, 255, 255));
+        adminBtn.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        adminBtn.setForeground(new java.awt.Color(0, 0, 0));
         adminBtn.setText("Admin");
+        adminBtn.setBorderPainted(false);
         adminBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 adminBtnMouseEntered(evt);
@@ -85,12 +97,12 @@ public class DefaultTopPanel extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 293, Short.MAX_VALUE)
-                .addComponent(adminBtn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 136, Short.MAX_VALUE)
+                .addComponent(adminBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(loginBtn)
+                .addComponent(loginBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(registerBtn)
+                .addComponent(registerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -98,9 +110,9 @@ public class DefaultTopPanel extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(loginBtn)
-                    .addComponent(registerBtn)
-                    .addComponent(adminBtn))
+                    .addComponent(loginBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(registerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(adminBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)

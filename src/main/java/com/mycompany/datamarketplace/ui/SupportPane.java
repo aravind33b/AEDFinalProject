@@ -70,22 +70,42 @@ public class SupportPane extends javax.swing.JPanel {
         sendSupportBtn = new javax.swing.JButton();
         validationLbl = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        emailTxt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         emailTxt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 emailTxtKeyReleased(evt);
             }
         });
 
+        jLabel1.setBackground(java.awt.Color.white);
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel1.setText("Your Email:");
 
+        subjectTxt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        subjectTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                subjectTxtActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setBackground(java.awt.Color.white);
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel2.setText("Subject:");
 
+        jLabel3.setBackground(java.awt.Color.white);
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel3.setText("Describe your issue:");
+
+        jScrollPane1.setBackground(java.awt.Color.white);
 
         bodyTxt.setColumns(20);
         bodyTxt.setRows(5);
         jScrollPane1.setViewportView(bodyTxt);
 
+        sendSupportBtn.setBackground(java.awt.Color.white);
+        sendSupportBtn.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         sendSupportBtn.setText("Send Support request");
         sendSupportBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,6 +113,7 @@ public class SupportPane extends javax.swing.JPanel {
             }
         });
 
+        validationLbl.setBackground(java.awt.Color.white);
         validationLbl.setForeground(new java.awt.Color(255, 51, 51));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -104,12 +125,12 @@ public class SupportPane extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(validationLbl, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE)
                     .addComponent(sendSupportBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE)
                     .addComponent(subjectTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(emailTxt))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE)
+                    .addComponent(emailTxt)
+                    .addComponent(jScrollPane1))
                 .addContainerGap(188, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -234,6 +255,10 @@ public class SupportPane extends javax.swing.JPanel {
        }
         
     }//GEN-LAST:event_sendSupportBtnActionPerformed
+
+    private void subjectTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subjectTxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_subjectTxtActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
