@@ -12,7 +12,9 @@ import com.mycompany.datamarketplace.datamodels.misc.SupportAdmin;
 import com.mycompany.datamarketplace.datamodels.university.University;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -68,16 +70,16 @@ public class AdminPanel extends javax.swing.JPanel {
         countryTxt = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        companyTbl = new javax.swing.JTable();
         createCompanyBtn = new javax.swing.JButton();
-        jTextField18 = new javax.swing.JTextField();
+        searchTxt = new javax.swing.JTextField();
         companyIdTxt = new javax.swing.JTextField();
         emailTxt = new javax.swing.JTextField();
         phoneNumberTxt = new javax.swing.JTextField();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jTextField7 = new javax.swing.JTextField();
+        supportAdminTbl = new javax.swing.JTable();
+        searchSupportAdmin = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         firstNameTxt = new javax.swing.JTextField();
@@ -98,9 +100,9 @@ public class AdminPanel extends javax.swing.JPanel {
         jLabel30 = new javax.swing.JLabel();
         jTextField19 = new javax.swing.JTextField();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
+        communityTable = new javax.swing.JTable();
         jButton31 = new javax.swing.JButton();
-        jTextField22 = new javax.swing.JTextField();
+        searchCommunity = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         deleteCountryBtn = new javax.swing.JButton();
         jLabel31 = new javax.swing.JLabel();
@@ -108,9 +110,9 @@ public class AdminPanel extends javax.swing.JPanel {
         jButton34 = new javax.swing.JButton();
         jLabel29 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTable5 = new javax.swing.JTable();
+        countryTable = new javax.swing.JTable();
         createCountryBtn = new javax.swing.JButton();
-        jTextField24 = new javax.swing.JTextField();
+        searchCountry = new javax.swing.JTextField();
         jPanel7 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         cityTxt2 = new javax.swing.JTextField();
@@ -118,9 +120,9 @@ public class AdminPanel extends javax.swing.JPanel {
         countryTxt2 = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        universityTbl = new javax.swing.JTable();
         createUniBtn = new javax.swing.JButton();
-        jTextField13 = new javax.swing.JTextField();
+        searchUniversity = new javax.swing.JTextField();
         jButton21 = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
         deleteUniBtn = new javax.swing.JButton();
@@ -135,10 +137,10 @@ public class AdminPanel extends javax.swing.JPanel {
         jLabel27 = new javax.swing.JLabel();
         adminPasswordTxt = new javax.swing.JTextField();
         jLabel32 = new javax.swing.JLabel();
-        jTextField14 = new javax.swing.JTextField();
+        searchAdmin = new javax.swing.JTextField();
         createAdminRoleBtn = new javax.swing.JButton();
         jScrollPane6 = new javax.swing.JScrollPane();
-        jTable6 = new javax.swing.JTable();
+        adminsTable = new javax.swing.JTable();
         jLabel33 = new javax.swing.JLabel();
         institutionTx = new javax.swing.JTextField();
         adminEmailTxt = new javax.swing.JTextField();
@@ -174,20 +176,39 @@ public class AdminPanel extends javax.swing.JPanel {
 
         jLabel21.setText("Company ID:");
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        companyTbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Company Name", "City", "Company Id", "Contact no."
             }
-        ));
-        jScrollPane3.setViewportView(jTable3);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane3.setViewportView(companyTbl);
 
         createCompanyBtn.setText("Create");
         createCompanyBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 createCompanyBtnActionPerformed(evt);
+            }
+        });
+
+        searchTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchTxtActionPerformed(evt);
+            }
+        });
+        searchTxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                searchTxtKeyReleased(evt);
             }
         });
 
@@ -235,7 +256,7 @@ public class AdminPanel extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel8Layout.createSequentialGroup()
                         .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(searchTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(74, 74, 74))
         );
         jPanel8Layout.setVerticalGroup(
@@ -251,7 +272,7 @@ public class AdminPanel extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField18)
+                            .addComponent(searchTxt)
                             .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(12, 12, 12)))
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -287,15 +308,34 @@ public class AdminPanel extends javax.swing.JPanel {
 
         Home1.addTab("Company", jPanel8);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        supportAdminTbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Fiirst Name", "Last Name", "Email"
             }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(supportAdminTbl);
+
+        searchSupportAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchSupportAdminActionPerformed(evt);
+            }
+        });
+        searchSupportAdmin.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                searchSupportAdminKeyReleased(evt);
+            }
+        });
 
         jLabel7.setText("Search Support Admin:");
 
@@ -365,7 +405,7 @@ public class AdminPanel extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel6Layout.createSequentialGroup()
                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField7)))
+                        .addComponent(searchSupportAdmin)))
                 .addContainerGap())
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(97, 97, 97)
@@ -379,7 +419,7 @@ public class AdminPanel extends javax.swing.JPanel {
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGap(80, 80, 80)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField7, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+                            .addComponent(searchSupportAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
                             .addComponent(jLabel7))
                         .addGap(12, 12, 12))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
@@ -428,28 +468,34 @@ public class AdminPanel extends javax.swing.JPanel {
 
         jLabel30.setText("Comm. Name");
 
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+        communityTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Community Name", "Community Type"
+                "Community Name"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false
+                false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane4.setViewportView(jTable4);
+        jScrollPane4.setViewportView(communityTable);
 
         jButton31.setText("Create");
         jButton31.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton31ActionPerformed(evt);
+            }
+        });
+
+        searchCommunity.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                searchCommunityKeyReleased(evt);
             }
         });
 
@@ -477,7 +523,7 @@ public class AdminPanel extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel9Layout.createSequentialGroup()
                         .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField22)))
+                        .addComponent(searchCommunity)))
                 .addContainerGap())
         );
         jPanel9Layout.setVerticalGroup(
@@ -487,7 +533,7 @@ public class AdminPanel extends javax.swing.JPanel {
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField22, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+                            .addComponent(searchCommunity, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
                             .addComponent(jLabel28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(12, 12, 12)
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -518,7 +564,7 @@ public class AdminPanel extends javax.swing.JPanel {
 
         jLabel29.setText("Search Country:");
 
-        jTable5.setModel(new javax.swing.table.DefaultTableModel(
+        countryTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -534,12 +580,18 @@ public class AdminPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane5.setViewportView(jTable5);
+        jScrollPane5.setViewportView(countryTable);
 
         createCountryBtn.setText("Create");
         createCountryBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 createCountryBtnActionPerformed(evt);
+            }
+        });
+
+        searchCountry.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                searchCountryKeyReleased(evt);
             }
         });
 
@@ -566,7 +618,7 @@ public class AdminPanel extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField24, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(searchCountry, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(88, 88, 88))
         );
         jPanel1Layout.setVerticalGroup(
@@ -576,7 +628,7 @@ public class AdminPanel extends javax.swing.JPanel {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(80, 80, 80)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField24, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+                            .addComponent(searchCountry, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
                             .addComponent(jLabel29))
                         .addGap(12, 12, 12)
                         .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -601,7 +653,7 @@ public class AdminPanel extends javax.swing.JPanel {
 
         jLabel14.setText("Affiliation No:");
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        universityTbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -617,15 +669,21 @@ public class AdminPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(jTable2);
-        if (jTable2.getColumnModel().getColumnCount() > 0) {
-            jTable2.getColumnModel().getColumn(3).setHeaderValue("City");
+        jScrollPane2.setViewportView(universityTbl);
+        if (universityTbl.getColumnModel().getColumnCount() > 0) {
+            universityTbl.getColumnModel().getColumn(3).setHeaderValue("City");
         }
 
         createUniBtn.setText("Create");
         createUniBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 createUniBtnActionPerformed(evt);
+            }
+        });
+
+        searchUniversity.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                searchUniversityKeyReleased(evt);
             }
         });
 
@@ -682,58 +740,58 @@ public class AdminPanel extends javax.swing.JPanel {
                             .addComponent(companyIdTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(emailTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(phoneNumberTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel7Layout.createSequentialGroup()
                         .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(88, 88, 88))
+                        .addComponent(searchUniversity, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(64, 64, 64))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField13, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
-                    .addComponent(jLabel15))
-                .addGap(12, 12, 12)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                .addGap(86, 86, 86)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(companyNameTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cityTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(countryTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(69, 69, 69)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(searchUniversity, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+                            .addComponent(jLabel15))
+                        .addGap(12, 12, 12)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(companyIdTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(12, 12, 12)
-                        .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(companyNameTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(20, 20, 20)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cityTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addComponent(emailTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(phoneNumberTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(29, 29, 29)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(createUniBtn)
-                    .addComponent(jButton21)
-                    .addComponent(deleteUniBtn))
-                .addContainerGap(405, Short.MAX_VALUE))
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(countryTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(companyIdTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(12, 12, 12)
+                                .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addGap(45, 45, 45)
+                                .addComponent(emailTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(phoneNumberTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(29, 29, 29)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(createUniBtn)
+                            .addComponent(jButton21)
+                            .addComponent(deleteUniBtn))))
+                .addContainerGap(407, Short.MAX_VALUE))
         );
 
         Home1.addTab("University", jPanel7);
@@ -742,6 +800,17 @@ public class AdminPanel extends javax.swing.JPanel {
 
         jLabel32.setText("Search Admin:");
 
+        searchAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchAdminActionPerformed(evt);
+            }
+        });
+        searchAdmin.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                searchAdminKeyReleased(evt);
+            }
+        });
+
         createAdminRoleBtn.setText("Create");
         createAdminRoleBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -749,7 +818,7 @@ public class AdminPanel extends javax.swing.JPanel {
             }
         });
 
-        jTable6.setModel(new javax.swing.table.DefaultTableModel(
+        adminsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -765,7 +834,7 @@ public class AdminPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane6.setViewportView(jTable6);
+        jScrollPane6.setViewportView(adminsTable);
 
         jLabel33.setText("Role");
 
@@ -818,28 +887,21 @@ public class AdminPanel extends javax.swing.JPanel {
                         .addComponent(createAdminRoleBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(106, 106, 106)
                         .addComponent(deleteAdminRoleBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(88, 88, 88))
+                        .addComponent(searchAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(56, 56, 56))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(86, 86, 86)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField14, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
-                            .addComponent(jLabel32))
-                        .addGap(12, 12, 12)
-                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(86, 86, 86)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(adminEmailTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -855,11 +917,17 @@ public class AdminPanel extends javax.swing.JPanel {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(rolesComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(56, 56, 56)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(createAdminRoleBtn)
-                            .addComponent(deleteAdminRoleBtn))))
-                .addContainerGap(145, Short.MAX_VALUE))
+                            .addComponent(deleteAdminRoleBtn)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(searchAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+                            .addComponent(jLabel32))
+                        .addGap(12, 12, 12)
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(390, Short.MAX_VALUE))
         );
 
         Home1.addTab("Manage Admins", jPanel2);
@@ -929,14 +997,14 @@ public class AdminPanel extends javax.swing.JPanel {
 
     private void deleteCompanyBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteCompanyBtnActionPerformed
         // TODO add your handling code here:
-        int selectedRowInd = jTable3.getSelectedRow();
+        int selectedRowInd = companyTbl.getSelectedRow();
         
         if(selectedRowInd < 0){
             JOptionPane.showMessageDialog(this, "Please select a row");
             return;
         }
         
-        DefaultTableModel tableModel = (DefaultTableModel) jTable3.getModel();
+        DefaultTableModel tableModel = (DefaultTableModel) companyTbl.getModel();
         Company selectedEmployee = (Company)tableModel.getValueAt(selectedRowInd, 0);
         String companyIdToBeDeleted = selectedEmployee.getCompanyId();
         companyList.remove(selectedEmployee);
@@ -991,14 +1059,14 @@ public class AdminPanel extends javax.swing.JPanel {
 
     private void deleteSupportAdminBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteSupportAdminBtnActionPerformed
         // TODO add your handling code here:
-        int selectedRowInd = jTable1.getSelectedRow();
+        int selectedRowInd = supportAdminTbl.getSelectedRow();
         
         if(selectedRowInd < 0){
             JOptionPane.showMessageDialog(this, "Please select a row");
             return;
         }
         
-        DefaultTableModel tableModel = (DefaultTableModel) jTable1.getModel();
+        DefaultTableModel tableModel = (DefaultTableModel) supportAdminTbl.getModel();
         SupportAdmin selectedEmployee = (SupportAdmin)tableModel.getValueAt(selectedRowInd, 0);
         String email = selectedEmployee.getEmail();
         supportAdminList.remove(selectedEmployee);
@@ -1058,14 +1126,14 @@ public class AdminPanel extends javax.swing.JPanel {
 
     private void deleteUniBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteUniBtnActionPerformed
         // TODO add your handling code here:
-        int selectedRowInd = jTable2.getSelectedRow();
+        int selectedRowInd = universityTbl.getSelectedRow();
         
         if(selectedRowInd < 0){
             JOptionPane.showMessageDialog(this, "Please select a row");
             return;
         }
         
-        DefaultTableModel tableModel = (DefaultTableModel) jTable2.getModel();
+        DefaultTableModel tableModel = (DefaultTableModel) universityTbl.getModel();
         University selectedEmployee = (University)tableModel.getValueAt(selectedRowInd, 0);
         String companyIdToBeDeleted = selectedEmployee.getUniversityId();
         universityList.remove(selectedEmployee);
@@ -1109,14 +1177,14 @@ public class AdminPanel extends javax.swing.JPanel {
 
     private void deleteCountryBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteCountryBtnActionPerformed
         // TODO add your handling code here:
-        int selectedRowInd = jTable5.getSelectedRow();
+        int selectedRowInd = countryTable.getSelectedRow();
         
         if(selectedRowInd < 0){
             JOptionPane.showMessageDialog(this, "Please select a row");
             return;
         }
         
-        DefaultTableModel tableModel = (DefaultTableModel) jTable5.getModel();
+        DefaultTableModel tableModel = (DefaultTableModel) countryTable.getModel();
         Country selectedEmployee = (Country)tableModel.getValueAt(selectedRowInd, 0);
         String companyIdToBeDeleted = selectedEmployee.getCountryName();
         countryList.remove(selectedEmployee);
@@ -1331,14 +1399,14 @@ public class AdminPanel extends javax.swing.JPanel {
         
         //Delete
         
-        int selectedRowInd = jTable4.getSelectedRow();
+        int selectedRowInd = communityTable.getSelectedRow();
         
         if(selectedRowInd < 0){
             JOptionPane.showMessageDialog(this, "Please select a row");
             return;
         }
         
-        DefaultTableModel tableModel = (DefaultTableModel) jTable4.getModel();
+        DefaultTableModel tableModel = (DefaultTableModel) communityTable.getModel();
         Community selectedEmployee = (Community)tableModel.getValueAt(selectedRowInd, 0);
         String companyIdToBeDeleted = selectedEmployee.getCommunityName();
         communityList.remove(selectedEmployee);
@@ -1346,8 +1414,74 @@ public class AdminPanel extends javax.swing.JPanel {
         dbAdminUtils.deleteCommunity(companyIdToBeDeleted);
         populateDevCommunity(communityList);
     }//GEN-LAST:event_jButton29ActionPerformed
+
+    private void searchTxtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchTxtKeyReleased
+        // TODO add your handling code here:
+        DefaultTableModel ShowDetails = (DefaultTableModel)companyTbl.getModel();
+        String search = searchTxt.getText();
+        TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>(ShowDetails);
+        companyTbl.setRowSorter(tr);
+        tr.setRowFilter(RowFilter.regexFilter(search));
+    }//GEN-LAST:event_searchTxtKeyReleased
+
+    private void searchTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchTxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchTxtActionPerformed
+
+    private void searchSupportAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchSupportAdminActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchSupportAdminActionPerformed
+
+    private void searchSupportAdminKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchSupportAdminKeyReleased
+        // TODO add your handling code here:
+        DefaultTableModel ShowDetails = (DefaultTableModel)supportAdminTbl.getModel();
+        String search = searchSupportAdmin.getText();
+        TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>(ShowDetails);
+        supportAdminTbl.setRowSorter(tr);
+        tr.setRowFilter(RowFilter.regexFilter(search));
+    }//GEN-LAST:event_searchSupportAdminKeyReleased
+
+    private void searchCommunityKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchCommunityKeyReleased
+        // TODO add your handling code here:
+        DefaultTableModel ShowDetails = (DefaultTableModel)communityTable.getModel();
+        String search = searchCommunity.getText();
+        TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>(ShowDetails);
+        communityTable.setRowSorter(tr);
+        tr.setRowFilter(RowFilter.regexFilter(search));
+    }//GEN-LAST:event_searchCommunityKeyReleased
+
+    private void searchCountryKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchCountryKeyReleased
+        // TODO add your handling code here:
+        DefaultTableModel ShowDetails = (DefaultTableModel)countryTable.getModel();
+        String search = searchCountry.getText();
+        TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>(ShowDetails);
+        countryTable.setRowSorter(tr);
+        tr.setRowFilter(RowFilter.regexFilter(search));
+    }//GEN-LAST:event_searchCountryKeyReleased
+
+    private void searchUniversityKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchUniversityKeyReleased
+        // TODO add your handling code here:
+        DefaultTableModel ShowDetails = (DefaultTableModel)universityTbl.getModel();
+        String search = searchUniversity.getText();
+        TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>(ShowDetails);
+        universityTbl.setRowSorter(tr);
+        tr.setRowFilter(RowFilter.regexFilter(search));
+    }//GEN-LAST:event_searchUniversityKeyReleased
+
+    private void searchAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchAdminActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchAdminActionPerformed
+
+    private void searchAdminKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchAdminKeyReleased
+        // TODO add your handling code here:
+        DefaultTableModel ShowDetails = (DefaultTableModel)adminsTable.getModel();
+        String search = searchAdmin.getText();
+        TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>(ShowDetails);
+        adminsTable.setRowSorter(tr);
+        tr.setRowFilter(RowFilter.regexFilter(search));
+    }//GEN-LAST:event_searchAdminKeyReleased
  private void populateCompanyTable(ArrayList<Company> companyList) {
-        DefaultTableModel tableModel = (DefaultTableModel) jTable3.getModel();
+        DefaultTableModel tableModel = (DefaultTableModel) companyTbl.getModel();
         tableModel.setRowCount(0 );
         
         for(Company itr: companyList){
@@ -1365,7 +1499,7 @@ public class AdminPanel extends javax.swing.JPanel {
     }
 
   private void populateSupportAdminTable(ArrayList<SupportAdmin> companyList) {
-        DefaultTableModel tableModel = (DefaultTableModel) jTable1.getModel();
+        DefaultTableModel tableModel = (DefaultTableModel) supportAdminTbl.getModel();
         tableModel.setRowCount(0 );
         
         for(SupportAdmin itr: companyList){
@@ -1385,13 +1519,17 @@ public class AdminPanel extends javax.swing.JPanel {
     private javax.swing.JTabbedPane Home1;
     private javax.swing.JTextField adminEmailTxt;
     private javax.swing.JTextField adminPasswordTxt;
+    private javax.swing.JTable adminsTable;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JTextField cityTxt;
     private javax.swing.JTextField cityTxt2;
+    private javax.swing.JTable communityTable;
     private javax.swing.JTextField companyIdTxt;
     private javax.swing.JTextField companyIdTxt2;
     private javax.swing.JTextField companyNameTxt;
     private javax.swing.JTextField companyNameTxt2;
+    private javax.swing.JTable companyTbl;
+    private javax.swing.JTable countryTable;
     private javax.swing.JTextField countryTxt;
     private javax.swing.JTextField countryTxt2;
     private javax.swing.JButton createAdminRoleBtn;
@@ -1456,30 +1594,26 @@ public class AdminPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
-    private javax.swing.JTable jTable4;
-    private javax.swing.JTable jTable5;
-    private javax.swing.JTable jTable6;
-    private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField14;
-    private javax.swing.JTextField jTextField18;
     private javax.swing.JTextField jTextField19;
-    private javax.swing.JTextField jTextField22;
-    private javax.swing.JTextField jTextField24;
-    private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField lastNameTxt;
     private javax.swing.JTextField phoneNumberTxt;
     private javax.swing.JTextField phoneNumberTxt2;
     private javax.swing.JComboBox<String> rolesComboBox;
+    private javax.swing.JTextField searchAdmin;
+    private javax.swing.JTextField searchCommunity;
+    private javax.swing.JTextField searchCountry;
+    private javax.swing.JTextField searchSupportAdmin;
+    private javax.swing.JTextField searchTxt;
+    private javax.swing.JTextField searchUniversity;
+    private javax.swing.JTable supportAdminTbl;
     private javax.swing.JTextField supportEmailTxt;
     private javax.swing.JTextField supportPasswordTxt1;
+    private javax.swing.JTable universityTbl;
     private javax.swing.JButton updateSupportAdminBtn;
     // End of variables declaration//GEN-END:variables
 
     private void populateUniversityTable(ArrayList<University> companyList) {
-        DefaultTableModel tableModel = (DefaultTableModel) jTable2.getModel();
+        DefaultTableModel tableModel = (DefaultTableModel) universityTbl.getModel();
         tableModel.setRowCount(0 );
         
         for(University itr: companyList){
@@ -1495,7 +1629,7 @@ public class AdminPanel extends javax.swing.JPanel {
     }
 
     private void populateCountryTable(ArrayList<Country> countryList) {
-       DefaultTableModel tableModel = (DefaultTableModel) jTable5.getModel();
+       DefaultTableModel tableModel = (DefaultTableModel) countryTable.getModel();
         tableModel.setRowCount(0 );
         
         for(Country itr: countryList){
@@ -1508,7 +1642,7 @@ public class AdminPanel extends javax.swing.JPanel {
     }
     
     private void populateDevCommunity(ArrayList<Community> communityList) {
-        DefaultTableModel tableModel = (DefaultTableModel) jTable4.getModel();
+        DefaultTableModel tableModel = (DefaultTableModel) communityTable.getModel();
         tableModel.setRowCount(0 );
         
         for(Community itr: communityList){
