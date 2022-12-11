@@ -48,22 +48,29 @@ public class AdminLoginPane extends javax.swing.JPanel {
         adminLoginButton = new javax.swing.JButton();
         rolesComboBox = new javax.swing.JComboBox<>();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        adminEmailLabel.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         adminEmailLabel.setText("Email:");
 
+        adminEmailField.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         adminEmailField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 adminEmailFieldActionPerformed(evt);
             }
         });
 
+        adminPassLabel.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         adminPassLabel.setText("Password:");
 
+        adminPassField.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         adminPassField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 adminPassFieldActionPerformed(evt);
             }
         });
 
+        adminLoginButton.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         adminLoginButton.setText("Login");
         adminLoginButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -76,6 +83,7 @@ public class AdminLoginPane extends javax.swing.JPanel {
             }
         });
 
+        rolesComboBox.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         rolesComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Please select Admin Type", "Company Admin", "Community Admin", "Country Govt Admin", "Support Admin", "System Admin", "University Admin" }));
         rolesComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,23 +95,20 @@ public class AdminLoginPane extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(adminLoginButton)
-                .addGap(332, 332, 332))
             .addGroup(layout.createSequentialGroup()
-                .addGap(242, 242, 242)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(rolesComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(166, 166, 166)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(adminEmailLabel)
-                            .addComponent(adminPassLabel))
+                        .addComponent(adminEmailLabel)
+                        .addGap(96, 96, 96)
+                        .addComponent(adminEmailField, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(adminPassLabel)
                         .addGap(74, 74, 74)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(adminEmailField)
-                            .addComponent(adminPassField, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE))))
-                .addContainerGap(172, Short.MAX_VALUE))
+                        .addComponent(adminPassField, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(adminLoginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(rolesComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(196, 196, 196))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -111,16 +116,16 @@ public class AdminLoginPane extends javax.swing.JPanel {
                 .addGap(123, 123, 123)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(adminEmailLabel)
-                    .addComponent(adminEmailField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(adminEmailField, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(adminPassLabel)
-                    .addComponent(adminPassField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(adminPassField, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(rolesComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(rolesComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(adminLoginButton)
-                .addContainerGap(132, Short.MAX_VALUE))
+                .addComponent(adminLoginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(124, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -250,7 +255,7 @@ public class AdminLoginPane extends javax.swing.JPanel {
                     return;
                 }
                 else{
-                    SupportPane supportAdminPane = new SupportPane();
+                    SupportAdminScreen supportAdminPane = new SupportAdminScreen();
                     adminSplitPane.setBottomComponent(supportAdminPane);
                     adminSplitPane.setTopComponent(logoutPanel);
                     adminSplitPane.setDividerSize(0);

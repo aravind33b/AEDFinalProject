@@ -37,6 +37,7 @@ public class DefaultFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("DeForms by The Survey Apes");
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setSize(new java.awt.Dimension(1024, 640));
 
         splitPane.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
@@ -54,6 +55,8 @@ public class DefaultFrame extends javax.swing.JFrame {
         );
 
         splitPane.setTopComponent(jPanel1);
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);

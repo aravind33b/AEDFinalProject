@@ -84,6 +84,10 @@ public class RegisterPane extends javax.swing.JPanel {
         phoneNumberTxt = new javax.swing.JTextField();
         validationLbl = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        RegisterButton.setBackground(java.awt.Color.white);
+        RegisterButton.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         RegisterButton.setText("Register");
         RegisterButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -96,24 +100,33 @@ public class RegisterPane extends javax.swing.JPanel {
             }
         });
 
+        userNameLabel.setBackground(java.awt.Color.white);
+        userNameLabel.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         userNameLabel.setText("First Name:");
 
+        firstNameTxt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         firstNameTxt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 firstNameTxtKeyReleased(evt);
             }
         });
 
+        userNameLabel1.setBackground(java.awt.Color.white);
+        userNameLabel1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         userNameLabel1.setText("Email:");
 
+        emailTxt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         emailTxt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 emailTxtKeyReleased(evt);
             }
         });
 
+        userNameLabel2.setBackground(java.awt.Color.white);
+        userNameLabel2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         userNameLabel2.setText("Age:");
 
+        ageTxt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         ageTxt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 ageTxtKeyPressed(evt);
@@ -123,9 +136,13 @@ public class RegisterPane extends javax.swing.JPanel {
             }
         });
 
+        jLabel1.setBackground(java.awt.Color.white);
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel1.setText("Student / Professor / Developer?");
 
+        roleYes.setBackground(java.awt.Color.white);
         roleButtonGroup.add(roleYes);
+        roleYes.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         roleYes.setText("Yes");
         roleYes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -133,7 +150,9 @@ public class RegisterPane extends javax.swing.JPanel {
             }
         });
 
+        roleNo.setBackground(java.awt.Color.white);
         roleButtonGroup.add(roleNo);
+        roleNo.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         roleNo.setText("No");
         roleNo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -141,6 +160,8 @@ public class RegisterPane extends javax.swing.JPanel {
             }
         });
 
+        roleSelector.setBackground(java.awt.Color.white);
+        roleSelector.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         roleSelector.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select your role", "Student", "Professor", "Developer" }));
         roleSelector.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -148,39 +169,58 @@ public class RegisterPane extends javax.swing.JPanel {
             }
         });
 
+        universityLabel.setBackground(java.awt.Color.white);
+        universityLabel.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         universityLabel.setText("University Name:");
 
+        universityNameTxt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         universityNameTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 universityNameTxtActionPerformed(evt);
             }
         });
 
+        idLabel.setBackground(java.awt.Color.white);
+        idLabel.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         idLabel.setText("ID Number:");
 
+        studentIdTxt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         studentIdTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 studentIdTxtActionPerformed(evt);
             }
         });
 
+        empLabel.setBackground(java.awt.Color.white);
+        empLabel.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         empLabel.setText("Employee ID:");
 
+        employeeIdTxt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+
+        jLabel5.setBackground(java.awt.Color.white);
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel5.setText("Password:");
 
         passwordTxt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
+        userNameLabel3.setBackground(java.awt.Color.white);
+        userNameLabel3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         userNameLabel3.setText("Last Name:");
 
+        lastNameTxt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         lastNameTxt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 lastNameTxtKeyReleased(evt);
             }
         });
 
+        jLabel2.setBackground(java.awt.Color.white);
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel2.setText("Gender:");
 
+        maleRadio.setBackground(java.awt.Color.white);
         genderButtonGroup.add(maleRadio);
+        maleRadio.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         maleRadio.setText("Male");
         maleRadio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -188,7 +228,9 @@ public class RegisterPane extends javax.swing.JPanel {
             }
         });
 
+        femaleRadio.setBackground(java.awt.Color.white);
         genderButtonGroup.add(femaleRadio);
+        femaleRadio.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         femaleRadio.setText("Female");
         femaleRadio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -196,7 +238,9 @@ public class RegisterPane extends javax.swing.JPanel {
             }
         });
 
+        undisclosedRadio.setBackground(java.awt.Color.white);
         genderButtonGroup.add(undisclosedRadio);
+        undisclosedRadio.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         undisclosedRadio.setText("Rather not say");
         undisclosedRadio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -204,21 +248,34 @@ public class RegisterPane extends javax.swing.JPanel {
             }
         });
 
+        communityNameTxt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+
+        empLabel2.setBackground(java.awt.Color.white);
+        empLabel2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         empLabel2.setText("Community Name:");
 
+        generalUserLabel.setBackground(java.awt.Color.white);
+        generalUserLabel.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         generalUserLabel.setText("Role:");
 
         generalUserText.setEditable(false);
+        generalUserText.setBackground(java.awt.Color.white);
+        generalUserText.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         generalUserText.setText("General");
 
+        phNoLabel.setBackground(java.awt.Color.white);
+        phNoLabel.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         phNoLabel.setText("Phone Number:");
 
+        phoneNumberTxt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         phoneNumberTxt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 phoneNumberTxtKeyReleased(evt);
             }
         });
 
+        validationLbl.setBackground(java.awt.Color.white);
+        validationLbl.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         validationLbl.setForeground(new java.awt.Color(255, 51, 51));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -345,7 +402,7 @@ public class RegisterPane extends javax.swing.JPanel {
                 .addComponent(validationLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(RegisterButton, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
