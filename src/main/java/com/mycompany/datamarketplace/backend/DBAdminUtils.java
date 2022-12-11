@@ -5,10 +5,13 @@
     package com.mycompany.datamarketplace.backend;
 
     import com.mycompany.datamarketplace.datamodels.community.Community;
+    import com.mycompany.datamarketplace.datamodels.community.CommunityAdmin;
+    import com.mycompany.datamarketplace.datamodels.company.CompanyAdmin;
+    import com.mycompany.datamarketplace.datamodels.government.GovernmentAdmin;
     import com.mycompany.datamarketplace.datamodels.company.Company;
     import com.mycompany.datamarketplace.datamodels.government.Country;
     import com.mycompany.datamarketplace.datamodels.misc.SupportAdmin;
-    import com.mycompany.datamarketplace.datamodels.university.University;
+    import com.mycompany.datamarketplace.datamodels.university.*;
     import java.sql.Connection;
     import java.sql.DriverManager;
     import java.sql.ResultSet;
@@ -167,10 +170,6 @@
 
             return supportAdmin;
            }
-
-
-
-
 
 
         public Boolean checkIfIdIsUnique(String commonId, String role) {
@@ -642,7 +641,167 @@
             
             return isUnique;
             }
+        
+        public CommunityAdmin checkIfCommAdminRoleExists(String email, String pass, String parentTable) {
+            CommunityAdmin commAdminObj = null;
+                try{
+                    
+                    String mailId = "";
+                    String passwrd = "";
 
+                    Connection conn = createConnection();
+                    Statement statement = conn.createStatement();
+                    String query = "SELECT * FROM "+parentTable+" where email = '"+email+"' and password = '"+pass+"'";
+                    System.out.println(query);
+                    ResultSet rs = statement.executeQuery(query);
+
+                    while(rs.next()){
+                        mailId = rs.getString("email");
+                        passwrd = rs.getString("password");
+                        
+                        if(email.equalsIgnoreCase(mailId) && passwrd.equalsIgnoreCase(pass)){
+
+                            commAdminObj = new CommunityAdmin();
+                            commAdminObj.setEmail(rs.getString("email"));
+                            commAdminObj.setPassword(rs.getString("password"));
+                        }
+                    }
+                }
+                catch(Exception e){
+                    System.out.println("Error at data check" + e);
+                }
+                
+            return commAdminObj;
+            }
+        
+        public CompanyAdmin checkIfCompAdminRoleExists(String email, String pass, String parentTable) {
+            CompanyAdmin compAdminObj = null;
+                try{
+                    
+                    String mailId = "";
+                    String passwrd = "";
+
+                    Connection conn = createConnection();
+                    Statement statement = conn.createStatement();
+                    String query = "SELECT * FROM "+parentTable+" where email = '"+email+"' and password = '"+pass+"'";
+                    System.out.println(query);
+                    ResultSet rs = statement.executeQuery(query);
+
+                    while(rs.next()){
+                        mailId = rs.getString("email");
+                        passwrd = rs.getString("password");
+                        
+                        if(email.equalsIgnoreCase(mailId) && passwrd.equalsIgnoreCase(pass)){
+
+                            compAdminObj = new CompanyAdmin();
+                            compAdminObj.setEmail(rs.getString("email"));
+                            compAdminObj.setPassword(rs.getString("password"));
+                        }
+                    }
+                }
+                catch(Exception e){
+                    System.out.println("Error at data check" + e);
+                }
+                
+            return compAdminObj;
+            }
+        
+        public GovernmentAdmin checkIfGovtAdminRoleExists(String email, String pass, String parentTable) {
+            GovernmentAdmin govtAdminObj = null;
+                try{
+                    
+                    String mailId = "";
+                    String passwrd = "";
+
+                    Connection conn = createConnection();
+                    Statement statement = conn.createStatement();
+                    String query = "SELECT * FROM "+parentTable+" where email = '"+email+"' and password = '"+pass+"'";
+                    System.out.println(query);
+                    ResultSet rs = statement.executeQuery(query);
+
+                    while(rs.next()){
+                        mailId = rs.getString("email");
+                        passwrd = rs.getString("password");
+                        
+                        if(email.equalsIgnoreCase(mailId) && passwrd.equalsIgnoreCase(pass)){
+
+                            govtAdminObj = new GovernmentAdmin();
+                            govtAdminObj.setEmail(rs.getString("email"));
+                            govtAdminObj.setPassword(rs.getString("password"));
+                        }
+                    }
+                }
+                catch(Exception e){
+                    System.out.println("Error at data check" + e);
+                }
+                
+            return govtAdminObj;
+            }
+
+        public UniversityAdmin checkIfUniAdminRoleExists(String email, String pass, String parentTable) {
+            UniversityAdmin uniAdminObj = null;
+                try{
+                    
+                    String mailId = "";
+                    String passwrd = "";
+
+                    Connection conn = createConnection();
+                    Statement statement = conn.createStatement();
+                    String query = "SELECT * FROM "+parentTable+" where email = '"+email+"' and password = '"+pass+"'";
+                    System.out.println(query);
+                    ResultSet rs = statement.executeQuery(query);
+
+                    while(rs.next()){
+                        mailId = rs.getString("email");
+                        passwrd = rs.getString("password");
+                        
+                        if(email.equalsIgnoreCase(mailId) && passwrd.equalsIgnoreCase(pass)){
+
+                            uniAdminObj = new UniversityAdmin();
+                            uniAdminObj.setEmail(rs.getString("email"));
+                            uniAdminObj.setPassword(rs.getString("password"));
+                        }
+                    }
+                }
+                catch(Exception e){
+                    System.out.println("Error at data check" + e);
+                }
+                
+            return uniAdminObj;
+            }
+        
+        public SupportAdmin checkIfSupportAdminRoleExists(String email, String pass, String parentTable) {
+            SupportAdmin supportAdminObj = null;
+                try{
+                    
+                    String mailId = "";
+                    String passwrd = "";
+
+                    Connection conn = createConnection();
+                    Statement statement = conn.createStatement();
+                    String query = "SELECT * FROM "+parentTable+" where email = '"+email+"' and password = '"+pass+"'";
+                    System.out.println(query);
+                    ResultSet rs = statement.executeQuery(query);
+
+                    while(rs.next()){
+                        mailId = rs.getString("email");
+                        passwrd = rs.getString("password");
+                        
+                        if(email.equalsIgnoreCase(mailId) && passwrd.equalsIgnoreCase(pass)){
+
+                            supportAdminObj = new SupportAdmin();
+                            supportAdminObj.setEmail(rs.getString("email"));
+                            supportAdminObj.setPassword(rs.getString("password"));
+                        }
+                    }
+                }
+                catch(Exception e){
+                    System.out.println("Error at data check" + e);
+                }
+                
+            return supportAdminObj;
+            }
+        
         public Boolean createDifferentAdminRoles(String adminEmail, String adminPass, String institution, String tableName, String parentTable) {
              Boolean isSuccess = false;
              

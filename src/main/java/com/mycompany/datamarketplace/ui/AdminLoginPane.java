@@ -1,6 +1,12 @@
 package com.mycompany.datamarketplace.ui;
 import javax.swing.JOptionPane;
 import javax.swing.JSplitPane;
+import com.mycompany.datamarketplace.datamodels.community.CommunityAdmin;
+import com.mycompany.datamarketplace.backend.DBAdminUtils;
+import com.mycompany.datamarketplace.datamodels.company.CompanyAdmin;
+import com.mycompany.datamarketplace.datamodels.government.GovernmentAdmin;
+import com.mycompany.datamarketplace.datamodels.university.UniversityAdmin;
+import com.mycompany.datamarketplace.datamodels.misc.SupportAdmin;
 
 /**
  *
@@ -14,10 +20,14 @@ public class AdminLoginPane extends javax.swing.JPanel {
      */
     String systemAdminEmail = "root";
     String systemAdminPassword = "root";
+    DBAdminUtils dbAdminUtils;
+    String tableName;
     
     public AdminLoginPane(JSplitPane splitPane) {
-        adminSplitPane = splitPane;
+        this.adminSplitPane = splitPane;
         initComponents();
+        
+        dbAdminUtils = new DBAdminUtils();
     }
 
     /**
@@ -59,7 +69,7 @@ public class AdminLoginPane extends javax.swing.JPanel {
             }
         });
 
-        rolesComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Please select Admin Type", "University Admin", "Company Admin", "Community Admin", "Country Govt Admin", "Support Admin", "System Admin" }));
+        rolesComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Please select Admin Type", "Company Admin", "Community Admin", "Country Govt Admin", "Support Admin", "System Admin", "University Admin" }));
         rolesComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rolesComboBoxActionPerformed(evt);
@@ -73,21 +83,19 @@ public class AdminLoginPane extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(adminLoginButton)
-                .addGap(322, 322, 322))
+                .addGap(332, 332, 332))
             .addGroup(layout.createSequentialGroup()
+                .addGap(242, 242, 242)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(rolesComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(242, 242, 242)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(adminEmailLabel)
                             .addComponent(adminPassLabel))
                         .addGap(74, 74, 74)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(adminEmailField)
-                            .addComponent(adminPassField, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(270, 270, 270)
-                        .addComponent(rolesComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(adminPassField, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE))))
                 .addContainerGap(172, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -103,9 +111,9 @@ public class AdminLoginPane extends javax.swing.JPanel {
                     .addComponent(adminPassField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(rolesComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addGap(18, 18, 18)
                 .addComponent(adminLoginButton)
-                .addContainerGap(123, Short.MAX_VALUE))
+                .addContainerGap(132, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -123,6 +131,11 @@ public class AdminLoginPane extends javax.swing.JPanel {
         String emailId = adminEmailField.getText();
         String password = adminPassField.getText();
         String role = (String.valueOf(rolesComboBox.getEditor().getItem()));
+        CommunityAdmin commAdminObj;
+        CompanyAdmin compAdminObj;
+        GovernmentAdmin govtAdminObj;
+        UniversityAdmin uniAdminObj;
+        SupportAdmin supportAdminObj;
         
         if(emailId.isEmpty() || emailId.isBlank()){
             JOptionPane.showMessageDialog(this, "Please enter the email");
@@ -134,18 +147,95 @@ public class AdminLoginPane extends javax.swing.JPanel {
             return;
         }
         
-        if(role.equalsIgnoreCase("System Admin")){
-            if(emailId.equalsIgnoreCase(systemAdminEmail) 
-                    && password.equals(systemAdminPassword)){
-                AdminPanel adminPanel = new AdminPanel();
-                adminSplitPane.setBottomComponent(adminPanel);
+        switch (role) {
+            case "System Admin":
+            {
+                    if(emailId.equalsIgnoreCase(systemAdminEmail) && password.equals(systemAdminPassword)){
+                        AdminPanel adminPanel = new AdminPanel();
+                        adminSplitPane.setBottomComponent(adminPanel);
+                        return;
+                    }
+                    else{
+                       JOptionPane.showMessageDialog(this, "You do not have system admin privileges");
+                       return; 
+                    }
             }
-            else{
-               JOptionPane.showMessageDialog(this, "You do not have system admin privileges");
-               return; 
+            
+            case "Community Admin":
+            {
+                tableName = "community_admin";
+                commAdminObj = dbAdminUtils.checkIfCommAdminRoleExists(emailId, password, tableName);
+                if(commAdminObj == null) {
+                    JOptionPane.showMessageDialog(this, "You do not have community admin privileges");
+                    return;
+                }
+                else{
+                    CommunityAdminPane commAdmin = new CommunityAdminPane();
+                    adminSplitPane.setBottomComponent(commAdmin);
+                    return;
+                }
+            }
+                
+            case "Company Admin":
+            {
+                tableName = "company_admin";
+                compAdminObj = dbAdminUtils.checkIfCompAdminRoleExists(emailId, password, tableName);
+                if(compAdminObj == null) {
+                    JOptionPane.showMessageDialog(this, "You do not have company admin privileges");
+                    return;
+                }
+                else{
+                    CompanyAdminPane compAdmin = new CompanyAdminPane();
+                    adminSplitPane.setBottomComponent(compAdmin);
+                    return;
+                }
+            }
+                
+            case "Country Govt Admin":
+            {
+                tableName = "country_admin";
+                govtAdminObj = dbAdminUtils.checkIfGovtAdminRoleExists(emailId, password, tableName);
+                if(govtAdminObj == null) {
+                    JOptionPane.showMessageDialog(this, "You do not have company admin privileges");
+                    return;
+                }
+                else{
+                    GovernmentAdminPane govtAdminPane = new GovernmentAdminPane();
+                    adminSplitPane.setBottomComponent(govtAdminPane);
+                    return;
+                }
+            }
+                
+            case "University Admin":
+            {
+                tableName = "university_admin";
+                uniAdminObj = dbAdminUtils.checkIfUniAdminRoleExists(emailId, password, tableName);
+                if(uniAdminObj == null) {
+                    JOptionPane.showMessageDialog(this, "You do not have company admin privileges");
+                    return;
+                }
+                else{
+                    UniversityAdminPane uniAdminPane = new UniversityAdminPane();
+                    adminSplitPane.setBottomComponent(uniAdminPane);
+                    return;
+                }
+            }
+            
+            case "Support Admin":
+            {
+                tableName = "support_admin";
+                supportAdminObj = dbAdminUtils.checkIfSupportAdminRoleExists(emailId, password, tableName);
+                if(supportAdminObj == null) {
+                    JOptionPane.showMessageDialog(this, "You do not have support admin privileges");
+                    return;
+                }
+                else{
+                    SupportPane supportAdminPane = new SupportPane();
+                    adminSplitPane.setBottomComponent(supportAdminPane);
+                    return;
+                }
             }
         }
-         
     }//GEN-LAST:event_adminLoginButtonActionPerformed
 
     private void rolesComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rolesComboBoxActionPerformed
