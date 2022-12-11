@@ -3,10 +3,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package com.mycompany.datamarketplace.ui;
+import com.mycompany.datamarketplace.backend.DBFeaturesUtils;
+import com.mycompany.datamarketplace.datamodels.community.Community;
+import com.mycompany.datamarketplace.datamodels.company.Company;
 import javax.swing.JOptionPane;
 import javax.swing.JSplitPane;
 import com.mycompany.datamarketplace.datamodels.feature.survey.SurveyQuestions;
+import com.mycompany.datamarketplace.datamodels.university.Student;
 import com.mycompany.datamarketplace.ui.StudentScreen;
+import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -18,10 +23,22 @@ public class AvailableSurveyList extends javax.swing.JPanel {
     /**
      * Creates new form AvailableSurveyList
      */
+    JSplitPane splitPane;
+    DBFeaturesUtils dbFeaturesUtils = new DBFeaturesUtils();
+    ArrayList<SurveyQuestions> surveyList = dbFeaturesUtils.retrieveAllSurveyList();
+    String ownerOfTheEmail = "";
     public AvailableSurveyList() {
         initComponents();
-        //StudentScreen studentScreen = new StudentScreen(null, this, selSurvey, selectedRowIndex);
         
+    }
+    
+    Student studentObj;
+    public AvailableSurveyList(Student studentObj, JSplitPane splitPane) {
+        initComponents();
+        this.studentObj = studentObj;
+        this.splitPane = splitPane;
+        ownerOfTheEmail = studentObj.getEmail();
+        populateSurveyTable();
     }
 
     /**
@@ -69,22 +86,21 @@ public class AvailableSurveyList extends javax.swing.JPanel {
             availableSurveyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(availableSurveyPanelLayout.createSequentialGroup()
                 .addContainerGap(134, Short.MAX_VALUE)
-                .addGroup(availableSurveyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, availableSurveyPanelLayout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(118, 118, 118))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, availableSurveyPanelLayout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(285, 285, 285))))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(118, 118, 118))
+            .addGroup(availableSurveyPanelLayout.createSequentialGroup()
+                .addGap(297, 297, 297)
+                .addComponent(jButton1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         availableSurveyPanelLayout.setVerticalGroup(
             availableSurveyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(availableSurveyPanelLayout.createSequentialGroup()
                 .addGap(52, 52, 52)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
+                .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addContainerGap(121, Short.MAX_VALUE))
+                .addContainerGap(136, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -111,18 +127,22 @@ public class AvailableSurveyList extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-//        int selectedRowIndex = surveyListTable.getSelectedRow();
-//
-//        if(selectedRowIndex<0)
-//        {
-//            JOptionPane.showMessageDialog(this, "Please select a survey to take.");
-//            return;
-//        }
-//
-//        DefaultTableModel survey = (DefaultTableModel) surveyListTable.getModel();
-//        SurveyQuestions selSurvey = (SurveyQuestions) survey.getValueAt(selectedRowIndex, 0);
-//
-//        StudentScreen studentScreen = new StudentScreen(null, this, selSurvey, selectedRowIndex);
+        
+        int selectedRowInd = surveyListTable.getSelectedRow();
+        
+        if(selectedRowInd < 0){
+            JOptionPane.showMessageDialog(this, "Please select a row");
+            return;
+        }
+        
+        DefaultTableModel tableModel = (DefaultTableModel) surveyListTable.getModel();
+        SurveyQuestions selectedSurvey = (SurveyQuestions)tableModel.getValueAt(selectedRowInd, 0);
+        TakeSurveyPane takeSurvey;
+        if(studentObj!=null){
+            takeSurvey = new TakeSurveyPane(splitPane, studentObj, selectedSurvey);
+            splitPane.setBottomComponent(takeSurvey);
+        }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
@@ -132,4 +152,18 @@ public class AvailableSurveyList extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable surveyListTable;
     // End of variables declaration//GEN-END:variables
+
+    private void populateSurveyTable() {
+        DefaultTableModel tableModel = (DefaultTableModel) surveyListTable.getModel();
+        tableModel.setRowCount(0 );
+        
+        for(SurveyQuestions itr: surveyList){
+            
+            if(itr!=null && !itr.getOwner().equalsIgnoreCase(ownerOfTheEmail)){
+                Object[] rowOfRecord =  new Object[5];
+                rowOfRecord[0] = itr;
+                tableModel.addRow(rowOfRecord); 
+        }
+        }
+    }
 }
