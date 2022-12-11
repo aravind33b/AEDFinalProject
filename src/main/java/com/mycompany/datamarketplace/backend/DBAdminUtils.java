@@ -55,6 +55,25 @@
                 System.out.println(e);
             }
         }
+        
+        public Boolean updateDetails(String companyName, String city, String country, String companyId, String officialEmail, String officialPhone, String tableName) {
+            Boolean isSuccess = false;
+                try{
+                    System.out.println("In DB");
+                    System.out.println("Your role is" + tableName);
+                    Connection conn = createConnection();
+                    Statement statement = conn.createStatement();
+                    System.out.println(companyId);
+                    String query = "UPDATE test_aed."+tableName+" SET company_name = '"+companyName+"', city = '"+city+"', country = '"+country+"', email = '"+officialEmail+"', phone = '"+officialPhone+"' WHERE company_id = '"+companyId+"'";
+                    System.out.println(query);
+                    statement.executeUpdate(query);
+                    isSuccess = true;
+                } catch (Exception e){
+                    System.out.println(e);
+                }
+                
+                return isSuccess;
+        }
 
         public Boolean createAdminBasedOnRoles(String companyName, String city, String country, String companyId, String officialEmail, String officialPhone, String tableName) {
             Boolean isSuccess = false;
@@ -83,6 +102,7 @@
                     Connection conn = createConnection();
                     Statement statement = conn.createStatement();
                     String query = "INSERT INTO `test_aed`.`"+tableName+"` (`first_name`, `last_name`,`email`, `password`) VALUES ('"+firstName+"', '"+lastName+"', '"+supportEmail+"', '"+supportPass+"')";
+                    System.out.println(query);
                     statement.executeUpdate(query);
                     isSuccess = true;
                 }
