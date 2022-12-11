@@ -252,7 +252,7 @@ public class TakeSurveyPane extends javax.swing.JPanel {
             System.out.println(surveyId);
             for(SurveyResponses sq: surveyAnswersList){
                 System.out.println(sq.getSurveyId());
-                if(sq.getSurveyId()== surveyId){
+                if(sq.getSurveyId()== surveyId && sq.getResponderEmail().equalsIgnoreCase(answerGiver)){
 //                    System.out.print(sq.getSurveyId() + "==" + surveyId);
                     JOptionPane.showMessageDialog(this, "Survey already taken");
                     return;
@@ -286,7 +286,7 @@ public class TakeSurveyPane extends javax.swing.JPanel {
             String answerGiver = professorObj.getEmail();
             int surveyId = surveyQuestions.getSurveyId();
             for(SurveyResponses sq: surveyAnswersList){
-                if(sq.getSurveyId()== surveyId){
+                if(sq.getSurveyId()== surveyId && sq.getResponderEmail().equalsIgnoreCase(answerGiver)){
                     JOptionPane.showMessageDialog(this, "Survey already taken");
                     return;
                 }
@@ -318,7 +318,7 @@ public class TakeSurveyPane extends javax.swing.JPanel {
             String answerGiver = developerObj.getEmail();
             int surveyId = surveyQuestions.getSurveyId();
             for(SurveyResponses sq: surveyAnswersList){
-                if(sq.getSurveyId()== surveyId){
+                if(sq.getSurveyId()== surveyId && sq.getResponderEmail().equalsIgnoreCase(answerGiver)){
                     JOptionPane.showMessageDialog(this, "Survey already taken");
                     return;
                 }
@@ -350,7 +350,7 @@ public class TakeSurveyPane extends javax.swing.JPanel {
             String answerGiver = personObj.getEmail();
             int surveyId = surveyQuestions.getSurveyId();
             for(SurveyResponses sq: surveyAnswersList){
-                if(sq.getSurveyId()== surveyId){
+                if(sq.getSurveyId()== surveyId && sq.getResponderEmail().equalsIgnoreCase(answerGiver)){
                     JOptionPane.showMessageDialog(this, "Survey already taken");
                     return;
                 }
