@@ -249,11 +249,10 @@ public class TakeSurveyPane extends javax.swing.JPanel {
         if(studentObj!=null){
             String answerGiver = studentObj.getEmail();
             int surveyId = surveyQuestions.getSurveyId();
-            System.out.println(surveyId);
             for(SurveyResponses sq: surveyAnswersList){
                 System.out.println(sq.getSurveyId());
                 if(sq.getSurveyId()== surveyId && sq.getResponderEmail().equalsIgnoreCase(answerGiver)){
-//                    System.out.print(sq.getSurveyId() + "==" + surveyId);
+                    
                     JOptionPane.showMessageDialog(this, "Survey already taken");
                     return;
                 }
@@ -269,8 +268,11 @@ public class TakeSurveyPane extends javax.swing.JPanel {
                 answer4,
                 answer5
             );
-            if(isSuccess){ 
-                JOptionPane.showMessageDialog(this, "Answers are stored");
+            if(isSuccess){
+                int updatedWalletBalance = studentObj.getWalletBalance() + 10;
+                Boolean isWalletUpdated = dBFeaturesUtils.updateWalletBalance(studentObj.getEmail(), "student", updatedWalletBalance);
+                if(isWalletUpdated)
+                    JOptionPane.showMessageDialog(this, "Answers are stored");
                 studentSrn = new StudentScreen(splitPane, studentObj);
                 splitPane.setBottomComponent(studentSrn); 
                 
@@ -303,7 +305,10 @@ public class TakeSurveyPane extends javax.swing.JPanel {
                 answer5
             );
             if(isSuccess){ 
-                JOptionPane.showMessageDialog(this, "Answers are stored");
+                int updatedWalletBalance = professorObj.getWalletBalance() + 10;
+                Boolean isWalletUpdated = dBFeaturesUtils.updateWalletBalance(professorObj.getEmail(), "professor", updatedWalletBalance);
+                if(isWalletUpdated)
+                    JOptionPane.showMessageDialog(this, "Answers are stored");
                 prfsScrn = new ProfessorScreen(splitPane, professorObj);
                 splitPane.setBottomComponent(prfsScrn); 
                 
@@ -335,7 +340,10 @@ public class TakeSurveyPane extends javax.swing.JPanel {
                 answer5
             );
             if(isSuccess){ 
-                JOptionPane.showMessageDialog(this, "Answers are stored");
+                int updatedWalletBalance = developerObj.getWalletBalance() + 10;
+                Boolean isWalletUpdated = dBFeaturesUtils.updateWalletBalance(developerObj.getEmail(), "developer", updatedWalletBalance);
+                if(isWalletUpdated)
+                    JOptionPane.showMessageDialog(this, "Answers are stored");
                 devScrn = new DeveloperScreen(splitPane, developerObj);
                 splitPane.setBottomComponent(devScrn); 
                 
@@ -367,7 +375,10 @@ public class TakeSurveyPane extends javax.swing.JPanel {
                 answer5
             );
             if(isSuccess){ 
-                JOptionPane.showMessageDialog(this, "Answers are stored");
+                int updatedWalletBalance = personObj.getWalletBalance() + 10;
+                Boolean isWalletUpdated = dBFeaturesUtils.updateWalletBalance(personObj.getEmail(), "general", updatedWalletBalance);
+                if(isWalletUpdated)
+                    JOptionPane.showMessageDialog(this, "Answers are stored");
                 userScrn = new GeneralUserScreen(splitPane, personObj);
                 splitPane.setBottomComponent(userScrn); 
                 

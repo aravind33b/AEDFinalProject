@@ -137,7 +137,7 @@ public class DBFeaturesUtils {
                 try{
                     Connection conn = createConnection();
                     Statement statement = conn.createStatement();
-                    String queryToExecute = "SELECT * FROM survey_questions";
+                    String queryToExecute = "SELECT * FROM survey_answers";
                     System.out.println(queryToExecute);
 
                     ResultSet rs = statement.executeQuery(queryToExecute);
@@ -159,6 +159,22 @@ public class DBFeaturesUtils {
                 }
 
             return companyList;
+    }
+
+    public Boolean updateWalletBalance(String email, String tableName, int updatedWalletBalance) {
+       Boolean status=false;
+    try{
+    Connection con=createConnection();
+    Statement statement=con.createStatement();
+    String query="UPDATE `test_aed`.`"+tableName+"` SET `wallet_balance` = '"+updatedWalletBalance+"' WHERE email ='"+email+"'" ;
+    //System.out.println(query);
+    statement.executeUpdate(query);
+    status = true;
+    }
+    catch(Exception e){
+        System.out.println(e);
+    }
+    return status; 
     }
 
 }

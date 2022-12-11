@@ -177,6 +177,7 @@ public class DBUtils {
                     student.setEmail(rs.getString("email"));
                     student.setPassword(rs.getString("password"));
                     student.setUniversityName(rs.getString("university_name"));
+                    student.setWalletBalance(rs.getInt("wallet_balance"));
                 }
             }
         } catch (Exception e) {
@@ -215,6 +216,7 @@ public class DBUtils {
                     professor.setEmail(rs.getString("email"));
                     professor.setPassword(rs.getString("password"));
                     professor.setUniversityName(rs.getString("university_name"));
+                    professor.setWalletBalance(rs.getInt("wallet_balance"));
                 }
             }
         } catch (Exception e) {
@@ -252,6 +254,7 @@ public class DBUtils {
                     person.setPhoneNumber(rs.getString("phoneNumber"));
                     person.setEmail(rs.getString("email"));
                     person.setPassword(rs.getString("password"));
+                    person.setWalletBalance(rs.getInt("wallet_balance"));
                 }
             }
         } catch (Exception e) {
@@ -319,6 +322,7 @@ public class DBUtils {
                     dev.setEmail(rs.getString("email"));
                     dev.setPassword(rs.getString("password"));
                     dev.setCommunityName(rs.getString("university_name"));
+                    dev.setWalletBalance(rs.getInt("wallet_balance"));
                 }
             }
         } catch (Exception e) {
