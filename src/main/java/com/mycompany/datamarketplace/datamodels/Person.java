@@ -6,7 +6,7 @@ public class Person extends Credentials{
     String lastName;
     String gender;
     int age;
-    int phoneNumber;
+    String phoneNumber;
     Credentials credentials;
     String socialId;
 
@@ -50,11 +50,11 @@ public class Person extends Credentials{
         this.age = age;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 

@@ -3,6 +3,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JSplitPane;
 import com.mycompany.datamarketplace.datamodels.community.CommunityAdmin;
 import com.mycompany.datamarketplace.backend.DBAdminUtils;
+import com.mycompany.datamarketplace.datamodels.university.Student;
 import com.mycompany.datamarketplace.datamodels.company.CompanyAdmin;
 import com.mycompany.datamarketplace.datamodels.government.GovernmentAdmin;
 import com.mycompany.datamarketplace.datamodels.university.UniversityAdmin;
@@ -131,6 +132,7 @@ public class AdminLoginPane extends javax.swing.JPanel {
         String emailId = adminEmailField.getText();
         String password = adminPassField.getText();
         String role = (String.valueOf(rolesComboBox.getEditor().getItem()));
+        Student studentObj = null;
         CommunityAdmin commAdminObj;
         CompanyAdmin compAdminObj;
         GovernmentAdmin govtAdminObj;
@@ -147,12 +149,15 @@ public class AdminLoginPane extends javax.swing.JPanel {
             return;
         }
         
+        LogoutPanel logoutPanel = new LogoutPanel(adminSplitPane, studentObj);
+        
         switch (role) {
             case "System Admin":
             {
                     if(emailId.equalsIgnoreCase(systemAdminEmail) && password.equals(systemAdminPassword)){
                         AdminPanel adminPanel = new AdminPanel();
                         adminSplitPane.setBottomComponent(adminPanel);
+                        adminSplitPane.setTopComponent(logoutPanel);
                         return;
                     }
                     else{
@@ -172,6 +177,7 @@ public class AdminLoginPane extends javax.swing.JPanel {
                 else{
                     CommunityAdminPane commAdmin = new CommunityAdminPane();
                     adminSplitPane.setBottomComponent(commAdmin);
+                    adminSplitPane.setTopComponent(logoutPanel);
                     return;
                 }
             }
@@ -187,6 +193,7 @@ public class AdminLoginPane extends javax.swing.JPanel {
                 else{
                     CompanyAdminPane compAdmin = new CompanyAdminPane();
                     adminSplitPane.setBottomComponent(compAdmin);
+                    adminSplitPane.setTopComponent(logoutPanel);
                     return;
                 }
             }
@@ -202,6 +209,7 @@ public class AdminLoginPane extends javax.swing.JPanel {
                 else{
                     GovernmentAdminPane govtAdminPane = new GovernmentAdminPane();
                     adminSplitPane.setBottomComponent(govtAdminPane);
+                    adminSplitPane.setTopComponent(logoutPanel);
                     return;
                 }
             }
@@ -217,6 +225,7 @@ public class AdminLoginPane extends javax.swing.JPanel {
                 else{
                     UniversityAdminPane uniAdminPane = new UniversityAdminPane();
                     adminSplitPane.setBottomComponent(uniAdminPane);
+                    adminSplitPane.setTopComponent(logoutPanel);
                     return;
                 }
             }
@@ -232,6 +241,7 @@ public class AdminLoginPane extends javax.swing.JPanel {
                 else{
                     SupportPane supportAdminPane = new SupportPane();
                     adminSplitPane.setBottomComponent(supportAdminPane);
+                    adminSplitPane.setTopComponent(logoutPanel);
                     return;
                 }
             }

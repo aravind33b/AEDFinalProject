@@ -54,7 +54,7 @@ public class DBUtils {
         }
     }
 
-    public Boolean insertValuesBasedOnRoles(String firstName, String lastName, String email, String password, String gender, int age, String universityName, String studentId, String employeeId, String generalId, String role, int phoneNumber) {
+    public Boolean insertValuesBasedOnRoles(String firstName, String lastName, String email, String password, String gender, int age, String universityName, String studentId, String employeeId, String generalId, String role, String phoneNumber) {
         Boolean isSuccess = false;
         try{
             System.out.println("In DB");
@@ -169,7 +169,7 @@ public class DBUtils {
                     student.setLastName(rs.getString("last_name"));
                     student.setAge(rs.getInt("age"));
                     student.setGender(rs.getString("gender"));
-                    student.setPhoneNumber(rs.getInt("phoneNumber"));
+                    student.setPhoneNumber(rs.getString("phoneNumber"));
                     student.setEmail(rs.getString("email"));
                     student.setPassword(rs.getString("password"));
                     student.setUniversityName(rs.getString("university_name"));
@@ -207,7 +207,7 @@ public class DBUtils {
                     professor.setLastName(rs.getString("last_name"));
                     professor.setAge(rs.getInt("age"));
                     professor.setGender(rs.getString("gender"));
-                    professor.setPhoneNumber(rs.getInt("phoneNumber"));
+                    professor.setPhoneNumber(rs.getString("phoneNumber"));
                     professor.setEmail(rs.getString("email"));
                     professor.setPassword(rs.getString("password"));
                     professor.setUniversityName(rs.getString("university_name"));
@@ -245,7 +245,7 @@ public class DBUtils {
                     person.setLastName(rs.getString("last_name"));
                     person.setAge(rs.getInt("age"));
                     person.setGender(rs.getString("gender"));
-                    person.setPhoneNumber(rs.getInt("phoneNumber"));
+                    person.setPhoneNumber(rs.getString("phoneNumber"));
                     person.setEmail(rs.getString("email"));
                     person.setPassword(rs.getString("password"));
                 }
@@ -281,7 +281,7 @@ public class DBUtils {
                     dev.setLastName(rs.getString("last_name"));
                     dev.setAge(rs.getInt("age"));
                     dev.setGender(rs.getString("gender"));
-                    dev.setPhoneNumber(rs.getInt("phoneNumber"));
+                    dev.setPhoneNumber(rs.getString("phoneNumber"));
                     dev.setEmail(rs.getString("email"));
                     dev.setPassword(rs.getString("password"));
                     dev.setCommunityName(rs.getString("university_name"));
