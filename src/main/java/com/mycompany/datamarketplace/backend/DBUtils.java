@@ -177,6 +177,8 @@ public class DBUtils {
                     student.setEmail(rs.getString("email"));
                     student.setPassword(rs.getString("password"));
                     student.setUniversityName(rs.getString("university_name"));
+                    System.out.println(student.getEmail());
+                    System.out.println(student.getUniversityName());
                     student.setWalletBalance(rs.getInt("wallet_balance"));
                 }
             }

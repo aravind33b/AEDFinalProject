@@ -4,10 +4,13 @@
  */
 package com.mycompany.datamarketplace.ui;
 
+import static com.mycompany.datamarketplace.backend.DBUtils.createConnection;
 import com.mysql.cj.xdevapi.Result;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.JSplitPane;
 
@@ -107,12 +110,10 @@ public class ResetForm extends javax.swing.JPanel {
         // TODO add your handling code here:
         if(newPassTxt.getText().equals( verifyPassTxt.getText())){
             try {
-                String updateQuery = "UPDATE `forgot_password` SET `password`=? WHERE email=?";
-                conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/test_aed", "root", "");
-                pst = conn.prepareStatement(updateQuery);
-                pst.setString(1, verifyPassTxt.getText());
-                pst.setString(2, user);
-                pst.executeUpdate();
+                String updateQuery = "UPDATE test_aed.student SET password= '"+verifyPassTxt.getText()+"' WHERE email= '"+user+"'";
+                Connection conn = createConnection();
+                Statement statement = conn.createStatement();
+                ResultSet rs = statement.executeQuery(updateQuery);
                 JOptionPane.showMessageDialog(this, "Reset Succesfully");
                 
             } catch (Exception exp) {
