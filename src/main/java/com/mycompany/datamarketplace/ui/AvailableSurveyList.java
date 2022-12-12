@@ -89,6 +89,8 @@ public class AvailableSurveyList extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         searchSurvey = new javax.swing.JTextField();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
         availableSurveyPanel.setBackground(new java.awt.Color(255, 255, 255));
 
         jScrollPane1.setBackground(java.awt.Color.white);
@@ -167,7 +169,7 @@ public class AvailableSurveyList extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 705, Short.MAX_VALUE)
+            .addGap(0, 1200, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -176,7 +178,7 @@ public class AvailableSurveyList extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 520, Short.MAX_VALUE)
+            .addGap(0, 600, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)

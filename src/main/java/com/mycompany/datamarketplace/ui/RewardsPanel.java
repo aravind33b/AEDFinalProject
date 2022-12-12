@@ -75,9 +75,9 @@ public class RewardsPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel1.setText("Your Balance:");
 
+        jTextField1.setEditable(false);
         jTextField1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
-        jButton1.setBackground(java.awt.Color.white);
         jButton1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jButton1.setText("Encash");
 
