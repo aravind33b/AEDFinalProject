@@ -44,6 +44,10 @@ public class SurveyResponsePanel extends javax.swing.JPanel {
         jTextField3 = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        jScrollPane1.setBackground(java.awt.Color.white);
+
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -54,28 +58,40 @@ public class SurveyResponsePanel extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(jTable1);
 
+        jLabel1.setBackground(java.awt.Color.white);
         jLabel1.setText("Survey Taker Name:");
 
+        jLabel2.setBackground(java.awt.Color.white);
         jLabel2.setText("Q1");
+
+        jScrollPane2.setBackground(java.awt.Color.white);
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane2.setViewportView(jTextArea1);
 
+        jScrollPane3.setBackground(java.awt.Color.white);
+
         jTextArea2.setColumns(20);
         jTextArea2.setRows(5);
         jScrollPane3.setViewportView(jTextArea2);
 
+        jLabel3.setBackground(java.awt.Color.white);
         jLabel3.setText("Q2");
+
+        jScrollPane4.setBackground(java.awt.Color.white);
 
         jTextArea3.setColumns(20);
         jTextArea3.setRows(5);
         jScrollPane4.setViewportView(jTextArea3);
 
+        jLabel4.setBackground(java.awt.Color.white);
         jLabel4.setText("Q3");
 
+        jLabel5.setBackground(java.awt.Color.white);
         jLabel5.setText("Q4");
 
+        jLabel6.setBackground(java.awt.Color.white);
         jLabel6.setText("Q5");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
