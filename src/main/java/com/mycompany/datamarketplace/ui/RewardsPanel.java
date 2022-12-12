@@ -49,7 +49,7 @@ public class RewardsPanel extends javax.swing.JPanel {
     public RewardsPanel(Person personObj) {
         initComponents();
         this.personObj = personObj;
-        if(studentObj!=null){
+        if(personObj!=null){
             populateGeneralWalletBalance(personObj);
         }
     }
