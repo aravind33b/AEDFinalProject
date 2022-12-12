@@ -30,12 +30,17 @@ public class CreatedSurveyList extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         surveyListTable = new javax.swing.JTable();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setText("View Responses");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+
+        jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
 
         surveyListTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -66,23 +71,23 @@ public class CreatedSurveyList extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(149, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(368, 368, 368)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jButton1)
                         .addGap(179, 179, 179)))
-                .addGap(96, 96, 96))
+                .addContainerGap(379, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(59, Short.MAX_VALUE)
+                .addContainerGap(124, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addGap(33, 33, 33))
+                .addGap(90, 90, 90))
         );
     }// </editor-fold>//GEN-END:initComponents
 

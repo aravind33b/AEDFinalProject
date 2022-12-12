@@ -26,7 +26,6 @@ public class UniversityAdminPane extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel25 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
@@ -41,6 +40,7 @@ public class UniversityAdminPane extends javax.swing.JPanel {
         jLabel21 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         createCompanyBtn = new javax.swing.JButton();
         deleteCompanyBtn = new javax.swing.JButton();
@@ -171,7 +171,7 @@ public class UniversityAdminPane extends javax.swing.JPanel {
                         .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(emailTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(593, Short.MAX_VALUE))
+                .addContainerGap(588, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -202,10 +202,8 @@ public class UniversityAdminPane extends javax.swing.JPanel {
                     .addComponent(phoneNumberTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addComponent(jButton24, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(192, Short.MAX_VALUE))
+                .addContainerGap(165, Short.MAX_VALUE))
         );
-
-        jTabbedPane1.addTab("Manage University", jPanel1);
 
         createCompanyBtn.setText("Create");
         createCompanyBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -342,7 +340,7 @@ public class UniversityAdminPane extends javax.swing.JPanel {
                                 .addComponent(ageTxt, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(passwordTxt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(phoneNumberTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 145, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
@@ -400,7 +398,7 @@ public class UniversityAdminPane extends javax.swing.JPanel {
                             .addComponent(createCompanyBtn)
                             .addComponent(jButton25)
                             .addComponent(deleteCompanyBtn))))
-                .addContainerGap(68, Short.MAX_VALUE))
+                .addContainerGap(219, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Manage Student", jPanel2);
@@ -598,7 +596,7 @@ public class UniversityAdminPane extends javax.swing.JPanel {
                             .addComponent(createCompanyBtn1)
                             .addComponent(jButton26)
                             .addComponent(deleteCompanyBtn1))))
-                .addContainerGap(68, Short.MAX_VALUE))
+                .addContainerGap(219, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Manage Professor", jPanel3);
@@ -630,7 +628,7 @@ public class UniversityAdminPane extends javax.swing.JPanel {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap(385, Short.MAX_VALUE)
+                .addContainerGap(460, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -653,7 +651,7 @@ public class UniversityAdminPane extends javax.swing.JPanel {
                     .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 184, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -664,7 +662,7 @@ public class UniversityAdminPane extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1200, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
