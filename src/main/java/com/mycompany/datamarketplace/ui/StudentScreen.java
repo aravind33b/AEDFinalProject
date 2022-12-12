@@ -39,7 +39,7 @@ public class StudentScreen extends javax.swing.JPanel {
         this.splitPane = splitPane;
         availableSurvey = new AvailableSurveyList(studentObj, splitPane);
         createNewSurvey = new SurveyCreatingPanel(studentObj);
-        rewards = new RewardsPanel();
+        rewards = new RewardsPanel(studentObj);
         supportRequest = new SupportPane(studentObj);
         betaTestingList = new AvailableBetaTestingList();
         createBetaTests = new CreateBetaTestingPanel();
