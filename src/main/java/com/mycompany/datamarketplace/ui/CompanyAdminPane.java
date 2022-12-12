@@ -48,7 +48,6 @@ public class CompanyAdminPane extends javax.swing.JPanel {
         phoneNumberTxt = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
         countryTxt = new javax.swing.JTextField();
-        jButton24 = new javax.swing.JButton();
         jLabel21 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
@@ -80,18 +79,42 @@ public class CompanyAdminPane extends javax.swing.JPanel {
             }
         });
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel25.setBackground(java.awt.Color.white);
+        jLabel25.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel25.setText("Contact No:");
 
+        jLabel19.setBackground(java.awt.Color.white);
+        jLabel19.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel19.setText("Company Name");
 
+        companyIdTxt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+
+        companyNameTxt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+
+        emailTxt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+
+        cityTxt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+
+        phoneNumberTxt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+
+        jLabel20.setBackground(java.awt.Color.white);
+        jLabel20.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel20.setText("Country");
 
-        jButton24.setText("Update");
+        countryTxt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
+        jLabel21.setBackground(java.awt.Color.white);
+        jLabel21.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel21.setText("Company ID:");
 
+        jLabel17.setBackground(java.awt.Color.white);
+        jLabel17.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel17.setText("City");
 
+        jLabel24.setBackground(java.awt.Color.white);
+        jLabel24.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel24.setText("Email:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -99,33 +122,28 @@ public class CompanyAdminPane extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(252, 252, 252)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(151, 151, 151)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel19)
-                            .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(114, 114, 114)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(countryTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(companyNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cityTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(companyIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(emailTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(phoneNumberTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(294, 294, 294)
-                        .addComponent(jButton24, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(592, Short.MAX_VALUE))
+                    .addComponent(jLabel19)
+                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(114, 114, 114)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(countryTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(companyNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cityTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(companyIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(emailTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(phoneNumberTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(547, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(74, 74, 74)
+                .addGap(115, 115, 115)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(companyNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -149,28 +167,35 @@ public class CompanyAdminPane extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(phoneNumberTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
-                .addComponent(jButton24)
-                .addContainerGap(121, Short.MAX_VALUE))
+                .addContainerGap(248, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Manage Company", jPanel1);
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
         passwordTxt1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
+        userNameLabel5.setBackground(java.awt.Color.white);
         userNameLabel5.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         userNameLabel5.setText("Last Name:");
 
+        phNoLabel1.setBackground(java.awt.Color.white);
         phNoLabel1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         phNoLabel1.setText("Phone Number:");
 
+        jLabel30.setBackground(java.awt.Color.white);
         jLabel30.setText("Search Product Manager:");
 
+        jLabel6.setBackground(java.awt.Color.white);
         jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel6.setText("Password:");
 
+        userNameLabel4.setBackground(java.awt.Color.white);
         userNameLabel4.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         userNameLabel4.setText("Email:");
+
+        jScrollPane4.setBackground(java.awt.Color.white);
 
         jTable4.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -190,9 +215,11 @@ public class CompanyAdminPane extends javax.swing.JPanel {
         });
         jScrollPane4.setViewportView(jTable4);
 
+        idLabel1.setBackground(java.awt.Color.white);
         idLabel1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         idLabel1.setText("Employee ID");
 
+        deleteCompanyBtn1.setBackground(java.awt.Color.white);
         deleteCompanyBtn1.setText("Delete");
         deleteCompanyBtn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -200,9 +227,11 @@ public class CompanyAdminPane extends javax.swing.JPanel {
             }
         });
 
+        userNameLabel7.setBackground(java.awt.Color.white);
         userNameLabel7.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         userNameLabel7.setText("First Name:");
 
+        createCompanyBtn1.setBackground(java.awt.Color.white);
         createCompanyBtn1.setText("Create");
         createCompanyBtn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -247,7 +276,7 @@ public class CompanyAdminPane extends javax.swing.JPanel {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(studentIdTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(1, 1, 1)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 127, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 175, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
@@ -294,7 +323,7 @@ public class CompanyAdminPane extends javax.swing.JPanel {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(createCompanyBtn1)
                             .addComponent(deleteCompanyBtn1))))
-                .addContainerGap(96, Short.MAX_VALUE))
+                .addContainerGap(215, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Manage Product manager", jPanel2);
@@ -303,11 +332,11 @@ public class CompanyAdminPane extends javax.swing.JPanel {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1139, Short.MAX_VALUE)
+            .addGap(0, 1195, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 456, Short.MAX_VALUE)
+            .addGap(0, 573, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Manage Survey", jPanel3);
@@ -316,11 +345,11 @@ public class CompanyAdminPane extends javax.swing.JPanel {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1139, Short.MAX_VALUE)
+            .addGap(0, 1195, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 456, Short.MAX_VALUE)
+            .addGap(0, 573, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Manage Beta Testing", jPanel4);
@@ -431,7 +460,6 @@ public class CompanyAdminPane extends javax.swing.JPanel {
     private javax.swing.JTextField emailTxt2;
     private javax.swing.JTextField firstNameTxt1;
     private javax.swing.JLabel idLabel1;
-    private javax.swing.JButton jButton24;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;

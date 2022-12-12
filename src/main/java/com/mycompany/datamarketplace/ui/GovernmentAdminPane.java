@@ -108,12 +108,15 @@ public class GovernmentAdminPane extends javax.swing.JPanel {
             }
         });
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
         jLabel25.setText("Contact No:");
 
         jLabel19.setText("University Name");
 
         jLabel20.setText("Country");
 
+        jButton24.setBackground(new java.awt.Color(255, 255, 255));
         jButton24.setText("Update");
 
         jLabel21.setText("Affiliation no.");

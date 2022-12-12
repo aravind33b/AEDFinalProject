@@ -39,7 +39,6 @@ public class CommunityAdminPane extends javax.swing.JPanel {
         phoneNumberTxt2 = new javax.swing.JTextField();
         jLabel31 = new javax.swing.JLabel();
         countryTxt2 = new javax.swing.JTextField();
-        jButton26 = new javax.swing.JButton();
         jLabel32 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
@@ -78,23 +77,42 @@ public class CommunityAdminPane extends javax.swing.JPanel {
             }
         });
 
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel29.setBackground(java.awt.Color.white);
+        jLabel29.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel29.setText("Contact No:");
 
+        jLabel30.setBackground(java.awt.Color.white);
+        jLabel30.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel30.setText("Company Name");
 
+        companyIdTxt2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+
+        companyNameTxt2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+
+        emailTxt2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+
+        cityTxt2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+
+        phoneNumberTxt2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+
+        jLabel31.setBackground(java.awt.Color.white);
+        jLabel31.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel31.setText("Country");
 
-        jButton26.setText("Update");
-        jButton26.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jButton26MouseEntered(evt);
-            }
-        });
+        countryTxt2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
+        jLabel32.setBackground(java.awt.Color.white);
+        jLabel32.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel32.setText("Company ID:");
 
+        jLabel33.setBackground(java.awt.Color.white);
+        jLabel33.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel33.setText("City");
 
+        jLabel34.setBackground(java.awt.Color.white);
+        jLabel34.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel34.setText("Email:");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -102,28 +120,23 @@ public class CommunityAdminPane extends javax.swing.JPanel {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(151, 151, 151)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(151, 151, 151)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel30)
-                            .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(114, 114, 114)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(countryTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(companyNameTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cityTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(companyIdTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(emailTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(phoneNumberTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(294, 294, 294)
-                        .addComponent(jButton26, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(502, Short.MAX_VALUE))
+                    .addComponent(jLabel30)
+                    .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(114, 114, 114)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(countryTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(companyNameTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cityTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(companyIdTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(emailTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(phoneNumberTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(648, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -152,18 +165,20 @@ public class CommunityAdminPane extends javax.swing.JPanel {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(phoneNumberTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
-                .addComponent(jButton26)
-                .addContainerGap(112, Short.MAX_VALUE))
+                .addContainerGap(289, Short.MAX_VALUE))
         );
 
         jTabbedPane3.addTab("Manage Community", jPanel3);
 
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+
         passwordTxt1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
+        userNameLabel5.setBackground(java.awt.Color.white);
         userNameLabel5.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         userNameLabel5.setText("Last Name:");
 
+        femaleRadio1.setBackground(new java.awt.Color(255, 255, 255));
         femaleRadio1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         femaleRadio1.setText("Female");
         femaleRadio1.addActionListener(new java.awt.event.ActionListener() {
@@ -172,11 +187,13 @@ public class CommunityAdminPane extends javax.swing.JPanel {
             }
         });
 
+        phNoLabel1.setBackground(java.awt.Color.white);
         phNoLabel1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         phNoLabel1.setText("Phone Number:");
 
         jLabel35.setText("Search Product Manager:");
 
+        undisclosedRadio1.setBackground(new java.awt.Color(255, 255, 255));
         undisclosedRadio1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         undisclosedRadio1.setText("Rather not say");
         undisclosedRadio1.addActionListener(new java.awt.event.ActionListener() {
@@ -185,18 +202,23 @@ public class CommunityAdminPane extends javax.swing.JPanel {
             }
         });
 
+        userNameLabel6.setBackground(java.awt.Color.white);
         userNameLabel6.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         userNameLabel6.setText("Age:");
 
+        jLabel6.setBackground(java.awt.Color.white);
         jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel6.setText("Password:");
 
+        jLabel3.setBackground(java.awt.Color.white);
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel3.setText("Gender:");
 
+        userNameLabel4.setBackground(java.awt.Color.white);
         userNameLabel4.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         userNameLabel4.setText("Email:");
 
+        maleRadio1.setBackground(new java.awt.Color(255, 255, 255));
         maleRadio1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         maleRadio1.setText("Male");
         maleRadio1.addActionListener(new java.awt.event.ActionListener() {
@@ -223,9 +245,11 @@ public class CommunityAdminPane extends javax.swing.JPanel {
         });
         jScrollPane4.setViewportView(jTable4);
 
+        idLabel1.setBackground(java.awt.Color.white);
         idLabel1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         idLabel1.setText("Employee ID");
 
+        deleteCompanyBtn1.setBackground(java.awt.Color.white);
         deleteCompanyBtn1.setText("Delete");
         deleteCompanyBtn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -233,11 +257,14 @@ public class CommunityAdminPane extends javax.swing.JPanel {
             }
         });
 
+        userNameLabel7.setBackground(java.awt.Color.white);
         userNameLabel7.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         userNameLabel7.setText("First Name:");
 
+        jButton27.setBackground(java.awt.Color.white);
         jButton27.setText("Update");
 
+        createCompanyBtn1.setBackground(java.awt.Color.white);
         createCompanyBtn1.setText("Create");
         createCompanyBtn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -349,7 +376,7 @@ public class CommunityAdminPane extends javax.swing.JPanel {
                             .addComponent(createCompanyBtn1)
                             .addComponent(jButton27)
                             .addComponent(deleteCompanyBtn1))))
-                .addContainerGap(93, Short.MAX_VALUE))
+                .addContainerGap(219, Short.MAX_VALUE))
         );
 
         jTabbedPane3.addTab("Manage Developer", jPanel4);
@@ -358,11 +385,11 @@ public class CommunityAdminPane extends javax.swing.JPanel {
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1049, Short.MAX_VALUE)
+            .addGap(0, 1195, Short.MAX_VALUE)
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 453, Short.MAX_VALUE)
+            .addGap(0, 573, Short.MAX_VALUE)
         );
 
         jTabbedPane3.addTab("Manage Survey", jPanel5);
@@ -371,11 +398,11 @@ public class CommunityAdminPane extends javax.swing.JPanel {
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1049, Short.MAX_VALUE)
+            .addGap(0, 1195, Short.MAX_VALUE)
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 453, Short.MAX_VALUE)
+            .addGap(0, 573, Short.MAX_VALUE)
         );
 
         jTabbedPane3.addTab("Manage Beta Testing", jPanel6);
@@ -421,11 +448,6 @@ public class CommunityAdminPane extends javax.swing.JPanel {
         jTabbedPane3.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
     }//GEN-LAST:event_jTabbedPane3MouseEntered
 
-    private void jButton26MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton26MouseEntered
-        // TODO add your handling code here:
-        jButton26.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-    }//GEN-LAST:event_jButton26MouseEntered
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField ageTxt1;
@@ -440,7 +462,6 @@ public class CommunityAdminPane extends javax.swing.JPanel {
     private javax.swing.JRadioButton femaleRadio1;
     private javax.swing.JTextField firstNameTxt1;
     private javax.swing.JLabel idLabel1;
-    private javax.swing.JButton jButton26;
     private javax.swing.JButton jButton27;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;

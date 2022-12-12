@@ -89,6 +89,10 @@ public class AvailableSurveyList extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         searchSurvey = new javax.swing.JTextField();
 
+        availableSurveyPanel.setBackground(new java.awt.Color(255, 255, 255));
+
+        jScrollPane1.setBackground(java.awt.Color.white);
+
         surveyListTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -107,15 +111,20 @@ public class AvailableSurveyList extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(surveyListTable);
 
-        jButton1.setText("Take Survey");
+        jButton1.setBackground(java.awt.Color.white);
+        jButton1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jButton1.setText("Take Survey >>>");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
+        jLabel1.setBackground(java.awt.Color.white);
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel1.setText("Search Survey:");
 
+        searchSurvey.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         searchSurvey.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 searchSurveyKeyReleased(evt);
@@ -131,13 +140,14 @@ public class AvailableSurveyList extends javax.swing.JPanel {
                 .addGroup(availableSurveyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(availableSurveyPanelLayout.createSequentialGroup()
-                        .addGap(163, 163, 163)
-                        .addComponent(jButton1))
-                    .addGroup(availableSurveyPanelLayout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(searchSurvey)))
                 .addGap(120, 120, 120))
+            .addGroup(availableSurveyPanelLayout.createSequentialGroup()
+                .addGap(248, 248, 248)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         availableSurveyPanelLayout.setVerticalGroup(
             availableSurveyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -149,15 +159,15 @@ public class AvailableSurveyList extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addGap(73, 73, 73))
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(60, 60, 60))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 704, Short.MAX_VALUE)
+            .addGap(0, 705, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -166,7 +176,7 @@ public class AvailableSurveyList extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 516, Short.MAX_VALUE)
+            .addGap(0, 520, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
