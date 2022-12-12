@@ -4,6 +4,7 @@
  */
 package com.mycompany.datamarketplace.ui;
 
+import com.mycompany.datamarketplace.backend.DBAdminUtils;
 import com.mycompany.datamarketplace.datamodels.Person;
 import com.mycompany.datamarketplace.datamodels.community.Developer;
 import com.mycompany.datamarketplace.datamodels.university.Student;
@@ -23,11 +24,11 @@ import javax.swing.JOptionPane;
  */
 public class SupportPane extends javax.swing.JPanel {
 
-    /**
-     * Creates new form SupportPane
-     */
+   
     public static final String ACCOUNT_SID = "";
     public static final String AUTH_TOKEN = "";
+    
+    DBAdminUtils dbAdminUtils = new DBAdminUtils();
     public SupportPane() {
         initComponents();
     }
@@ -248,7 +249,6 @@ public class SupportPane extends javax.swing.JPanel {
             System.out.println(response.getStatusCode());
             System.out.println(response.getHeaders());
             System.out.println(response.getBody());
-            JOptionPane.showMessageDialog(this, "Details of the ticket sent to your email. Please check spam folder too");
             emailTxt.setText("");
             subjectTxt.setText("");
             bodyTxt.setText("");
@@ -256,6 +256,22 @@ public class SupportPane extends javax.swing.JPanel {
        catch(IOException e){
            System.out.println("Error occured at sending email" + e);
        }
+        
+        Boolean isSuccess = dbAdminUtils.createSupportTickets(
+                emailAddressToBeSent,
+                subjectOfTheEmail,
+                bodyOfTheEmail,
+                "unsolved"
+        );
+        
+        if(isSuccess){
+            JOptionPane.showMessageDialog(this, "Details of tickets are sent your email");
+            return;
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Error in creating tickets");
+            return;
+        }
         
     }//GEN-LAST:event_sendSupportBtnActionPerformed
 

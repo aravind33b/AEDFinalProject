@@ -4,6 +4,12 @@
  */
 package com.mycompany.datamarketplace.ui;
 
+import com.mycompany.datamarketplace.backend.DBAdminUtils;
+import com.mycompany.datamarketplace.datamodels.community.Community;
+import com.mycompany.datamarketplace.datamodels.company.Company;
+import com.mycompany.datamarketplace.datamodels.misc.SupportTickets;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
@@ -14,11 +20,14 @@ import javax.swing.table.TableRowSorter;
  */
 public class SupportAdminScreen extends javax.swing.JPanel {
 
-    /**
-     * Creates new form SupportAdminScreen
-     */
+    DBAdminUtils dBAdminUtils = new DBAdminUtils();
+    int row,col;
+    int selectedRowTemp;
+    ArrayList<SupportTickets> supportTicketsList = new ArrayList<>();
     public SupportAdminScreen() {
         initComponents();
+        supportTicketsList = dBAdminUtils.retrieveAllSupportTickets();
+        populateSupportTickets(supportTicketsList);
     }
 
     /**
@@ -97,9 +106,13 @@ public class SupportAdminScreen extends javax.swing.JPanel {
         jTextArea2.setRows(5);
         jScrollPane3.setViewportView(jTextArea2);
 
-        resolveBtn.setBackground(java.awt.Color.white);
         resolveBtn.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         resolveBtn.setText("Resolve");
+        resolveBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resolveBtnActionPerformed(evt);
+            }
+        });
 
         jLabel6.setBackground(java.awt.Color.white);
         jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
@@ -112,9 +125,8 @@ public class SupportAdminScreen extends javax.swing.JPanel {
             }
         });
 
-        viewBtn.setBackground(java.awt.Color.white);
         viewBtn.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        viewBtn.setText("View Details");
+        viewBtn.setText("Populate");
         viewBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 viewBtnActionPerformed(evt);
@@ -203,7 +215,61 @@ public class SupportAdminScreen extends javax.swing.JPanel {
 
     private void viewBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewBtnActionPerformed
         // TODO add your handling code here:
+        jTextField1.setEditable(!jTextField1.isEditable());
+        jTextField2.setEditable(!jTextField2.isEditable());
+        jTextArea2.setEditable(!jTextArea2.isEditable());
+        
+        int selectedRowInd = supportRequestTbl.getSelectedRow();
+        selectedRowTemp = selectedRowInd;
+        if(selectedRowInd < 0){
+            JOptionPane.showMessageDialog(this, "Please select a row");
+            return;
+        }
+        DefaultTableModel tableModel = (DefaultTableModel) supportRequestTbl.getModel();
+        SupportTickets selectedEmployee = (SupportTickets)tableModel.getValueAt(selectedRowInd, 0);
+        jTextField1.setText(selectedEmployee.getSenderEmail());
+        jTextField2.setText(selectedEmployee.getSubject());
+        jTextArea2.setText(selectedEmployee.getBody());
+        jTextField3.setText(selectedEmployee.getStatus());
+        
+        
+        
     }//GEN-LAST:event_viewBtnActionPerformed
+
+    private void resolveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resolveBtnActionPerformed
+        // TODO add your handling code here:
+        String emailAddressToBeSent = jTextField1.getText();
+        String subjectOfTheEmail = jTextField2.getText();
+        String bodyOfTheEmail = jTextArea2.getText();
+        String status = jTextField3.getText();
+        
+        int selectedRowInd = supportRequestTbl.getSelectedRow();
+        selectedRowTemp = selectedRowInd;
+        if(selectedRowInd < 0){
+            JOptionPane.showMessageDialog(this, "Please select a row");
+            return;
+        }
+        DefaultTableModel tableModel = (DefaultTableModel) supportRequestTbl.getModel();
+        SupportTickets selectedEmployee = (SupportTickets)tableModel.getValueAt(selectedRowInd, 0);
+        
+        Boolean isSuccess = dBAdminUtils.updateSupportAdminTickets(
+                emailAddressToBeSent,
+                status
+        );
+        
+        if(isSuccess){
+            JOptionPane.showMessageDialog(this, "Updated the status");
+            supportTicketsList.remove(selectedEmployee);
+            supportTicketsList = dBAdminUtils.retrieveAllSupportTickets();
+            populateSupportTickets(supportTicketsList);
+            return;
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Status not updated");
+            return;
+         
+        }
+    }//GEN-LAST:event_resolveBtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -223,4 +289,19 @@ public class SupportAdminScreen extends javax.swing.JPanel {
     private javax.swing.JTable supportRequestTbl;
     private javax.swing.JButton viewBtn;
     // End of variables declaration//GEN-END:variables
+
+    private void populateSupportTickets(ArrayList<SupportTickets> supportTicketsList) {
+         DefaultTableModel tableModel = (DefaultTableModel) supportRequestTbl.getModel();
+        tableModel.setRowCount(0 );
+        
+        for(SupportTickets itr: supportTicketsList){
+          if(itr != null){
+            Object[] rowOfRecord =  new Object[5];
+            rowOfRecord[0] = itr;
+            rowOfRecord[1] = itr.getSubject();
+            rowOfRecord[2] = itr.getStatus();
+            tableModel.addRow(rowOfRecord);      
+        }     
+        }
+    }
 }
