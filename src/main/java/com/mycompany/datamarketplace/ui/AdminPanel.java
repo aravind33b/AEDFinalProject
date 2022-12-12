@@ -168,7 +168,6 @@ public class AdminPanel extends javax.swing.JPanel {
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
         jPanel8.setPreferredSize(new java.awt.Dimension(800, 800));
 
-        updateCompanyBtn.setBackground(java.awt.Color.white);
         updateCompanyBtn.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         updateCompanyBtn.setText("Update");
         updateCompanyBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -189,7 +188,6 @@ public class AdminPanel extends javax.swing.JPanel {
         jLabel18.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel18.setText("Search Company:");
 
-        deleteCompanyBtn.setBackground(java.awt.Color.white);
         deleteCompanyBtn.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         deleteCompanyBtn.setText("Delete");
         deleteCompanyBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -246,7 +244,6 @@ public class AdminPanel extends javax.swing.JPanel {
         });
         jScrollPane3.setViewportView(companyTbl);
 
-        createCompanyBtn.setBackground(java.awt.Color.white);
         createCompanyBtn.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         createCompanyBtn.setText("Create");
         createCompanyBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -267,7 +264,6 @@ public class AdminPanel extends javax.swing.JPanel {
             }
         });
 
-        companyIdTxt.setEditable(false);
         companyIdTxt.setBackground(java.awt.Color.white);
         companyIdTxt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
@@ -289,7 +285,6 @@ public class AdminPanel extends javax.swing.JPanel {
         validationLbl.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         validationLbl.setForeground(new java.awt.Color(255, 51, 51));
 
-        populateValuesBtn.setBackground(new java.awt.Color(255, 255, 255));
         populateValuesBtn.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         populateValuesBtn.setText("Populate Values");
         populateValuesBtn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -352,7 +347,7 @@ public class AdminPanel extends javax.swing.JPanel {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(searchTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(populateValuesBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(283, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -392,12 +387,12 @@ public class AdminPanel extends javax.swing.JPanel {
                         .addGap(12, 12, 12)
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(populateValuesBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(createCompanyBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(updateCompanyBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(deleteCompanyBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(deleteCompanyBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(populateValuesBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(398, Short.MAX_VALUE))
         );
 
@@ -464,7 +459,6 @@ public class AdminPanel extends javax.swing.JPanel {
         jLabel11.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel11.setText("Password:");
 
-        createSupportAdminBtn.setBackground(java.awt.Color.white);
         createSupportAdminBtn.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         createSupportAdminBtn.setText("Create");
         createSupportAdminBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -478,11 +472,9 @@ public class AdminPanel extends javax.swing.JPanel {
             }
         });
 
-        updateSupportAdminBtn.setBackground(java.awt.Color.white);
         updateSupportAdminBtn.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         updateSupportAdminBtn.setText("Update");
 
-        deleteSupportAdminBtn.setBackground(java.awt.Color.white);
         deleteSupportAdminBtn.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         deleteSupportAdminBtn.setText("Delete");
         deleteSupportAdminBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -528,7 +520,7 @@ public class AdminPanel extends javax.swing.JPanel {
                         .addComponent(updateSupportAdminBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(43, 43, 43)
                         .addComponent(deleteSupportAdminBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel6Layout.createSequentialGroup()
@@ -579,7 +571,6 @@ public class AdminPanel extends javax.swing.JPanel {
 
         jPanel9.setBackground(new java.awt.Color(255, 255, 255));
 
-        jButton28.setBackground(java.awt.Color.white);
         jButton28.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jButton28.setText("Update");
 
@@ -587,7 +578,6 @@ public class AdminPanel extends javax.swing.JPanel {
         jLabel28.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel28.setText("Search Community:");
 
-        jButton29.setBackground(java.awt.Color.white);
         jButton29.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jButton29.setText("Delete");
         jButton29.addActionListener(new java.awt.event.ActionListener() {
@@ -622,7 +612,6 @@ public class AdminPanel extends javax.swing.JPanel {
         });
         jScrollPane4.setViewportView(communityTable);
 
-        jButton31.setBackground(java.awt.Color.white);
         jButton31.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jButton31.setText("Create");
         jButton31.addActionListener(new java.awt.event.ActionListener() {
@@ -663,7 +652,7 @@ public class AdminPanel extends javax.swing.JPanel {
                         .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(searchCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(297, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -692,7 +681,6 @@ public class AdminPanel extends javax.swing.JPanel {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        deleteCountryBtn.setBackground(java.awt.Color.white);
         deleteCountryBtn.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         deleteCountryBtn.setText("Delete");
         deleteCountryBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -707,7 +695,6 @@ public class AdminPanel extends javax.swing.JPanel {
 
         createCountryTxt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
-        jButton34.setBackground(java.awt.Color.white);
         jButton34.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jButton34.setText("Update");
 
@@ -735,7 +722,6 @@ public class AdminPanel extends javax.swing.JPanel {
         });
         jScrollPane5.setViewportView(countryTable);
 
-        createCountryBtn.setBackground(java.awt.Color.white);
         createCountryBtn.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         createCountryBtn.setText("Create");
         createCountryBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -775,7 +761,7 @@ public class AdminPanel extends javax.swing.JPanel {
                         .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(searchCountry, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(309, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -842,7 +828,6 @@ public class AdminPanel extends javax.swing.JPanel {
             universityTbl.getColumnModel().getColumn(3).setHeaderValue("City");
         }
 
-        createUniBtn.setBackground(java.awt.Color.white);
         createUniBtn.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         createUniBtn.setText("Create");
         createUniBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -858,7 +843,6 @@ public class AdminPanel extends javax.swing.JPanel {
             }
         });
 
-        updateUniBtn.setBackground(java.awt.Color.white);
         updateUniBtn.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         updateUniBtn.setText("Update");
 
@@ -866,7 +850,6 @@ public class AdminPanel extends javax.swing.JPanel {
         jLabel15.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel15.setText("Search Universities:");
 
-        deleteUniBtn.setBackground(java.awt.Color.white);
         deleteUniBtn.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         deleteUniBtn.setText("Delete");
         deleteUniBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -955,7 +938,7 @@ public class AdminPanel extends javax.swing.JPanel {
                                 .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(searchUniversity, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(297, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -980,7 +963,6 @@ public class AdminPanel extends javax.swing.JPanel {
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(countryTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel7Layout.createSequentialGroup()
                                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1002,7 +984,7 @@ public class AdminPanel extends javax.swing.JPanel {
                     .addComponent(createUniBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(updateUniBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(deleteUniBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(363, Short.MAX_VALUE))
+                .addContainerGap(325, Short.MAX_VALUE))
         );
 
         Home1.addTab("University", jPanel7);
@@ -1031,7 +1013,6 @@ public class AdminPanel extends javax.swing.JPanel {
             }
         });
 
-        createAdminRoleBtn.setBackground(java.awt.Color.white);
         createAdminRoleBtn.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         createAdminRoleBtn.setText("Create");
         createAdminRoleBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -1081,7 +1062,6 @@ public class AdminPanel extends javax.swing.JPanel {
         jLabel37.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel37.setText("Password");
 
-        deleteAdminRoleBtn.setBackground(java.awt.Color.white);
         deleteAdminRoleBtn.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         deleteAdminRoleBtn.setText("Delete");
         deleteAdminRoleBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -1090,7 +1070,6 @@ public class AdminPanel extends javax.swing.JPanel {
             }
         });
 
-        rolesComboBox.setBackground(java.awt.Color.white);
         rolesComboBox.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         rolesComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Please select Admin Type", "University Admin", "Company Admin", "Community Admin", "Country Govt Admin" }));
         rolesComboBox.addActionListener(new java.awt.event.ActionListener() {
@@ -1143,7 +1122,7 @@ public class AdminPanel extends javax.swing.JPanel {
                         .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(searchAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(302, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1877,6 +1856,7 @@ public class AdminPanel extends javax.swing.JPanel {
 
     private void populateValuesBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_populateValuesBtnActionPerformed
         // TODO add your handling code here:
+        companyIdTxt.setEditable(!companyIdTxt.isEditable());
         int selectedRowInd = companyTbl.getSelectedRow();
         selectedRowTemp = selectedRowInd;
         if(selectedRowInd < 0){

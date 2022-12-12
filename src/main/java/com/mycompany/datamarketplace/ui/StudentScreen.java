@@ -88,6 +88,7 @@ public class StudentScreen extends javax.swing.JPanel {
         phNoLabel = new javax.swing.JLabel();
         phoneNumberTxt = new javax.swing.JTextField();
         genderTxt = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
         createSurveyPanel = new javax.swing.JPanel();
         takeSurveyPanel = new javax.swing.JPanel();
         createBetaTest = new javax.swing.JPanel();
@@ -179,6 +180,8 @@ public class StudentScreen extends javax.swing.JPanel {
         genderTxt.setBackground(new java.awt.Color(255, 255, 255));
         genderTxt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
+        jButton1.setText("Update Profile");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -205,6 +208,10 @@ public class StudentScreen extends javax.swing.JPanel {
                     .addComponent(phoneNumberTxt)
                     .addComponent(studentIdTxt))
                 .addGap(103, 103, 103))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(269, 269, 269))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -241,7 +248,9 @@ public class StudentScreen extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(idLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(studentIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(130, Short.MAX_VALUE))
+                .addGap(47, 47, 47)
+                .addComponent(jButton1)
+                .addContainerGap(60, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout profilePanelLayout = new javax.swing.GroupLayout(profilePanel);
@@ -251,7 +260,7 @@ public class StudentScreen extends javax.swing.JPanel {
             .addGap(0, 1195, Short.MAX_VALUE)
             .addGroup(profilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(profilePanelLayout.createSequentialGroup()
-                    .addGap(0, 257, Short.MAX_VALUE)
+                    .addGap(0, 258, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 258, Short.MAX_VALUE)))
         );
@@ -352,6 +361,7 @@ public class StudentScreen extends javax.swing.JPanel {
     private javax.swing.JTextField firstNameTxt;
     private javax.swing.JTextField genderTxt;
     private javax.swing.JLabel idLabel;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTabbedPane jTabbedPane1;

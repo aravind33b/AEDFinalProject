@@ -26,7 +26,6 @@ public class LogoutPanel extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(153, 204, 255));
 
-        logoutBtn.setBackground(new java.awt.Color(255, 255, 255));
         logoutBtn.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         logoutBtn.setText("Logout");
         logoutBtn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -39,8 +38,6 @@ public class LogoutPanel extends javax.swing.JPanel {
                 logoutBtnActionPerformed(evt);
             }
         });
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/headerTitle.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
