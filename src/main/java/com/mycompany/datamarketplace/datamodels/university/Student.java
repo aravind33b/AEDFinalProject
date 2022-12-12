@@ -21,7 +21,7 @@ public class Student extends Person{
         return universityName;
     }
 
-    public void setUniversityName(String universityId) {
+    public void setUniversityName(String universityName) {
         this.universityName = universityName;
     }
 

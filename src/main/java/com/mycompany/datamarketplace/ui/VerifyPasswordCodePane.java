@@ -182,20 +182,20 @@ public class VerifyPasswordCodePane extends javax.swing.JPanel {
 
 //        String emailTo = emailTxt.getText();
 
-//        resetObj = dbUtils.verifyEmail(emailTxt.getText());
-//        if(resetObj == null) {
-//            JOptionPane.showMessageDialog(this, "Email Id does not exist");
-//            return;
-//        }
-//        else {
-            emailObj.sendEmail("krish765m@gmail.com", msg);
+        resetObj = dbUtils.verifyEmail(emailTxt.getText());
+        if(resetObj == null) {
+            JOptionPane.showMessageDialog(this, "Email Id does not exist");
+            return;
+        }
+        else {
+//            emailObj.sendEmail("krish765m@gmail.com", msg);
             JOptionPane.showMessageDialog(this, "Please check Email for verification code");
-//            DeveloperScreen developerScreen = new DeveloperScreen();
-//            splitPane.setBottomComponent(developerScreen);
-//            splitPane.setTopComponent(logoutPanel);
+            ResetForm resetForm = new ResetForm();
+            splitPane.setBottomComponent(resetForm);
+            //splitPane.setTopComponent(logoutPanel);
             emailTxt.setText("");
             return;
-        //}
+        }
         } catch(Exception exp) {
             JOptionPane.showMessageDialog(this, exp);
         }

@@ -49,7 +49,6 @@ public class LoginPane extends javax.swing.JPanel {
         rolesComboBox = new javax.swing.JComboBox<>();
         loginButton = new javax.swing.JButton();
         navigateToRegisterLabel = new javax.swing.JLabel();
-        navigateToResetPassword = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -90,14 +89,6 @@ public class LoginPane extends javax.swing.JPanel {
             }
         });
 
-        navigateToResetPassword.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        navigateToResetPassword.setText("Forgot Password?");
-        navigateToResetPassword.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                navigateToResetPasswordMouseClicked(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -105,15 +96,14 @@ public class LoginPane extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(445, 445, 445)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(navigateToRegisterLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(navigateToRegisterLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
                     .addComponent(loginButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(rolesComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(passwordTxt)
                     .addComponent(roleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(passwordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(emailTxt)
-                    .addComponent(userNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(navigateToResetPassword, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(userNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(498, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -133,9 +123,7 @@ public class LoginPane extends javax.swing.JPanel {
                 .addComponent(rolesComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(navigateToResetPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(58, 58, 58)
                 .addComponent(navigateToRegisterLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(95, 95, 95))
         );
@@ -172,6 +160,7 @@ public class LoginPane extends javax.swing.JPanel {
                     return;
                 }
                 else{
+                    System.out.println(studentObj.getUniversityName());
                     JOptionPane.showMessageDialog(this, "Student login success!");
                     StudentScreen studentScreen = new StudentScreen(mainSplitPane, studentObj);
                     mainSplitPane.setBottomComponent(studentScreen);
@@ -250,19 +239,11 @@ public class LoginPane extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_loginButtonActionPerformed
 
-    private void navigateToResetPasswordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_navigateToResetPasswordMouseClicked
-        // TODO add your handling code here:
-        VerifyPasswordCodePane verifyCode = new VerifyPasswordCodePane(mainSplitPane);
-        mainSplitPane.setBottomComponent(verifyCode);
-        mainSplitPane.setDividerSize(0);
-    }//GEN-LAST:event_navigateToResetPasswordMouseClicked
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField emailTxt;
     private javax.swing.JButton loginButton;
     private javax.swing.JLabel navigateToRegisterLabel;
-    private javax.swing.JLabel navigateToResetPassword;
     private javax.swing.JLabel passwordLabel;
     private javax.swing.JTextField passwordTxt;
     private javax.swing.JLabel roleLabel;
