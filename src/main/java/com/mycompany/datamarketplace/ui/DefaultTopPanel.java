@@ -41,9 +41,7 @@ public class DefaultTopPanel extends javax.swing.JPanel {
 
         jPanel1.setBackground(new java.awt.Color(153, 204, 255));
 
-        loginBtn.setBackground(new java.awt.Color(255, 255, 255));
         loginBtn.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        loginBtn.setForeground(new java.awt.Color(0, 0, 0));
         loginBtn.setText("Login");
         loginBtn.setBorderPainted(false);
         loginBtn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -57,9 +55,7 @@ public class DefaultTopPanel extends javax.swing.JPanel {
             }
         });
 
-        registerBtn.setBackground(new java.awt.Color(255, 255, 255));
         registerBtn.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        registerBtn.setForeground(new java.awt.Color(0, 0, 0));
         registerBtn.setText("Register");
         registerBtn.setBorderPainted(false);
         registerBtn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -73,9 +69,7 @@ public class DefaultTopPanel extends javax.swing.JPanel {
             }
         });
 
-        adminBtn.setBackground(new java.awt.Color(255, 255, 255));
         adminBtn.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        adminBtn.setForeground(new java.awt.Color(0, 0, 0));
         adminBtn.setText("Admin");
         adminBtn.setBorderPainted(false);
         adminBtn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -88,8 +82,6 @@ public class DefaultTopPanel extends javax.swing.JPanel {
                 adminBtnActionPerformed(evt);
             }
         });
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/headerTitle.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
