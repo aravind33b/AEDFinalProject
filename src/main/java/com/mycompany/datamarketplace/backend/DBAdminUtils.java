@@ -4,13 +4,16 @@
      */
     package com.mycompany.datamarketplace.backend;
 
+import static com.mycompany.datamarketplace.backend.DBFeaturesUtils.createConnection;
     import com.mycompany.datamarketplace.datamodels.community.Community;
     import com.mycompany.datamarketplace.datamodels.community.CommunityAdmin;
     import com.mycompany.datamarketplace.datamodels.company.CompanyAdmin;
     import com.mycompany.datamarketplace.datamodels.government.GovernmentAdmin;
     import com.mycompany.datamarketplace.datamodels.company.Company;
+import com.mycompany.datamarketplace.datamodels.feature.survey.SurveyQuestions;
     import com.mycompany.datamarketplace.datamodels.government.Country;
     import com.mycompany.datamarketplace.datamodels.misc.SupportAdmin;
+import com.mycompany.datamarketplace.datamodels.misc.SupportTickets;
     import com.mycompany.datamarketplace.datamodels.university.*;
     import java.sql.Connection;
     import java.sql.DriverManager;
@@ -839,6 +842,67 @@
                 }  
             return isSuccess;
         }
+
+    public Boolean createSupportTickets(String emailAddressToBeSent, String subjectOfTheEmail, String bodyOfTheEmail, String unsolved) {
+        Boolean isSuccess = false;    
+        try{
+                    System.out.println("In DB");
+                    System.out.println("Your role is");
+                    Connection conn = createConnection();
+                    Statement statement = conn.createStatement();
+                    String query = "INSERT INTO `test_aed`.`support_admin_tickets` (`status`, `user_email`, `subject`, `body`) VALUES ('"+unsolved+"', '"+emailAddressToBeSent+"', '"+subjectOfTheEmail+"', '"+bodyOfTheEmail+"')";
+                    statement.executeUpdate(query);
+                    isSuccess = true;
+                }
+                catch(Exception e){
+                    System.out.println(e);
+                }
+
+                return isSuccess; 
+    }
+
+    public ArrayList<SupportTickets> retrieveAllSupportTickets() {
+         ArrayList<SupportTickets> companyList = new ArrayList<>();
+         SupportTickets company = null;
+                try{
+                    Connection conn = createConnection();
+                    Statement statement = conn.createStatement();
+                    String queryToExecute = "SELECT * FROM support_admin_tickets";
+                    System.out.println(queryToExecute);
+
+                    ResultSet rs = statement.executeQuery(queryToExecute);
+
+                    while(rs.next()){
+                            company = new SupportTickets();
+                            company.setSenderEmail(rs.getString("user_email"));
+                            company.setBody(rs.getString("body"));
+                            company.setSubject(rs.getString("subject"));
+                            company.setStatus(rs.getString("status"));
+                            companyList.add(company);
+                    }
+
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
+
+            return companyList;
+    }
+
+    public Boolean updateSupportAdminTickets(String emailAddressToBeSent, String status) {
+        Boolean isstatus=false;
+        try{
+        Connection con=createConnection();
+        Statement statement=con.createStatement();
+        String query="UPDATE `test_aed`.`support_admin_tickets` SET `status` = '"+status+"' WHERE user_email ='"+emailAddressToBeSent+"'" ;
+        //System.out.println(query);
+        statement.executeUpdate(query);
+        isstatus = true;
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+        return isstatus; 
+    }
 
 
 
