@@ -63,7 +63,7 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="255" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="383" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="userNameLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="userNameLabel1" alignment="0" min="-2" pref="47" max="-2" attributes="0"/>
@@ -87,14 +87,14 @@
                               </Group>
                               <Component id="firstNameTxt" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="286" max="32767" attributes="0"/>
+                          <EmptySpace pref="448" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="110" max="-2" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace pref="135" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="userNameLabel" min="-2" pref="30" max="-2" attributes="0"/>
@@ -130,7 +130,7 @@
                               <Component id="phNoLabel" alignment="1" min="-2" pref="30" max="-2" attributes="0"/>
                               <Component id="phoneNumberTxt" alignment="1" min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="147" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="122" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>

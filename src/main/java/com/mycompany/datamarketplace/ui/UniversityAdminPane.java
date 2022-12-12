@@ -205,6 +205,8 @@ public class UniversityAdminPane extends javax.swing.JPanel {
                 .addContainerGap(165, Short.MAX_VALUE))
         );
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
         createCompanyBtn.setText("Create");
         createCompanyBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
