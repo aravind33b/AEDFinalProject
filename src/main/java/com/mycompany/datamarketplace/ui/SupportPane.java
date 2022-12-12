@@ -209,7 +209,7 @@ public class SupportPane extends javax.swing.JPanel {
         
         System.out.println(bodyOfTheEmail);
         
-        if(personObj!=null && personObj.getEmail().equalsIgnoreCase("kumar.anuj@northeastern.edu")){
+        if(personObj!=null && personObj.getEmail().equalsIgnoreCase("murali.k@northeastern.edu")){
             Message message = Message.creator(
                 new PhoneNumber(phoneNumberForSMS),
                 new PhoneNumber("+16692198128"), 
