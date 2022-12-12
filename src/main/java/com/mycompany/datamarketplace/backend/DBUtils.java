@@ -400,4 +400,23 @@ public class DBUtils {
                 System.out.println(e);
             } 
     }
+    
+    public Boolean updateDetails(String firstName, String lastName, String email, String phNo, String id, String tableName) {
+            Boolean isSuccess = false;
+                try{
+                    System.out.println("In DB");
+                    System.out.println("Your role is " + tableName);
+                    Connection conn = createConnection();
+                    Statement statement = conn.createStatement();
+                    System.out.println(email);
+                    String query = "UPDATE test_aed."+tableName+" SET first_name = '"+firstName+"', last_name = '"+lastName+"', phoneNumber = '"+phNo+"', email = '"+email+"' WHERE student_id = '"+id+"'";
+                    System.out.println(query);
+                    statement.executeUpdate(query);
+                    isSuccess = true;
+                } catch (Exception e){
+                    System.out.println(e);
+                }
+                
+                return isSuccess;
+        }
 }

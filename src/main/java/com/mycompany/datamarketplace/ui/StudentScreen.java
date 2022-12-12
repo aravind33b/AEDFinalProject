@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package com.mycompany.datamarketplace.ui;
+import com.mycompany.datamarketplace.backend.DBUtils;
+import com.mycompany.datamarketplace.datamodels.Person;
 import com.mycompany.datamarketplace.datamodels.feature.survey.SurveyQuestions;
 import com.mycompany.datamarketplace.datamodels.university.Student;
 import java.awt.CardLayout;
@@ -10,6 +12,7 @@ import javax.swing.JSplitPane;
 //import com.mycompany.datamarketplace.ui.AvailableSurveyList;
 import java.awt.Component;
 import java.awt.GridLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -21,7 +24,7 @@ public class StudentScreen extends javax.swing.JPanel {
     /**
      * Creates new form StudentScreen
      */
-    
+    DBUtils dbUtils;
     JSplitPane splitPane;
     AvailableSurveyList availableSurvey;
     SurveyCreatingPanel createNewSurvey;
@@ -33,6 +36,7 @@ public class StudentScreen extends javax.swing.JPanel {
     CardLayout layout;
     int selectedSurveyIndex;
     Student studentObj;
+    
     public StudentScreen(JSplitPane splitPane, Student studentObj) {
         initComponents();
         this.studentObj = studentObj;
@@ -43,6 +47,16 @@ public class StudentScreen extends javax.swing.JPanel {
         supportRequest = new SupportPane(studentObj);
         betaTestingList = new AvailableBetaTestingList();
         createBetaTests = new CreateBetaTestingPanel();
+        dbUtils = new DBUtils();
+        
+        firstNameTxt.setEditable(!firstNameTxt.isEditable());
+        lastNameTxt.setEditable(!lastNameTxt.isEditable());
+        emailTxt.setEditable(!emailTxt.isEditable());
+        ageTxt.setEditable(!ageTxt.isEditable());
+        genderTxt.setEditable(!genderTxt.isEditable());
+        phoneNumberTxt.setEditable(!phoneNumberTxt.isEditable());
+        universityNameTxt.setEditable(!universityNameTxt.isEditable());
+        studentIdTxt.setEditable(!studentIdTxt.isEditable());
         
         loadStudentDetails(studentObj);
 //        StudentScreen.add(layout);
@@ -88,7 +102,8 @@ public class StudentScreen extends javax.swing.JPanel {
         phNoLabel = new javax.swing.JLabel();
         phoneNumberTxt = new javax.swing.JTextField();
         genderTxt = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        submitBtn = new javax.swing.JButton();
+        updateBtn = new javax.swing.JButton();
         createSurveyPanel = new javax.swing.JPanel();
         takeSurveyPanel = new javax.swing.JPanel();
         createBetaTest = new javax.swing.JPanel();
@@ -110,7 +125,6 @@ public class StudentScreen extends javax.swing.JPanel {
         userNameLabel.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         userNameLabel.setText("First Name:");
 
-        firstNameTxt.setEditable(false);
         firstNameTxt.setBackground(new java.awt.Color(255, 255, 255));
         firstNameTxt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
@@ -118,7 +132,6 @@ public class StudentScreen extends javax.swing.JPanel {
         userNameLabel1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         userNameLabel1.setText("Email:");
 
-        emailTxt.setEditable(false);
         emailTxt.setBackground(new java.awt.Color(255, 255, 255));
         emailTxt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
@@ -126,7 +139,6 @@ public class StudentScreen extends javax.swing.JPanel {
         userNameLabel2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         userNameLabel2.setText("Age:");
 
-        ageTxt.setEditable(false);
         ageTxt.setBackground(new java.awt.Color(255, 255, 255));
         ageTxt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
@@ -134,7 +146,6 @@ public class StudentScreen extends javax.swing.JPanel {
         universityLabel.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         universityLabel.setText("University Name:");
 
-        universityNameTxt.setEditable(false);
         universityNameTxt.setBackground(new java.awt.Color(255, 255, 255));
         universityNameTxt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         universityNameTxt.addActionListener(new java.awt.event.ActionListener() {
@@ -147,7 +158,6 @@ public class StudentScreen extends javax.swing.JPanel {
         idLabel.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         idLabel.setText("ID Number:");
 
-        studentIdTxt.setEditable(false);
         studentIdTxt.setBackground(new java.awt.Color(255, 255, 255));
         studentIdTxt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         studentIdTxt.addActionListener(new java.awt.event.ActionListener() {
@@ -160,7 +170,6 @@ public class StudentScreen extends javax.swing.JPanel {
         userNameLabel3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         userNameLabel3.setText("Last Name:");
 
-        lastNameTxt.setEditable(false);
         lastNameTxt.setBackground(new java.awt.Color(255, 255, 255));
         lastNameTxt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
@@ -172,15 +181,18 @@ public class StudentScreen extends javax.swing.JPanel {
         phNoLabel.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         phNoLabel.setText("Phone Number:");
 
-        phoneNumberTxt.setEditable(false);
         phoneNumberTxt.setBackground(new java.awt.Color(255, 255, 255));
         phoneNumberTxt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
-        genderTxt.setEditable(false);
         genderTxt.setBackground(new java.awt.Color(255, 255, 255));
         genderTxt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
-        jButton1.setText("Update Profile");
+        submitBtn.setText("Submit");
+        submitBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -210,8 +222,8 @@ public class StudentScreen extends javax.swing.JPanel {
                 .addGap(103, 103, 103))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(269, 269, 269))
+                .addComponent(submitBtn)
+                .addGap(268, 268, 268))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -248,16 +260,26 @@ public class StudentScreen extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(idLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(studentIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(47, 47, 47)
-                .addComponent(jButton1)
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addGap(38, 38, 38)
+                .addComponent(submitBtn)
+                .addContainerGap(69, Short.MAX_VALUE))
         );
+
+        updateBtn.setText("Update Profile");
+        updateBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout profilePanelLayout = new javax.swing.GroupLayout(profilePanel);
         profilePanel.setLayout(profilePanelLayout);
         profilePanelLayout.setHorizontalGroup(
             profilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1195, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, profilePanelLayout.createSequentialGroup()
+                .addContainerGap(942, Short.MAX_VALUE)
+                .addComponent(updateBtn)
+                .addGap(140, 140, 140))
             .addGroup(profilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(profilePanelLayout.createSequentialGroup()
                     .addGap(0, 258, Short.MAX_VALUE)
@@ -266,7 +288,10 @@ public class StudentScreen extends javax.swing.JPanel {
         );
         profilePanelLayout.setVerticalGroup(
             profilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 588, Short.MAX_VALUE)
+            .addGroup(profilePanelLayout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(updateBtn)
+                .addContainerGap(532, Short.MAX_VALUE))
             .addGroup(profilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(profilePanelLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -352,6 +377,47 @@ public class StudentScreen extends javax.swing.JPanel {
 //        panel.add(bottomPanel);
     }//GEN-LAST:event_jTabbedPane1MouseClicked
 
+    private void submitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBtnActionPerformed
+        // TODO add your handling code here:
+        Person personObj = null;
+        String firstName = firstNameTxt.getText();
+        String lastName = lastNameTxt.getText();
+        String email = emailTxt.getText();
+        String id = studentIdTxt.getText();
+        String phNo = phoneNumberTxt.getText();
+        String tableName = "student";
+//        if(dbUtils.checkIfEmailIsUnique(email, "Student")){
+        Boolean isSuccess = dbUtils.updateDetails(
+                firstName,
+                lastName,
+                email,
+                phNo,
+                id,
+                tableName
+            );
+
+            if(isSuccess){
+                System.out.println(isSuccess);
+                JOptionPane.showMessageDialog(this, "Your details are updated!");
+                //personObj = dbUtils.retrieveCompanyDetails(companyId, tableName);
+                //companyList.add(companyObject);
+                //populateCompanyTable(companyList);
+            }
+            else{
+                  System.out.println(isSuccess);
+                  JOptionPane.showMessageDialog(this, "Please check your errors");
+                  return;
+             }
+    }//GEN-LAST:event_submitBtnActionPerformed
+
+    private void updateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBtnActionPerformed
+        // TODO add your handling code here:
+        firstNameTxt.setEditable(!firstNameTxt.isEditable());
+        lastNameTxt.setEditable(!lastNameTxt.isEditable());
+        emailTxt.setEditable(!emailTxt.isEditable());
+        phoneNumberTxt.setEditable(!phoneNumberTxt.isEditable());
+    }//GEN-LAST:event_updateBtnActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField ageTxt;
@@ -361,7 +427,6 @@ public class StudentScreen extends javax.swing.JPanel {
     private javax.swing.JTextField firstNameTxt;
     private javax.swing.JTextField genderTxt;
     private javax.swing.JLabel idLabel;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTabbedPane jTabbedPane1;
@@ -371,11 +436,13 @@ public class StudentScreen extends javax.swing.JPanel {
     private javax.swing.JPanel profilePanel;
     private javax.swing.JPanel rewardsPanel;
     private javax.swing.JTextField studentIdTxt;
+    private javax.swing.JButton submitBtn;
     private javax.swing.JPanel supportPanel;
     private javax.swing.JPanel takeBetaTest;
     private javax.swing.JPanel takeSurveyPanel;
     private javax.swing.JLabel universityLabel;
     private javax.swing.JTextField universityNameTxt;
+    private javax.swing.JButton updateBtn;
     private javax.swing.JLabel userNameLabel;
     private javax.swing.JLabel userNameLabel1;
     private javax.swing.JLabel userNameLabel2;
