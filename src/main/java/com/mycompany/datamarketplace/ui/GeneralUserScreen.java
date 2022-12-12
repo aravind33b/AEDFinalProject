@@ -37,7 +37,7 @@ public class GeneralUserScreen extends javax.swing.JPanel {
         this.personObj = personObj;
         availableSurvey = new AvailableSurveyList(personObj, splitPane);
         createSurvey = new SurveyCreatingPanel(personObj);
-        rewardsScreen = new RewardsPanel();
+        rewardsScreen = new RewardsPanel(personObj);
         supportPanel = new SupportPane(personObj);
         loadPersonDetails(personObj);
         

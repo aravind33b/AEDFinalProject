@@ -36,7 +36,7 @@ public class ProfessorScreen extends javax.swing.JPanel {
         this.professorObj = professorObj;
         availableSurvey = new AvailableSurveyList(professorObj, splitPane);
         createNewSurvey = new SurveyCreatingPanel(professorObj);
-        rewards = new RewardsPanel();
+        rewards = new RewardsPanel(professorObj);
         supportRequest = new SupportPane();
         betaTestingList = new AvailableBetaTestingList();
         createBetaTests = new CreateBetaTestingPanel();

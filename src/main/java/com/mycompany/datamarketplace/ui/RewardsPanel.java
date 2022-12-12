@@ -4,6 +4,11 @@
  */
 package com.mycompany.datamarketplace.ui;
 
+import com.mycompany.datamarketplace.datamodels.Person;
+import com.mycompany.datamarketplace.datamodels.community.Developer;
+import com.mycompany.datamarketplace.datamodels.university.Professor;
+import com.mycompany.datamarketplace.datamodels.university.Student;
+
 /**
  *
  * @author Admin
@@ -13,9 +18,42 @@ public class RewardsPanel extends javax.swing.JPanel {
     /**
      * Creates new form RewardsPanel
      */
-    public RewardsPanel() {
+    Student studentObj;
+    public RewardsPanel(Student studentObj) {
         initComponents();
+        this.studentObj = studentObj;
+        if(studentObj!=null){
+            populateStudentWalletBalance(studentObj);
+        }
     }
+    
+    Professor professorObj;
+    public RewardsPanel(Professor professorObj) {
+        initComponents();
+        this.professorObj = professorObj;
+        if(professorObj!=null){
+            populateProfessorWalletBalance(professorObj);
+        }
+    }
+    
+    Developer devObj;
+    public RewardsPanel(Developer devObj) {
+        initComponents();
+        this.devObj = devObj;
+        if(devObj!=null){
+            populateDeveloperWalletBalance(devObj);
+        }
+    }
+    
+    Person personObj;
+    public RewardsPanel(Person personObj) {
+        initComponents();
+        this.personObj = personObj;
+        if(studentObj!=null){
+            populateGeneralWalletBalance(personObj);
+        }
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -76,4 +114,21 @@ public class RewardsPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
+
+    private void populateStudentWalletBalance(Student studentObj) {
+        jTextField1.setText(String.valueOf(studentObj.getWalletBalance()));
+    }
+
+    private void populateProfessorWalletBalance(Professor professorObj) {
+        jTextField1.setText(String.valueOf(professorObj.getWalletBalance())); 
+    }
+
+    private void populateDeveloperWalletBalance(Developer devObj) {
+        jTextField1.setText(String.valueOf(devObj.getWalletBalance()));
+    }
+
+    private void populateGeneralWalletBalance(Person personObj) {
+    
+        jTextField1.setText(String.valueOf(personObj.getWalletBalance()));
+    }
 }
